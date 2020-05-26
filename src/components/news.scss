@@ -1,0 +1,82 @@
+@import "../variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+.newsBox {
+    .newsHeadlineWrapper {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            margin-top: 0;
+            color: $orange;
+
+            .highlight {
+                color: white;
+            }
+        }
+        .addNews {
+            background-color: $darkgrey;
+            border: 1px solid white;
+            color: white;
+            height: 25px;
+            padding: 5px;
+        }
+    }
+    .news {
+        padding: 3px;
+        font-size: $mobileFontSizeSmall;
+
+        width: calc(100% - 6px);
+        background-color: $darkgrey;
+        color: white;
+        margin-bottom: 5px;
+        border: 1px solid $orange;
+        .newsContentBox {
+            display: flex;
+            flex-direction: column;
+            .newsContent {
+                display: flex;
+                justify-content: space-between;
+
+                h3 {
+                    margin: 0;
+                }
+
+                p {
+                    margin: 0;
+                }
+                .newsText {
+                }
+            }
+            .giveLike {
+                align-self: flex-end;
+                border: 1px solid white;
+                margin: 2px;
+                width: 100px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+            .commentSec {
+                border-top: 1px solid $orange;
+                background-color: $darkgrey;
+                display: flex;
+                flex-direction: column;
+                .comment {
+                    border-bottom: 1px solid $orange;
+
+                }
+                .newComment {
+                    align-self: flex-end;
+                    border: 1px solid white;
+                    margin: 2px;
+                    width: 120px;
+                    height: 20px;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+    }
+}

@@ -1,0 +1,94 @@
+@import "variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+* {
+    font-family: "Work Sans", sans-serif;
+}
+
+:focus {
+    outline: none;
+}
+
+.App {
+    background-color: $darkgrey;
+    min-height: 100vh;
+    .menubox {
+        background-color: $darkgrey;
+
+        border-bottom: 2px solid white;
+        display: flex;
+        justify-content: space-evenly;
+        height: 50px;
+        .headerOption {
+            color: white;
+            font-size: $mobileFontSizeMedium;
+
+            background-color: $darkgrey;
+            width: 50px;
+            height: 50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: auto 0;
+            border: none;
+            &.profile {
+                background-image: url("./assets/profile.png");
+            }
+            &.home {
+                background-image: url("./assets/home.png");
+            }
+            &.timetable {
+                background-image: url("./assets/timetable.png");
+            }
+            &.members {
+                background-image: url("./assets/members.png");
+            }
+            &.selected {
+                background-color: white;
+            }
+        }
+    }
+}
+
+.homeWrapper,
+.FullTimetableWrapper, .startWrapper {
+    width: 95vw;
+    max-width: 600px;
+    margin: auto;
+}
+
+.startWrapper {
+    
+    display: flex;
+    flex-direction: column;
+    .LoginTypesSec {
+        margin-top: calc(50vh - 77px);
+        font-size: $mobileFontSizeBig;
+        display: flex;
+        flex-direction: column;
+        button {
+            font-size: $mobileFontSizeBig;
+            background-color: $darkgrey;
+            border: 1px solid white;
+            color: white;
+            margin: auto;
+            width: 150px;
+            margin-top: 10px;
+            
+            &.selected{
+                border: 1px solid $orange;
+
+            }
+        }
+        margin-bottom: 10px;
+    }
+    .LoginBtn {
+        font-size: $mobileFontSizeBig;
+        width: 150px;
+        margin: auto;
+        
+        background-color: $orange;
+        border: none;
+    }
+}
+
