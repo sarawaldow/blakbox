@@ -1,0 +1,70 @@
+@import "../variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+
+.profileInfoBox{
+    width: 100vw;
+    height: 100px;
+    background-color: $orange;
+}
+
+.signedUpClassesList{
+    width: 95vw;
+    max-width: 600px;
+    margin: auto;
+}
+
+.allClasses{
+    background-color: $orange;
+}
+
+.myClasses{
+    width: 90%;
+    height: 40px;
+    margin: auto;
+    display: flex;
+    div{
+        width: 50%;
+        text-align: center;
+        background-color: white;
+
+        &.selected{
+            background-color: $orange;
+        }
+    }
+}
+
+.class {
+    font-size: $mobileFontSizeSmall;
+
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid $orange;
+
+    background-color: white;
+    height: 50px;
+    margin: auto;
+    margin-top: 5px;
+    width: 90%;
+    .classDetailBox {
+        width: calc(100% - 65px);
+        margin: auto;
+        .classDetails {
+            display: flex;
+            justify-content: space-between;
+            div {
+            }
+        }
+    }
+    .openClass {
+        width: 60px;
+        background-color: $darkgrey;
+        color: white;
+        display: flex;
+        justify-content: center;
+        div {
+            margin-top: 15px;
+        }
+    }
+}

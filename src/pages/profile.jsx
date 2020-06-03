@@ -1,10 +1,100 @@
-import React from "react";
+import React, { useContext } from "react";
+import { BBxContext } from "../components/BBxContext";
 
-// import './header.css';
+import ClassInfo from "../components/class-info";
+
+import "../pages/profile.scss";
 
 export const Profile = () => {
+    const {
+        signedUpClasses,
+        classObjects,
+        setSelectedClassObject,
+        setIsClassLayerVisible,
+        isClassLayerVisible
+    } = useContext(BBxContext);
+    const openSelectedClass = (obj) => {
+        setSelectedClassObject(obj);
+        setIsClassLayerVisible(true);
+    };
+
     return (
-        <div className="memberswrapper">
+        <div className="profilewrapper">
+            {isClassLayerVisible && <ClassInfo />}
+
+            {!isClassLayerVisible && (
+                <div className="profileInfoWrapper">
+                    <div className="profileInfoBox"></div>
+                    <div className="signedUpClassesList">
+                        <h2>meine Kurse</h2>
+                        <div className="allClasses">
+                        <div className="myClasses">
+
+                            <div className="futureClasses">
+                                bevorstehende Kurse
+                            </div>
+                            <div className="pastClasses">vergangene Kurse</div>
+                        </div>
+
+                            {
+                                // eslint-disable-next-line array-callback-return
+                                classObjects.map((oneClass) => {
+                                    if (
+                                        signedUpClasses.includes(
+                                            oneClass.ClassKey
+                                        )
+                                    ) {
+                                        return (
+                                            <div
+                                                className="class"
+                                                key={oneClass.ClassKey}
+                                            >
+                                                <div className="classDetailBox">
+                                                    <div className="classDetails">
+                                                        <div>
+                                                            <b>
+                                                                {
+                                                                    oneClass.ClassType
+                                                                }
+                                                            </b>
+                                                        </div>
+                                                        <div>
+                                                            {oneClass.StartTime}
+                                                            -{oneClass.EndTime}
+                                                        </div>
+                                                    </div>
+                                                    <div className="classDetails">
+                                                        <div>
+                                                            Coach:
+                                                            {oneClass.Coach}
+                                                        </div>
+                                                        <div>
+                                                            {oneClass.FreeSpots}
+                                                            /{oneClass.MaxSpots}{" "}
+                                                            Spots frei
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="openClass">
+                                                    <div
+                                                        onClick={(e) =>
+                                                            openSelectedClass(
+                                                                oneClass
+                                                            )
+                                                        }
+                                                    >
+                                                        Öffnen
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -25,7 +25,7 @@ export const Start = () => {
             onClick={(e) =>setAccess('Athlet')}>Athlet</button>
             </div>
 
-            <button className="LoginBtn" disabled={ !memberType ? 'disabled' : ''} onClick={(e) => setStatus('HOME')}>Weiter</button>
+            <button className="LoginBtn" disabled={ !memberType ? 'disabled' : ''} onClick={(e) => setStatus('TIMETABLE')}>Weiter</button>
         </div>
     );
 };
