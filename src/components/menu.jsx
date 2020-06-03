@@ -24,14 +24,14 @@ export const Menu = () => {
                 }
                 onClick={(e) => setStatus("TIMETABLE")}
             />
-            <button
+            {/* <button
                 className={
                     status === "HOME"
                         ? "headerOption home selected"
                         : "headerOption home"
                 }
                 onClick={(e) => setStatus("HOME")}
-            />
+            /> */}
             {memberType === 'Box Owner'? <button
                 className={
                     status === "MEMBERS"

@@ -41,12 +41,15 @@ const App = () => {
 };
 
 const MainApp = () => {
-    const { status } = useContext(BBxContext);
+    const { status, setIsClassLayerVisible} = useContext(BBxContext);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         console.log(status);
+        setIsClassLayerVisible(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status]);
+
 
     return <div className="App">{status === 'START'?'':<Menu/>}{mapStatusToRenderMethod[status]}</div>;
 };

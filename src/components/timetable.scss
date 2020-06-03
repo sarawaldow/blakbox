@@ -13,15 +13,6 @@
         margin-top: 0px;
         margin-bottom: 10px;
     }
-    .boxResults {
-        align-self: flex-end;
-        background-color: $darkgrey;
-        border: 1px solid white;
-        color: white;
-        margin-top: 10px;
-        height: 25px;
-        padding: 5px;
-    }
 
     .week {
         display: flex;
@@ -39,7 +30,7 @@
                 background-color: $orange;
                 border: 1px solid white;
                 height: 40px;
-                width: calc(100% / 3);
+                width: calc(100% / 7);
 
                 &.selected {
                     background-color: white;
@@ -48,7 +39,8 @@
         }
         .classWrapper {
             background-color: white;
-            height: 350px;
+            height: 65vh;
+            max-height: 800px;
             overflow: scroll;
             /* Hide scrollbar for IE and Edge */
             -ms-overflow-style: none;
@@ -56,9 +48,9 @@
             &::-webkit-scrollbar {
                 display: none;
             }
-            &.prev {
-                height: 200px;
-            }
+            // &.prev {
+            //     height: 200px;
+            // }
 
             .class {
                 font-size: $mobileFontSizeSmall;
@@ -94,18 +86,6 @@
                 }
             }
         }
-        .toFullTimetable {
-            height: 30px;
-            background-color: white;
-            .timetableBtn {
-                width: 60%;
-                height: 20px;
-                margin: auto;
-                margin-top: calc((30px - 20px) / 2);
-                text-align: center;
-                background-color: $orange;
-                border: 1px solid $darkgrey;
-            }
-        }
+
     }
 }
