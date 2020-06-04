@@ -9,11 +9,12 @@ import Classes from "./classes";
 // }
 
 export const TimetableFull = () => {
-    const {memberType, todaysDate } = useContext(BBxContext);
+    const { memberType, todaysDate, todaysDateString } = useContext(BBxContext);
 
     const now = todaysDate;
     const todaysWeekDay = now.getDay();
     const [selectedDay, setSelectedDay] = useState(todaysWeekDay);
+    const [selectedDate, setSelectedDate] = useState(todaysDateString);
 
     const monday = new Date();
 
@@ -52,87 +53,53 @@ export const TimetableFull = () => {
         dates.push(dateFormatted);
     }
 
+    const dateSelectionHandler = (weekdayIndex, dateObjIndex) => {
+        setSelectedDay(weekdayIndex);
+        setSelectedDate(dates[dateObjIndex]);
+    };
+
+    const generateWeekdayBtn = (weeekdayString, weekdayIndex, dateObjIndex) => {
+        return (
+            <div
+                className={
+                    selectedDay === weekdayIndex
+                        ? "weekday selected"
+                        : "weekday"
+                }
+                onClick={(e) =>
+                    dateSelectionHandler(weekdayIndex, dateObjIndex)
+                }
+            >
+                {weeekdayString}
+                <br />
+                {dates[dateObjIndex]}
+            </div>
+        );
+    };
+
     return (
         <div className="FullTimetableWrapper">
+            {memberType !== "Athlet" &&<div className="classMngBtn">Kursverwaltung</div>}
             <div className="timetableWrapper">
                 <h2>Kursplan</h2>
                 <div className="week">
                     <div className="weekdayWrapper">
-                        <div
-                            className={
-                                selectedDay === 1
-                                    ? "weekday selected"
-                                    : "weekday"
-                            }
-                            onClick={(e) => setSelectedDay(1)}
-                        >
-                            MO<br/>{dates[0]}
-                        </div>
-                        <div
-                            className={
-                                selectedDay === 2
-                                    ? "weekday selected"
-                                    : "weekday"
-                            }
-                            onClick={(e) => setSelectedDay(2)}
-                        >
-                            DI<br/>{dates[1]}
-                        </div>
-                        <div
-                            className={
-                                selectedDay === 3
-                                    ? "weekday selected"
-                                    : "weekday"
-                            }
-                            onClick={(e) => setSelectedDay(3)}
-                        >
-                            MI<br/>{dates[2]}
-                        </div>
-                        <div
-                            className={
-                                selectedDay === 4
-                                    ? "weekday selected"
-                                    : "weekday"
-                            }
-                            onClick={(e) => setSelectedDay(4)}
-                        >
-                            DO<br/>{dates[3]}
-                        </div>
-                        <div
-                            className={
-                                selectedDay === 5
-                                    ? "weekday selected"
-                                    : "weekday"
-                            }
-                            onClick={(e) => setSelectedDay(5)}
-                        >
-                            FR<br/>{dates[4]}
-                        </div>
-                        <div
-                            className={
-                                selectedDay === 6
-                                    ? "weekday selected"
-                                    : "weekday"
-                            }
-                            onClick={(e) => setSelectedDay(6)}
-                        >
-                            SA<br/>{dates[5]}
-                        </div>
-                        <div
-                            className={
-                                selectedDay === 0
-                                    ? "weekday selected"
-                                    : "weekday"
-                            }
-                            onClick={(e) => setSelectedDay(0)}
-                        >
-                            SO<br/>{dates[6]}
-                        </div>
+                        {generateWeekdayBtn("MO", 1, 0)}
+                        {generateWeekdayBtn("DI", 2, 1)}
+                        {generateWeekdayBtn("MI", 3, 2)}
+                        {generateWeekdayBtn("DO", 4, 3)}
+                        {generateWeekdayBtn("FR", 5, 4)}
+                        {generateWeekdayBtn("SA", 6, 5)}
+                        {generateWeekdayBtn("SO", 0, 6)}
                     </div>
+                    {memberType !== "Athlet" && (
+                        <div className="addClass">
+                            Sonderkurs am {selectedDate} hinzufügen
+                        </div>
+                    )}
                     <div className="classWrapper">
                         <Classes />
                     </div>
-                    {memberType !== 'Athlet' && <div className="addClass">Sonderkurs hinzufügen</div>}
                 </div>
             </div>
         </div>

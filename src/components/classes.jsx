@@ -15,7 +15,7 @@ export const Classes = () => {
         <div className="classbox">
             {classObjects.map((oneClass) => {
                 return (
-                    <div className="class" key={oneClass.ClassKey}>
+                    <div className="class" onClick={(e)=> openSelectedClass(oneClass)} key={oneClass.ClassKey}>
                         <div className="classDetailBox">
                             <div className="classDetails">
                                 <div>
@@ -30,9 +30,9 @@ export const Classes = () => {
                                 <div>{oneClass.FreeSpots}/{oneClass.MaxSpots} Spots frei</div>
                             </div>
                         </div>
-                        <div className="openClass">
+                        {/* <div className="openClass">
                             <div onClick={(e)=> openSelectedClass(oneClass)}>Öffnen</div>
-                        </div>
+                        </div> */}
                     </div>
                 );
             })}

@@ -20,28 +20,35 @@ export const Profile = () => {
 
     return (
         <div className="profilewrapper">
-            {isClassLayerVisible && <div className="classBox"><ClassInfo /></div>}
+            {isClassLayerVisible && (
+                <div className="classBox">
+                    <ClassInfo />
+                </div>
+            )}
 
             {!isClassLayerVisible && (
                 <div className="profileInfoWrapper">
                     <div className="profileInfoBox">
-                    <div className="profileInfoInnerWrapper">
-
-                        <div className="profilePic"/>
-                        <div className="profileInfo">Name Geschlecht Vertragsart Kursanmeldungen für diesen Monat</div>
-                        <div className="editProfileInfo"></div>
-                    </div>
+                        <div className="profileInfoInnerWrapper">
+                            <div className="profilePic" />
+                            <div className="profileInfo">
+                                Name Geschlecht Vertragsart Kursanmeldungen für
+                                diesen Monat
+                            </div>
+                            <div className="editProfileInfo"></div>
+                        </div>
                     </div>
                     <div className="signedUpClassesList">
                         <h2>meine Kurse</h2>
                         <div className="allClasses">
-                        <div className="myClasses">
-
-                            <div className="futureClasses">
-                                bevorstehende Kurse
+                            <div className="myClasses">
+                                <div className="futureClasses">
+                                    bevorstehende Kurse
+                                </div>
+                                <div className="pastClasses">
+                                    vergangene Kurse
+                                </div>
                             </div>
-                            <div className="pastClasses">vergangene Kurse</div>
-                        </div>
 
                             {
                                 // eslint-disable-next-line array-callback-return
@@ -54,6 +61,9 @@ export const Profile = () => {
                                         return (
                                             <div
                                                 className="class"
+                                                onClick={(e) =>
+                                                    openSelectedClass(oneClass)
+                                                }
                                                 key={oneClass.ClassKey}
                                             >
                                                 <div className="classDetailBox">
@@ -82,7 +92,7 @@ export const Profile = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="openClass">
+                                                {/* <div className="openClass">
                                                     <div
                                                         onClick={(e) =>
                                                             openSelectedClass(
@@ -92,7 +102,7 @@ export const Profile = () => {
                                                     >
                                                         Öffnen
                                                     </div>
-                                                </div>
+                                                </div> */}
                                             </div>
                                         );
                                     }
