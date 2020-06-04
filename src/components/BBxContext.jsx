@@ -14,9 +14,11 @@ const BBxProvider = (props) => {
             .substring(0, todaysDate.toLocaleDateString().length - 4)
     );
 
-    const [signedUpClasses, setSignedUpClasses] = useState([0,1]);
+    const [signedUpClasses, setSignedUpClasses] = useState([0, 1, 2]);
 
-    const [classObjects, setClassesObjects] = useState([
+    const [credits, setCredits] = useState(8);
+
+    const [classObjects, setClassObjects] = useState([
         {
             ClassKey: 0,
             ClassDescription: "Kommt ins Open Gym!",
@@ -31,7 +33,7 @@ const BBxProvider = (props) => {
             ],
             FreeSpots: 7,
             MaxSpots: 10,
-            SignedUp: [],
+            SignedUp: ["Martin Müller", "Anne Schulz", "Sophie Meyer"],
             Waiting: []
         },
         {
@@ -46,9 +48,9 @@ const BBxProvider = (props) => {
                 { label: "Strength", text: "1 Deadlift" },
                 { label: "WOD", text: "AMRAP 15<br/>50 Squads<br/>50 Burpees" }
             ],
-            FreeSpots: 5,
+            FreeSpots: 7,
             MaxSpots: 10,
-            SignedUp: [],
+            SignedUp: ["Martin Müller", "Anne Schulz", "Sophie Meyer"],
             Waiting: []
         },
         {
@@ -65,7 +67,7 @@ const BBxProvider = (props) => {
             ],
             FreeSpots: 2,
             MaxSpots: 10,
-            SignedUp: [],
+            SignedUp: ["Martin Müller", "Anne Schulz", "Sophie Meyer"],
             Waiting: []
         },
         {
@@ -82,7 +84,7 @@ const BBxProvider = (props) => {
             ],
             FreeSpots: 2,
             MaxSpots: 10,
-            SignedUp: [],
+            SignedUp: ["Martin Müller", "Anne Schulz", "Sophie Meyer"],
             Waiting: []
         }
     ]);
@@ -120,7 +122,7 @@ const BBxProvider = (props) => {
                 status,
                 setStatus,
                 classObjects,
-                setClassesObjects,
+                setClassObjects,
                 todaysDate,
                 setTodaysDate,
                 todaysDateString,
@@ -130,7 +132,9 @@ const BBxProvider = (props) => {
                 isClassLayerVisible,
                 setIsClassLayerVisible,
                 signedUpClasses,
-                setSignedUpClasses
+                setSignedUpClasses,
+                credits,
+                setCredits
             }}
         >
             {props.children}

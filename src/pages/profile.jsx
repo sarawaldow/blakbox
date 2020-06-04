@@ -20,7 +20,7 @@ export const Profile = () => {
 
     return (
         <div className="profilewrapper">
-            {isClassLayerVisible && <ClassInfo />}
+            {isClassLayerVisible && <div className="classBox"><ClassInfo /></div>}
 
             {!isClassLayerVisible && (
                 <div className="profileInfoWrapper">

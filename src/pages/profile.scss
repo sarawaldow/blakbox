@@ -19,6 +19,7 @@
     background-color: $orange;
 }
 
+
 .myClasses{
     width: 90%;
     height: 40px;
@@ -34,7 +35,11 @@
         }
     }
 }
-
+.classBox {
+    width: 95vw;
+    max-width: 600px;
+    margin: auto;
+}
 .class {
     font-size: $mobileFontSizeSmall;
 
