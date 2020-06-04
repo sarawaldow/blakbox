@@ -7,6 +7,33 @@
     width: 100vw;
     height: 100px;
     background-color: $orange;
+    .profileInfoInnerWrapper{
+        display: flex;
+        width: 95vw;
+        height: 100%;
+        max-width: 600px;
+        margin: auto;
+        justify-content: space-between;
+        .profilePic{
+            width: calc(100% / 4);
+            margin-top:5px;
+            height: 90%;
+            background-color: white;
+        }
+        .profileInfo{
+            margin-top:5px;
+            height: 90%;
+            width: calc(100% / 2);
+        }
+        .editProfileInfo{
+            margin-top:5px;
+            height: 45%;
+            width: calc(100% / 4);
+            border: 1px solid $darkgrey;
+
+        }
+    }
+    
 }
 
 .signedUpClassesList{

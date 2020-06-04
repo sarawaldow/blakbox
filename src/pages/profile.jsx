@@ -24,7 +24,14 @@ export const Profile = () => {
 
             {!isClassLayerVisible && (
                 <div className="profileInfoWrapper">
-                    <div className="profileInfoBox"></div>
+                    <div className="profileInfoBox">
+                    <div className="profileInfoInnerWrapper">
+
+                        <div className="profilePic"/>
+                        <div className="profileInfo">Name Geschlecht Vertragsart Kursanmeldungen für diesen Monat</div>
+                        <div className="editProfileInfo"></div>
+                    </div>
+                    </div>
                     <div className="signedUpClassesList">
                         <h2>meine Kurse</h2>
                         <div className="allClasses">
