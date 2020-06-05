@@ -10,19 +10,6 @@ import Timetable from './pages/timetable';
 import Members from './pages/members';
 
 
-// const App = () => {
-//     const [bla, setbla] = useState('bla');
-//     console.log(bla);
-//     return (
-//         <div className="App">
-//             <Menu/>
-//             <Timetable/>
-//             <Leaderboard/>
-//         </div>
-//     );
-// };
-
-// export default App;
 
 const mapStatusToRenderMethod = {
     HOME: <Home />,
@@ -41,14 +28,15 @@ const App = () => {
 };
 
 const MainApp = () => {
-    const { status, setIsClassLayerVisible} = useContext(BBxContext);
+    const { status, setClassMode} = useContext(BBxContext);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         console.log(status);
-        setIsClassLayerVisible(false);
+        setClassMode("closed")
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status]);
+
 
 
     return <div className="App">{status === 'START'?'':<Menu/>}{mapStatusToRenderMethod[status]}</div>;

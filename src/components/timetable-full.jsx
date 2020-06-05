@@ -79,7 +79,9 @@ export const TimetableFull = () => {
 
     return (
         <div className="FullTimetableWrapper">
-            {memberType !== "Athlet" &&<div className="classMngBtn">Kursverwaltung</div>}
+            {memberType !== "Athlet" && (
+                <div className="classMngBtn">Kursverwaltung</div>
+            )}
             <div className="timetableWrapper">
                 <h2>Kursplan</h2>
                 <div className="week">

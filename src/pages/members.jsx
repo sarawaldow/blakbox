@@ -5,6 +5,9 @@ import React from "react";
 export const Members = () => {
     return (
         <div className="memberswrapper">
+            <div className="changeContractTypesBtn">bli</div>
+            <div className="registrationPendingList">bla</div>
+            <div className="membersList">blub</div>
         </div>
     );
 };

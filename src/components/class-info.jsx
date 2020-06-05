@@ -6,15 +6,17 @@ import "./class-info.scss";
 
 export const ClassInfo = () => {
     const {
+        // classObjects,
         selectedClassObject,
-        setIsClassLayerVisible,
         todaysDateString,
         signedUpClasses,
+        classDescription1,
         setSignedUpClasses,
-        credits, setCredits
+        credits, setCredits, setClassMode
+        // , setFreeSpots1, setFreeSpots2, setFreeSpots3, setFreeSpots4
     } = useContext(BBxContext);
-
-    const [showSignedUpList, setShowSignedUpList] = useState(false);
+    
+    // const [showSignedUpList, setShowSignedUpList] = useState(false);
     
     const classKey = selectedClassObject.ClassKey;
     
@@ -29,6 +31,7 @@ export const ClassInfo = () => {
             setSignedUpClasses(newArr);
             setSignedUp(false);
             setCredits(credits + 1);
+
         }else{
             setSignedUpClasses([...signedUpClasses, classKey]);
             setSignedUp(true);
@@ -37,24 +40,26 @@ export const ClassInfo = () => {
         }
     };
 
+console.log(classDescription1);
 
     useEffect(() => {
         console.log(signedUp);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [signedUp]);
 
+
     return (
         <div className="classInfoWrapper">
-            <button onClick={(e) => setIsClassLayerVisible(false)}>
+            <div><button onClick={(e) => setClassMode("closed")}>
                 Kursinfo schließen
             </button>
-            <button>Kurs bearbeiten</button>
+            <button onClick={(e)=>setClassMode("editclass")}>Kurs bearbeiten</button>
 
             <div className="classInfoBox">
                 <div className="classInfoInnerWrapper">
                     <div className="classDetails">
                         <h2>{selectedClassObject.ClassType}</h2>
-                        <div>
+                        <div>({selectedClassObject.FreeSpots} freie Plätze)
                             um {selectedClassObject.StartTime}-
                             {selectedClassObject.EndTime} am {todaysDateString}
                         </div>
@@ -101,15 +106,10 @@ export const ClassInfo = () => {
                     </div>
 
                     <div className="signedUpList">
-                        <div
-                            className="signedUpBtn"
-                            onClick={(e) =>
-                                setShowSignedUpList(!showSignedUpList)
-                            }
-                        >
+                        <div className="signedUpBtn" >
                             <ul>
-                                <b>Teilnehmerliste</b>
-                                {showSignedUpList &&
+                                <b>Teilnehmer</b>
+                                {
                                     selectedClassObject.SignedUp.map(
                                         (athlete) => {
                                             return <li key={athlete}>{athlete}</li>;
@@ -128,6 +128,7 @@ export const ClassInfo = () => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     );

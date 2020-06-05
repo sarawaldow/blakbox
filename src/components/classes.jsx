@@ -4,18 +4,25 @@ import { BBxContext } from "./BBxContext";
 // import './header.css';
 
 export const Classes = () => {
-    const { classObjects, setSelectedClassObject,setIsClassLayerVisible} = useContext(BBxContext);
+    const {
+        classObjects,
+        setSelectedClassObject, setClassMode
+    } = useContext(BBxContext);
 
     const openSelectedClass = (obj) => {
         setSelectedClassObject(obj);
-        setIsClassLayerVisible(true);
-    }
+        setClassMode("classinfo");
+    };
 
     return (
         <div className="classbox">
             {classObjects.map((oneClass) => {
                 return (
-                    <div className="class" onClick={(e)=> openSelectedClass(oneClass)} key={oneClass.ClassKey}>
+                    <div
+                        className="class"
+                        onClick={(e) => openSelectedClass(oneClass)}
+                        key={oneClass.ClassKey}
+                    >
                         <div className="classDetailBox">
                             <div className="classDetails">
                                 <div>
@@ -26,8 +33,11 @@ export const Classes = () => {
                                 </div>
                             </div>
                             <div className="classDetails">
-                                <div>Coach:{oneClass.Coach}</div>
-                                <div>{oneClass.FreeSpots}/{oneClass.MaxSpots} Spots frei</div>
+                                <div>Coach:{" "}{oneClass.Coach}</div>
+                                <div>
+                                    {oneClass.FreeSpots}/{oneClass.MaxSpots}{" "}
+                                    Spots frei
+                                </div>
                             </div>
                         </div>
                         {/* <div className="openClass">

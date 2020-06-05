@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { BBxContext } from "../components/BBxContext";
 
 import ClassInfo from "../components/class-info";
+import EditClass from "../components/edit-class";
 
 import "../pages/profile.scss";
 
@@ -10,30 +11,37 @@ export const Profile = () => {
         signedUpClasses,
         classObjects,
         setSelectedClassObject,
-        setIsClassLayerVisible,
-        isClassLayerVisible
+        classMode,
+        setClassMode,
+        userName,
+        credits,
+        contractType
     } = useContext(BBxContext);
     const openSelectedClass = (obj) => {
         setSelectedClassObject(obj);
-        setIsClassLayerVisible(true);
+        setClassMode("classinfo");
     };
 
     return (
         <div className="profilewrapper">
-            {isClassLayerVisible && (
+            {classMode === "classinfo" && (
                 <div className="classBox">
                     <ClassInfo />
                 </div>
             )}
+            {classMode === "editclass" &&<div className="classBox">
+                    <EditClass />
+                </div>}
 
-            {!isClassLayerVisible && (
+            {classMode === "closed" && (
                 <div className="profileInfoWrapper">
                     <div className="profileInfoBox">
                         <div className="profileInfoInnerWrapper">
                             <div className="profilePic" />
                             <div className="profileInfo">
-                                Name Geschlecht Vertragsart Kursanmeldungen für
-                                diesen Monat
+                                <div>{userName}</div>
+                                <div>{contractType}</div> <div>{credits}/8 Anmeldungen für
+                                diesen Monat</div>
                             </div>
                             <div className="editProfileInfo"></div>
                         </div>
@@ -46,7 +54,7 @@ export const Profile = () => {
                                     bevorstehende Kurse
                                 </div>
                                 <div className="pastClasses">
-                                    vergangene Kurse
+                                    Warteliste
                                 </div>
                             </div>
 
