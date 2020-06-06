@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const BBxContext = React.createContext(null);
 
 const BBxProvider = (props) => {
-    const [status, setStatus] = useState("PROFILE");
+    const [status, setStatus] = useState("TIMETABLE");
 
     const [memberType, setMemberType] = useState("Box Owner");
 
@@ -14,7 +14,7 @@ const BBxProvider = (props) => {
             .substring(0, todaysDate.toLocaleDateString().length - 4)
     );
 
-    const [classMode, setClassMode] = useState("closed");
+    const [classMode, setClassMode] = useState("editclass");
 
     // user info
     const [userName, setUserName] = useState("Maxi Muster");
