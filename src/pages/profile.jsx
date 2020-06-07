@@ -5,6 +5,7 @@ import ClassInfo from "../components/class-info";
 import EditClass from "../components/edit-class";
 
 import "../pages/profile.scss";
+import AddWorkout from "../components/add-workout";
 
 export const Profile = () => {
     const {
@@ -32,6 +33,7 @@ export const Profile = () => {
             {classMode === "editclass" &&<div className="classBox">
                     <EditClass />
                 </div>}
+                {classMode==="addworkout"&&<div className="classBox"><AddWorkout/></div>}
 
             {classMode === "closed" && (
                 <div className="profileInfoWrapper">

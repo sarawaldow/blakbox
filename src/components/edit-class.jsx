@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 // import React from "react";
 import { BBxContext } from "../components/BBxContext";
+
 // import './header.css';
 
 export const EditClass = () => {
@@ -8,11 +9,12 @@ export const EditClass = () => {
         classObjects,
         // setClassObjects,
         todaysDateString,
+        
         setClassMode,
         classDescription1,
         setClassDescription1,
         coach1,
-        // setCoach1,
+        setCoach1,
         workout1,
         setWorkout1,
         // freeSpots1,
@@ -25,23 +27,11 @@ export const EditClass = () => {
         // setWaiting1
     } = useContext(BBxContext);
 
-    const classObject = classObjects[0];
-
-    const deleteWorkout = (index) => {
-        const arr = workout1;
-        arr.splice(index, 1);
-        setWorkout1(arr);
-    };
-
-    const deleteAthlete = (index) => {
-        const arr = signedUp1;
-        arr.splice(index, 1);
-        setSignedUp1(arr);
-    };
+    // const classObject = classObjects[0];
 
     useEffect(() => {
         console.log(workout1);
-        console.log(classObject);
+        console.log(classObjects[0]);
         classObjects[0].Workout = workout1;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [workout1]);
@@ -52,74 +42,45 @@ export const EditClass = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [classDescription1]);
 
-    const [wodName, setWodName] = useState("");
-    const [wodResult, setWodResult] = useState("For Time");
-    const [wodDescription, setWodDescription] = useState("");
+    useEffect(() => {
+        console.log(coach1);
+        classObjects[0].Coach = coach1;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [coach1]);
+    useEffect(() => {
+        console.log(signedUp1);
+        classObjects[0].SignedUp = signedUp1;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [signedUp1]);
 
-    // const [] = useState();
+    const renderWorkoutList = () => {
+        return(
+            workout1.map((workoutpart, index) => 
+                
+                    <div
+                        className="workoutPart"
+                        key={`${workoutpart.label}-${index}`}
+                    >
+                        <div className="workoutPartWrapper">
+                            <b>{workoutpart.label}</b>
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: workoutpart.text
+                                }}
+                            />
+                        </div>
+                        <button className="deleteWorkout"
+                            onClick={(e) =>
+                                // deleteWorkout(index)
+                                setWorkout1([...workout1.slice(0,index), ...workout1.slice(index+1)])
 
-    const handleAddWorkout = (type) => {
-        const arr = [];
-        const obj = {};
-        switch (type){
-            case "WOD":
-            obj.label = "WOD";
-            obj.text = `${wodName}-${wodResult}<br/>${wodDescription}`;
-            arr.push(obj);
-            console.log(arr);
-            setWorkout1([...workout1, obj]);
-            break;
-            default: return;
-        }
-    }
-
-    const generateFormForWorkoutType = (type) => {
-        switch (type) {
-            case "WOD":
-                return (
-                    <div>
-                        <input
-                            type="text"
-                            value={wodName}
-                            onChange={(e) => setWodName(e.target.value)}
-                            placeholder="WOD-Name"
-                        />
-                        <select
-                            className="dropDownBox"
-                            value={wodResult}
-                            onChange={(e) => {
-                                setWodResult(e.target.value);
-                            }}
-                        >
-                            <option value="WOD">For Time</option>
-                            <option value="WarmUp">AMRAP</option>
-                            <option value="Strength">EMOM</option>
-                            <option value="FindYourXRep">
-                                EMOM (Score Reps)
-                            </option>
-                        </select>
-                        <input
-                            type="text"
-                            value={wodDescription}
-                            onChange={(e) => setWodDescription(e.target.value)}
-                            placeholder="WOD-Beschreibung"
-                        />
+                            }
+                        >X</button>
                     </div>
-                );
-            case "WarmUp":
-                return <div>bla</div>;
-            case "Strength":
-                return <div>bla</div>;
-            case "FindYourXRep":
-                return <div>bla</div>;
-            default:
-                return <div>bla</div>;
-        }
-    };
-    const showExistingListOfWorkoutType = (type) => {};
-
-    const [selectedWorkoutType, setSelectedWorkoutType] = useState("WOD");
-    const [showNewWorkoutSec, setShowNewWorkoutSec] = useState(false);
+             
+            )
+        )
+    }
 
     return (
         <div className="classInfoWrapper">
@@ -143,10 +104,11 @@ export const EditClass = () => {
                         <button>Ja, speichern</button>
                     </div> */}
                     <div className="classDetails">
-                        <h2>{classObject.ClassType}</h2>
+                        Bearbeitungsmodus
+                        <h2>{classObjects[0].ClassType}</h2>
                         <div>
-                            ({classObject.FreeSpots} freie Plätze) um{" "}
-                            {classObject.StartTime}-{classObject.EndTime} am{" "}
+                            ({classObjects[0].FreeSpots} freie Plätze) um{" "}
+                            {classObjects[0].StartTime}-{classObjects[0].EndTime} am{" "}
                             {todaysDateString}
                         </div>
                     </div>
@@ -162,99 +124,56 @@ export const EditClass = () => {
 
                     <div className="classWorkout">
                         <div className="workoutHeadline">
-                            <h3>Workout </h3> <div>mit Coach {coach1}</div>
+                            <h3>Workout </h3>{" "}
+                            <div>
+                                mit Coach{" "}
+                                <select
+                                    className="dropDownBox"
+                                    value={coach1}
+                                    onChange={(e) => {
+                                        setCoach1(e.target.value);
+                                    }}
+                                >
+                                    <option value="Peter">Peter</option>
+                                    <option value="Anke">Anke</option>
+                                    <option value="Gerda">Gerda</option>
+                                    <option value="Hans">Hans</option>
+                                </select>
+                            </div>
                         </div>
                         <div className="workoutList">
-                            {classObject.Workout.map((workoutpart, index) => {
-                                return (
-                                    <div
-                                        className="workoutPart"
-                                        key={`${workoutpart.label}-${index}`}
-                                    >
-                                        <b>{workoutpart.label}</b>
-                                        <div
-                                            dangerouslySetInnerHTML={{
-                                                __html: workoutpart.text
-                                            }}
-                                        />
-                                        <button
-                                            onClick={(e) =>
-                                                deleteWorkout(index)
-                                            }
-                                        >
-                                            delete
-                                        </button>
-                                    </div>
-                                );
-                            })}
-                            <button>neue Workout-Komponente</button>
-                            <div>Komponente aussuchen:</div>
-                            <select
-                                className="dropDownBox"
-                                value={selectedWorkoutType}
-                                onChange={(e) => {
-                                    setSelectedWorkoutType(e.target.value);
-                                }}
-                            >
-                                <option value="WOD">WOD</option>
-                                <option value="WarmUp">Warm-Up</option>
-                                <option value="Strength">Strength</option>
-                                <option value="FindYourXRep">
-                                    Find-Your-X-Rep
-                                </option>
-                            </select>
-                            <button onClick={(e) => setShowNewWorkoutSec(true)}>
-                                neue {selectedWorkoutType} Komponente
-                            </button>
-                            {showNewWorkoutSec && (
-                                <div className="newWorkoutBox">
-                                    {generateFormForWorkoutType(
-                                        selectedWorkoutType
-                                    )}
-                                    <button onClick={ (e) => handleAddWorkout(selectedWorkoutType)}>
-                                        zum Workout hinzufügen
-                                    </button>
-                                </div>
-                            )}
-                            <button
-                                onClick={showExistingListOfWorkoutType(
-                                    selectedWorkoutType
-                                )}
-                            >
-                                {selectedWorkoutType} suchen
-                            </button>
+                                    {renderWorkoutList()}
                         </div>
                     </div>
+                            <button onClick={(e)=>setClassMode("addworkout")}>Workout hinzufügen</button>
 
                     <div className="signedUpList">
                         <div className="signedUpBtn">
                             <ul>
                                 <b>Teilnehmer</b>
-                                {classObject.SignedUp.map((athlete, index) => {
+                                {signedUp1.map((athlete, index) => {
                                     return (
                                         <li key={athlete}>
                                             {athlete}
                                             <button
                                                 onClick={(e) =>
-                                                    deleteAthlete(index)
+                                                    // deleteAthlete(index)
+                                                    setSignedUp1([...signedUp1.slice(0,index), ...signedUp1.slice(index+1)])
                                                 }
                                             >
-                                                delete
+                                                X
                                             </button>
                                         </li>
                                     );
                                 })}
                                 <button>Teilnehmer hinzufügen</button>
                             </ul>
-                            {/* <ul>
-                                <b>Teilnehmerliste</b>
-                                {showSignedUpList &&
-                                    selectedClassObject.SignedUp.map(
-                                        (athlete) => {
-                                            return <li key={athlete}>{athlete}</li>;
-                                        }
-                                    )}
-                            </ul> */}
+                            <ul>
+                                <b>Warteliste</b>
+                                {classObjects[0].Waiting.map((athlete) => {
+                                    return <li key={athlete}>{athlete}</li>;
+                                })}
+                            </ul>
                         </div>
                     </div>
                     <button>Kurs löschen oder absagen</button>

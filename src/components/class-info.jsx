@@ -87,18 +87,20 @@ console.log(classDescription1);
                             <div>mit Coach {selectedClassObject.Coach}</div>
                         </div>
                         <div className="workoutList">
-                            {selectedClassObject.Workout.map((workoutpart) => {
+                            {selectedClassObject.Workout.map((workoutpart, index) => {
                                 return (
                                     <div
                                         className="workoutPart"
-                                        key={workoutpart.label}
-                                    >
+                                        key={`${workoutpart.label}-${index}`}
+                                    ><div className="workoutPartWrapper">
                                         <b>{workoutpart.label}</b>
                                         <div
                                             dangerouslySetInnerHTML={{
                                                 __html: workoutpart.text
                                             }}
                                         />
+
+                                    </div>
                                     </div>
                                 );
                             })}

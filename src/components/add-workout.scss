@@ -1,0 +1,114 @@
+@import "../variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+    .workoutPart {
+        display: flex;
+        width: 70%;
+        justify-content: space-between;
+        b {
+            color: $orange;
+        }
+        margin-bottom: 20px;
+        margin-left: 10px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        &.framed{
+            margin-top: 10px;
+            width: 80%;
+            padding: 5px;
+            border: 1px solid white;
+            
+            &.selected {
+                border: 1px solid $orange;
+                
+            }
+        }
+
+        .deleteWorkout {
+            border: 1px solid $orange;
+            color: $orange;
+            height: 30px;
+            width: 30px;
+            background-color: $darkgrey;
+        }
+        .selectWOD {
+            border: none;
+            color: $orange;
+            height: 30px;
+
+            background-color: $darkgrey;                        
+        }
+    }
+    .addWorkoutBox {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        // .addWorkoutBoxCard{
+        //     position: absolute;
+        //     left: 0;
+        //     top: 0;
+        //     background-color: $darkgrey;
+        // }
+        .addWorkoutBtn {
+            font-size: $mobileFontSizeBig;
+            border: 1px solid $orange;
+            // color: $orange;
+            // height: 30px;
+
+            background-color: $orange;
+        }
+
+        .addingWorkoutOptions {
+            display: flex;
+            flex-direction: column;
+        }
+        select {
+            font-size: $mobileFontSizeBig;
+            background-color: $darkgrey;
+            // width: 50%;
+            // margin: auto;
+            color: white;
+            border: 1px solid white;
+        }
+        // .searchWorkoutBox {
+        //     .searchWODBox {
+        //         .workoutList {
+        //             .workoutPart {
+        //                 .selectWOD {
+        //                     width: 50px;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+
+        .newWorkoutBox {
+            .newWorkoutInputBox {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+
+                // .workoutNameInput {
+                // }
+                select {
+                    font-size: $mobileFontSizeBig;
+                    background-color: $darkgrey;
+                    color: white;
+                    border: 1px solid white;
+                }
+            }
+            button {
+                font-size: $mobileFontSizeBig;
+                border: 1px solid $orange;
+                // color: $orange;
+                // height: 30px;
+
+                background-color: $orange;
+            }
+        }
+    }
