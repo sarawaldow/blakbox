@@ -27,48 +27,32 @@ const BBxProvider = (props) => {
     );
     const [contractType, setContractType] = useState("Half Member");
 
-    const [signedUpClasses, setSignedUpClasses] = useState([1, 2]);
+    const [signedUpClasses, setSignedUpClasses] = useState([]);
 
     const [credits, setCredits] = useState(8);
-
-    // classes info
-
-    const [classDescription1, setClassDescription1] = useState(
-        "Kommt ins Open Gym!"
-    );
-    const [coach1, setCoach1] = useState("Peter");
-    const [workout1, setWorkout1] = useState([
-        { label: "Warm-Up", text: "2km Laufen" },
-        { label: "Strength", text: "1 Deadlift" },
-        { label: "WOD", text: "AMRAP 15<br/>50 Squads<br/>50 Burpees" }
-    ]);
-    const [freeSpots1, setFreeSpots1] = useState(7);
-    const [maxSpots1, setMaxSpots1] = useState(10);
-    const [signedUp1, setSignedUp1] = useState([
-        userName,
-        "Martin Müller",
-        "Anne Schulz",
-        "Sophie Meyer"
-    ]);
-    const [waiting1, setWaiting1] = useState([]);
+    const [changesMade, setChangesMade] = useState(false);
 
     const [classObjects, setClassObjects] = useState([
         {
-            ClassKey: 1,
-            ClassDescription: classDescription1,
+            ClassKey: 0,
+            ClassDescription: "Kommt ins Open Gym!",
             ClassType: "Open Gym",
-            Coach: coach1,
+            Coach: "Peter",
             StartTime: "10:00",
             EndTime: "11:00",
             Date: "",
-            Workout: workout1,
-            FreeSpots: freeSpots1,
-            MaxSpots: maxSpots1,
-            SignedUp: signedUp1,
-            Waiting: waiting1
+            Workout: [
+                { label: "Warm-Up", text: "2km Laufen" },
+                { label: "Strength", text: "1 Deadlift" },
+                { label: "WOD", text: "AMRAP 15<br/>50 Squads<br/>50 Burpees" }
+            ],
+            MinSpots: 2,
+            MaxSpots: 10,
+            SignedUp: ["Martin Müller", "Anne Schulz", "Sophie Meyer"],
+            Waiting: []
         },
         {
-            ClassKey: 2,
+            ClassKey: 1,
             ClassDescription: "Heute üben wir Deadlifts",
             ClassType: "WOD Anfänger",
             Coach: "Anke",
@@ -80,13 +64,13 @@ const BBxProvider = (props) => {
                 { label: "Strength", text: "1 Deadlift" },
                 { label: "WOD", text: "AMRAP 15<br/>50 Squads<br/>50 Burpees" }
             ],
-            FreeSpots: 7,
+            MinSpots: 2,
             MaxSpots: 10,
             SignedUp: ["Martin Müller", "Anne Schulz", "Sophie Meyer"],
             Waiting: []
         },
         {
-            ClassKey: 3,
+            ClassKey: 2,
             ClassDescription: "Heute geht es an die Beine",
             ClassType: "WOD All Level",
             Coach: "Hans",
@@ -98,13 +82,13 @@ const BBxProvider = (props) => {
                 { label: "Strength", text: "1 Deadlift" },
                 { label: "WOD", text: "AMRAP 15 50 Squads 50 Burpees" }
             ],
-            FreeSpots: 2,
+            MinSpots: 2,
             MaxSpots: 10,
             SignedUp: ["Martin Müller", "Anne Schulz", "Sophie Meyer"],
             Waiting: []
         },
         {
-            ClassKey: 4,
+            ClassKey: 3,
             ClassDescription: "Blub",
             ClassType: "WOD All Level",
             Coach: "Gerda",
@@ -116,7 +100,7 @@ const BBxProvider = (props) => {
                 { label: "Strength", text: "1 Deadlift" },
                 { label: "WOD", text: "AMRAP 15<br/>50 Squads<br/>50 Burpees" }
             ],
-            FreeSpots: 0,
+            MinSpots: 2,
             MaxSpots: 10,
             SignedUp: [
                 "Georg Frank",
@@ -147,12 +131,21 @@ const BBxProvider = (props) => {
             { label: "Strength", text: "" },
             { label: "WOD", text: "" }
         ],
-        FreeSpots: 0,
+        MinSpots: 0,
         MaxSpots: 0,
         SignedUp: [],
         Waiting: []
     });
 
+    const [workoutNC, setWorkoutNC] = useState([]);
+    const [coachNC, setCoachNC] = useState("Peter");
+    const [classDescriptionNC, setClassDescriptionNC] = useState("");
+    const [maxSpotsNC, setMaxSpotsNC] = useState(0);
+    const [minSpotsNC, setMinSpotsNC] = useState(0);
+
+    const [startTimeNC, setStartTimeNC] = useState("00:00");
+    const [endTimeNC, setEndTimeNC] = useState("00:00");
+    const [classTypeNC, setClassTypeNC] = useState("Open Gym");
 
     return (
         <BBxContext.Provider
@@ -187,21 +180,26 @@ const BBxProvider = (props) => {
                 setUserPhone,
                 userAddress,
                 setUserAddress,
-                classDescription1,
-                setClassDescription1,
-                coach1,
-                setCoach1,
-                workout1,
-                setWorkout1,
-                freeSpots1,
-                setFreeSpots1,
-                maxSpots1,
-                setMaxSpots1,
-                signedUp1,
-                setSignedUp1,
-                waiting1,
-                setWaiting1,
-                classMode, setClassMode
+                changesMade,
+                setChangesMade,
+                classMode,
+                setClassMode,
+                workoutNC,
+                setWorkoutNC,
+                coachNC,
+                setCoachNC,
+                classDescriptionNC,
+                setClassDescriptionNC,
+                maxSpotsNC,
+                setMaxSpotsNC,
+                minSpotsNC,
+                setMinSpotsNC,
+                startTimeNC,
+                setStartTimeNC,
+                endTimeNC,
+                setEndTimeNC,
+                classTypeNC,
+                setClassTypeNC
             }}
         >
             {props.children}

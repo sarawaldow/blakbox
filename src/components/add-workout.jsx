@@ -1,54 +1,81 @@
 import React, { useState, useContext } from "react";
 import { BBxContext } from "../components/BBxContext";
-import { useEffect} from "react";
+import { useEffect } from "react";
 // import { render } from "@testing-library/react";
 
-import './add-workout.scss';
+import "./add-workout.scss";
 
 export const AddWorkout = () => {
-    const { workout1, setWorkout1, setClassMode} = useContext(BBxContext);
+    const {
+        setClassMode,
+        classObjects,
+        selectedClassObject
+        // setChangesMade
+    } = useContext(BBxContext);
+    const [showSuccessfullyAdded, setShowSuccessfullyAdded] = useState(false);
+    // const classObject = classObjects[selectedClassObject.ClassKey];
+    const classObject = selectedClassObject;
 
     const [selectedWorkoutType, setSelectedWorkoutType] = useState("WOD");
-    const [showSelectWorkoutType, setShowSelectWorkoutType] = useState(false);
     const [addWorkoutOpt, setAddWorkoutOpt] = useState("");
+    const [selectedWodType, setSelectedWodType] = useState("");
+    const [selectedWOD, setSelectedWOD] = useState({});
 
     const [workoutName, setWorkoutName] = useState("");
     const [workoutResult, setWorkoutResult] = useState("For Time");
     const [workoutDescription, setWorkoutDescription] = useState("");
 
+    const [workout, setWorkout] = useState(classObject.Workout);
+
     useEffect(() => {
-        console.log(workout1);
-    }, [workout1]);
+        console.log(workout);
+        // classObjects[selectedClassObject.ClassKey].Workout = workout;
+        selectedClassObject.Workout = workout;
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [workout]);
 
     const handleAddNewWorkout = (type) => {
         const arr = [];
         const obj = {};
+        setWorkoutDescription(workoutDescription);
         switch (type) {
             case "WOD":
                 obj.label = "WOD";
                 obj.text = `${workoutName}<br/>${workoutResult}<br/>${workoutDescription}`;
                 arr.push(obj);
                 console.log(arr);
-                setWorkout1([...workout1, obj]);
+                setWorkout([...workout, obj]);
                 break;
-            // case "WarmUp":
-            //     obj.label = "Warm-Up";
-            //     obj.text = `${workoutName}<br/>{wodDescription}`;
-            //     arr.push(obj);
-            //     console.log(arr);
-            //     setWorkout1([...workout1, obj]);
-            //     break;
-
+            case "Warm-Up":
+                obj.label = "Warm-Up";
+                obj.text = `${workoutName}<br/>${workoutDescription}`;
+                arr.push(obj);
+                console.log("arr:", arr);
+                setWorkout([...workout, obj]);
+                break;
+            case "Strength":
+                obj.label = "Strength";
+                obj.text = `${workoutName}<br/>${workoutDescription}`;
+                arr.push(obj);
+                console.log("arr:", arr);
+                setWorkout([...workout, obj]);
+                break;
+            case "Find-Your-X-Rep":
+                obj.label = `Find-Your-X-Rep-${workoutResult}`;
+                obj.text = `${workoutName}<br/>${workoutDescription}`;
+                arr.push(obj);
+                console.log(arr);
+                setWorkout([...workout, obj]);
+                break;
             default:
                 return;
         }
-        setShowSelectWorkoutType(false);
-        setClassMode("editclass")
+        setShowSuccessfullyAdded(true);
     };
-    
+
     const handleAddOldWorkout = () => {
-        setWorkout1([...workout1, selectedWOD]);
-        setClassMode("editclass")
+        setWorkout([...workout, selectedWOD]);
+        setShowSuccessfullyAdded(true);
     };
 
     const listOfBoxWods = [
@@ -76,12 +103,10 @@ export const AddWorkout = () => {
         }
     ];
 
-    const [selectedWodType, setSelectedWodType] = useState("boxWOD");
-    const [selectedWOD, setSelectedWOD] = useState({});
-    const selectWorkout = (obj) => {
-        setSelectedWOD(obj);
-    };
-    
+    // const selectWorkout = (obj) => {
+    //     setSelectedWOD(obj);
+    // };
+
     useEffect(() => {
         console.log(selectedWOD);
     }, [selectedWOD]);
@@ -94,24 +119,37 @@ export const AddWorkout = () => {
                     className="wodOptions"
                     onChange={(e) => setSelectedWodType(e.target.value)}
                 >
-                    <input type="radio" value="boxWOD" id="boxWOD" name="wodOpt" /> <label htmlFor="boxWOD">Box-WODs</label>
-                    <input
-                        type="radio" id="benchmarkWOD"
-                        value="benchmarkWOD"
-                        name="wodOpt"
-                    />
-                    <label htmlFor="benchmarkWOD">Benchmark-WODs</label>
+                    <label htmlFor="boxWOD">
+                        <input
+                            type="radio"
+                            value="boxWOD"
+                            id="boxWOD"
+                            name="wodOpt"
+                        />{" "}
+                        Box-WODs
+                    </label>
+                    <label htmlFor="benchmarkWOD">
+                        <input
+                            type="radio"
+                            id="benchmarkWOD"
+                            value="benchmarkWOD"
+                            name="wodOpt"
+                        />
+                        Benchmark-WODs
+                    </label>
                 </div>
                 <div>
                     Wähle ein WOD
                     {selectedWodType === "boxWOD" &&
                         listOfBoxWods.map((workoutpart, index) => {
+                            const selected =
+                                selectedWOD === workoutpart || false;
+                            console.log("selected:", selected);
                             return (
                                 <div
-                                onClick={(e) => selectWorkout(listOfBoxWods[index])
-                                }
+                                    onClick={(e) => setSelectedWOD(workoutpart)}
                                     className={
-                                        selectedWOD === listOfBoxWods[index]
+                                        selected
                                             ? "workoutPart framed selected"
                                             : "workoutPart framed"
                                     }
@@ -126,9 +164,7 @@ export const AddWorkout = () => {
                                             }}
                                         />
                                     </div>
-                                    <button
-                                        className="selectWOD" 
-                                    >
+                                    <button className="selectWOD">
                                         wählen
                                     </button>
                                 </div>
@@ -138,14 +174,12 @@ export const AddWorkout = () => {
                         listOfBenchmarkWods.map((workoutpart, index) => {
                             return (
                                 <div
-                                onClick={(e) =>
-                                    selectWorkout(listOfBenchmarkWods[index])
-                                }
-                                className={
-                                    selectedWOD === listOfBenchmarkWods[index]
-                                        ? "workoutPart framed selected"
-                                        : "workoutPart framed"
-                                }
+                                    onClick={(e) => setSelectedWOD(workoutpart)}
+                                    className={
+                                        selectedWOD === workoutpart
+                                            ? "workoutPart framed selected"
+                                            : "workoutPart framed"
+                                    }
                                     key={`${workoutpart.label}-${index}`}
                                 >
                                     <div className="workoutPartWrapper">
@@ -156,10 +190,7 @@ export const AddWorkout = () => {
                                             }}
                                         />
                                     </div>
-                                    <button
-                                        className="selectWOD"
-
-                                    >
+                                    <button className="selectWOD">
                                         wählen
                                     </button>
                                 </div>
@@ -196,10 +227,12 @@ export const AddWorkout = () => {
                                 EMOM (Score Reps)
                             </option>
                         </select>
-                        <input
+                        <textarea
                             type="text"
                             value={workoutDescription}
-                            onChange={(e) => setWorkoutDescription(e.target.value)}
+                            onChange={(e) =>
+                                setWorkoutDescription(e.target.value)
+                            }
                             placeholder="WOD-Beschreibung"
                         />
                     </div>
@@ -210,9 +243,18 @@ export const AddWorkout = () => {
                         <input
                             className="workoutNameInput"
                             type="text"
+                            value={workoutName}
+                            onChange={(e) => setWorkoutName(e.target.value)}
                             placeholder="Warm-Up-Name"
                         />
-                        <input type="text" placeholder="Warm-Up-Beschreibung" />
+                        <textarea
+                            type="text"
+                            value={workoutDescription}
+                            onChange={(e) =>
+                                setWorkoutDescription(e.target.value)
+                            }
+                            placeholder="Warm-Up-Beschreibung"
+                        />
                     </div>
                 );
             case "Strength":
@@ -221,16 +263,49 @@ export const AddWorkout = () => {
                         <input
                             className="workoutNameInput"
                             type="text"
+                            value={workoutName}
+                            onChange={(e) => setWorkoutName(e.target.value)}
                             placeholder="Strength-Name"
                         />
-                        <input
+                        <textarea
                             type="text"
+                            onChange={(e) =>
+                                setWorkoutDescription(e.target.value)
+                            }
                             placeholder="Strength-Beschreibung"
                         />
                     </div>
                 );
-            case "FindYourXRep":
-                return <div>bla</div>;
+            case "Find-Your-X-Rep":
+                return (
+                    <div className="newWorkoutInputBox">
+                        <input
+                            className="workoutNameInput"
+                            type="text"
+                            value={workoutName}
+                            onChange={(e) => setWorkoutName(e.target.value)}
+                            placeholder="Find-Your-X-Rep-Name"
+                        />
+                        <select
+                            className="dropDownBox"
+                            value={workoutResult}
+                            onChange={(e) => {
+                                setWorkoutResult(e.target.value);
+                            }}
+                        >
+                            <option value="For Time">For Time</option>
+                            <option value="Max">Max</option>
+                        </select>
+                        <textarea
+                            type="text"
+                            value={workoutDescription}
+                            onChange={(e) =>
+                                setWorkoutDescription(e.target.value)
+                            }
+                            placeholder="Find-Your-X-Rep-Beschreibung"
+                        />
+                    </div>
+                );
             default:
                 return <div>bla</div>;
         }
@@ -238,15 +313,38 @@ export const AddWorkout = () => {
 
     return (
         <div className="addWorkoutBox">
-            <button
-                className="addWorkoutBtn"
-                onClick={(e) => setShowSelectWorkoutType(true)}
-            >
-                + Workout-Komponente
-            </button>
-            {showSelectWorkoutType && (
+            {showSuccessfullyAdded && (
+                <div>
+                    Workout erfolgreich hinzugefügt
+                    {selectedClassObject.ClassKey === classObjects.length?
+                        <button
+                            onClick={(e) => {
+                                setClassMode("newclass");
+                            }}
+                        >
+                            zurück zur Kurserstellung
+                        </button>
+                        :
+                        <button
+                            onClick={(e) => {
+                                setClassMode("editclass");
+                            }}
+                        >
+                            zurück zum Bearbeitungsmodus
+                        </button>
+
+                    }
+                </div>
+            )}
+            {!showSuccessfullyAdded && (
                 <div className="addWorkoutBoxCard">
-                    <div>Komponente aussuchen:</div>
+                    <button
+                        className="backBtn"
+                        onClick={(e) => setClassMode("editclass")}
+                    >
+                        abbrechen
+                    </button>
+                    <div className="selectLabel">Komponente aussuchen</div>
                     <select
                         className="dropDownBox"
                         value={selectedWorkoutType}
@@ -257,29 +355,32 @@ export const AddWorkout = () => {
                         <option value="WOD">WOD</option>
                         <option value="Warm-Up">Warm-Up</option>
                         <option value="Strength">Strength</option>
-                        <option value="FindYourXRep">Find-Your-X-Rep</option>
+                        <option value="Find-Your-X-Rep">Find-Your-X-Rep</option>
                     </select>
                     <div className="radiosWrapper">
                         <div
                             className="addingWorkoutOptions"
                             onChange={(e) => setAddWorkoutOpt(e.target.value)}
                         >
-                            <input
-                                type="radio"
-                                value="newWorkout"
-                                name="addWorkoutOpt"
-                                id="newWorkout"
+                            <label htmlFor="newWorkout">
+                                <input
+                                    type="radio"
+                                    value="newWorkout"
+                                    name="addWorkoutOpt"
+                                    id="newWorkout"
                                 />
-                            <label htmlFor="newWorkout">neue {selectedWorkoutType} Komponente</label>
+                                neue {selectedWorkoutType} Komponente
+                            </label>
 
-                            <input
-                                type="radio"
-                                value="searchWorkout"
-                                name="addWorkoutOpt"
-                                id="searchWorkout"
-                            />
-                            <label htmlFor="searchWorkout">{selectedWorkoutType} suchen</label>
-                            
+                            <label htmlFor="searchWorkout">
+                                <input
+                                    type="radio"
+                                    value="searchWorkout"
+                                    name="addWorkoutOpt"
+                                    id="searchWorkout"
+                                />
+                                {selectedWorkoutType} suchen
+                            </label>
                         </div>
                     </div>
 
@@ -287,6 +388,7 @@ export const AddWorkout = () => {
                         <div className="newWorkoutBox">
                             {generateFormForWorkoutType(selectedWorkoutType)}
                             <button
+                                className="addThisWorkout"
                                 onClick={(e) => {
                                     handleAddNewWorkout(selectedWorkoutType);
                                 }}
@@ -299,6 +401,7 @@ export const AddWorkout = () => {
                         <div className="searchWorkoutBox">
                             {generateSearchForWorkoutType()}
                             <button
+                                className="addThisWorkout"
                                 onClick={(e) =>
                                     handleAddOldWorkout(selectedWorkoutType)
                                 }

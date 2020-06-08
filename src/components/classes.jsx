@@ -35,8 +35,7 @@ export const Classes = () => {
                             <div className="classDetails">
                                 <div>Coach:{" "}{oneClass.Coach}</div>
                                 <div>
-                                    {oneClass.FreeSpots}/{oneClass.MaxSpots}{" "}
-                                    Spots frei
+                                    {`${oneClass.MaxSpots - oneClass.SignedUp.length}/${oneClass.MaxSpots} Spots frei`}
                                 </div>
                             </div>
                         </div>

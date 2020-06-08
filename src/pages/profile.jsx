@@ -34,7 +34,6 @@ export const Profile = () => {
                     <EditClass />
                 </div>}
                 {classMode==="addworkout"&&<div className="classBox"><AddWorkout/></div>}
-
             {classMode === "closed" && (
                 <div className="profileInfoWrapper">
                     <div className="profileInfoBox">
@@ -96,23 +95,12 @@ export const Profile = () => {
                                                             {oneClass.Coach}
                                                         </div>
                                                         <div>
-                                                            {oneClass.FreeSpots}
-                                                            /{oneClass.MaxSpots}{" "}
-                                                            Spots frei
+                                                        {`${oneClass.MaxSpots - oneClass.SignedUp.length}/${oneClass.MaxSpots} Spots frei`}
+
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* <div className="openClass">
-                                                    <div
-                                                        onClick={(e) =>
-                                                            openSelectedClass(
-                                                                oneClass
-                                                            )
-                                                        }
-                                                    >
-                                                        Öffnen
-                                                    </div>
-                                                </div> */}
+
                                             </div>
                                         );
                                     }

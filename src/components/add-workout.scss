@@ -2,58 +2,141 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 
-    .workoutPart {
-        display: flex;
-        width: 70%;
-        justify-content: space-between;
-        b {
-            color: $orange;
-        }
-        margin-bottom: 20px;
-        margin-left: 10px;
-        &:last-of-type {
-            margin-bottom: 0;
-        }
-        
-        &.framed{
-            margin-top: 10px;
-            width: 80%;
-            padding: 5px;
-            border: 1px solid white;
-            
-            &.selected {
-                border: 1px solid $orange;
-                
-            }
-        }
+.workoutPart {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    b {
+        color: $orange;
+    }
+    margin-bottom: 10px;
+    margin-left: 10px;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
 
-        .deleteWorkout {
+    &.framed {
+        margin-top: 10px;
+        width: 80%;
+        padding: 5px;
+        border: 1px solid white;
+
+        &.selected {
             border: 1px solid $orange;
-            color: $orange;
-            height: 30px;
-            width: 30px;
-            background-color: $darkgrey;
-        }
-        .selectWOD {
-            border: none;
-            color: $orange;
-            height: 30px;
-
-            background-color: $darkgrey;                        
         }
     }
-    .addWorkoutBox {
-        width: 90%;
-        margin: auto;
+
+    .deleteWorkout {
+        border: 1px solid $orange;
+        color: $orange;
+        height: 30px;
+        width: 30px;
+        background-color: $darkgrey;
+    }
+    .selectWOD {
+        border: none;
+        color: $orange;
+        height: 30px;
+
+        background-color: $darkgrey;
+    }
+}
+.addWorkoutBox {
+    color: white;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    // .addWorkoutBoxCard{
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0;
+    //     background-color: $darkgrey;
+    // }
+
+    .backBtn{
+        font-size: $mobileFontSizeBig;
+        border: 1px solid white;
+        // color: $orange;
+        // height: 30px;
+        color: white;
+        background-color: $darkgrey;
+    }
+
+    .addWorkoutBoxCard {
+        margin-top: 20px;
+        .selectLabel {
+            font-size: $mobileFontSizeBig;
+
+            color: $orange;
+            margin-top: 20px;
+        }
+    }
+    .dropDownBox {
+        margin-top: 10px;
+    }
+    .addWorkoutBtn {
+        font-size: $mobileFontSizeBig;
+        border: 1px solid $orange;
+        // color: $orange;
+        // height: 30px;
+
+        background-color: $orange;
+    }
+
+
+    
+    .addThisWorkout{
+        margin-top: 10px;
+        font-size: $mobileFontSizeBig;
+        border: 1px solid $orange;
+        // color: $orange;
+        // height: 30px;
+    
+        background-color: $orange;
+
+    }
+
+    .addingWorkoutOptions {
         display: flex;
         flex-direction: column;
-        // .addWorkoutBoxCard{
-        //     position: absolute;
-        //     left: 0;
-        //     top: 0;
-        //     background-color: $darkgrey;
-        // }
-        .addWorkoutBtn {
+
+        label {
+            margin-top: 10px;
+        }
+    }
+    select {
+        font-size: $mobileFontSizeBig;
+        background-color: $darkgrey;
+        // width: 50%;
+        // margin: auto;
+        color: white;
+        border: 1px solid white;
+    }
+
+
+    .newWorkoutBox {
+        .newWorkoutInputBox {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+
+
+            select {
+                font-size: $mobileFontSizeBig;
+                background-color: $darkgrey;
+                color: white;
+                border: 1px solid white;
+            }
+
+            textarea {
+                margin-top: 10px;
+                height: 100px;
+                resize: none;
+            }
+        }
+        button {
             font-size: $mobileFontSizeBig;
             border: 1px solid $orange;
             // color: $orange;
@@ -61,54 +144,5 @@
 
             background-color: $orange;
         }
-
-        .addingWorkoutOptions {
-            display: flex;
-            flex-direction: column;
-        }
-        select {
-            font-size: $mobileFontSizeBig;
-            background-color: $darkgrey;
-            // width: 50%;
-            // margin: auto;
-            color: white;
-            border: 1px solid white;
-        }
-        // .searchWorkoutBox {
-        //     .searchWODBox {
-        //         .workoutList {
-        //             .workoutPart {
-        //                 .selectWOD {
-        //                     width: 50px;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-        .newWorkoutBox {
-            .newWorkoutInputBox {
-                margin-top: 10px;
-                margin-bottom: 10px;
-                display: flex;
-                flex-direction: column;
-
-                // .workoutNameInput {
-                // }
-                select {
-                    font-size: $mobileFontSizeBig;
-                    background-color: $darkgrey;
-                    color: white;
-                    border: 1px solid white;
-                }
-            }
-            button {
-                font-size: $mobileFontSizeBig;
-                border: 1px solid $orange;
-                // color: $orange;
-                // height: 30px;
-
-                background-color: $orange;
-            }
-        }
     }
+}

@@ -1,124 +1,171 @@
-import React, { useContext, useEffect } from "react";
-// import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BBxContext } from "../components/BBxContext";
-
-// import './header.css';
 
 export const EditClass = () => {
     const {
         classObjects,
-        // setClassObjects,
+        selectedClassObject,
         todaysDateString,
-        
         setClassMode,
-        classDescription1,
-        setClassDescription1,
-        coach1,
-        setCoach1,
-        workout1,
-        setWorkout1,
-        // freeSpots1,
-        // setFreeSpots1,
-        // maxSpots1,
-        // setMaxSpots1,
-        signedUp1,
-        setSignedUp1
-        // waiting1,
-        // setWaiting1
+        changesMade,
+        setChangesMade
     } = useContext(BBxContext);
 
-    // const classObject = classObjects[0];
+    const classObject = classObjects[selectedClassObject.ClassKey];
+
+    const [workout, setWorkout] = useState(classObject.Workout);
+    const [coach, setCoach] = useState(classObject.Coach);
+    const [signedUp, setSignedUp] = useState(classObject.SignedUp);
+    const [classDescription, setClassDescription] = useState(
+        classObject.ClassDescription
+    );
+    const [maxSpots, setMaxSpots] = useState(classObject.MaxSpots);
+    const [minSpots, setMinSpots] = useState(classObject.MinSpots);
 
     useEffect(() => {
-        console.log(workout1);
-        console.log(classObjects[0]);
-        classObjects[0].Workout = workout1;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [workout1]);
+        console.log(workout);
+    }, [workout]);
 
     useEffect(() => {
-        console.log(classDescription1);
-        classObjects[0].ClassDescription = classDescription1;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [classDescription1]);
+        console.log(classDescription);
+    }, [classDescription]);
 
     useEffect(() => {
-        console.log(coach1);
-        classObjects[0].Coach = coach1;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [coach1]);
+        console.log(coach);
+    }, [coach]);
     useEffect(() => {
-        console.log(signedUp1);
-        classObjects[0].SignedUp = signedUp1;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [signedUp1]);
+        console.log(signedUp);
+    }, [signedUp]);
+
+    const saveChanges = () => {
+        classObjects[selectedClassObject.ClassKey].Workout = workout;
+        classObjects[
+            selectedClassObject.ClassKey
+        ].ClassDescription = classDescription;
+        classObjects[selectedClassObject.ClassKey].Coach = coach;
+        classObjects[selectedClassObject.ClassKey].SignedUp = signedUp;
+        classObjects[selectedClassObject.ClassKey].MinSpots = minSpots;
+        classObjects[selectedClassObject.ClassKey].MaxSpots = maxSpots;
+        setChangesMade(false);
+    };
+    const revertChanges = () => {
+        setWorkout(classObjects[selectedClassObject.ClassKey].Workout);
+        setClassDescription(
+            classObjects[selectedClassObject.ClassKey].ClassDescription
+        );
+        setCoach(classObjects[selectedClassObject.ClassKey].Coach);
+        setSignedUp(classObjects[selectedClassObject.ClassKey].SignedUp);
+        setMinSpots(classObjects[selectedClassObject.ClassKey].MinSpots);
+        setMaxSpots(classObjects[selectedClassObject.ClassKey].MaxSpots);
+        setChangesMade(false);
+    };
 
     const renderWorkoutList = () => {
-        return(
-            workout1.map((workoutpart, index) => 
-                
+        return workout.map((workoutpart, index) => (
+            <div className="workoutPart" key={`${workoutpart.label}-${index}`}>
+                <div className="workoutPartWrapper">
+                    <b>{workoutpart.label}</b>
                     <div
-                        className="workoutPart"
-                        key={`${workoutpart.label}-${index}`}
-                    >
-                        <div className="workoutPartWrapper">
-                            <b>{workoutpart.label}</b>
-                            <div
-                                dangerouslySetInnerHTML={{
-                                    __html: workoutpart.text
-                                }}
-                            />
-                        </div>
-                        <button className="deleteWorkout"
-                            onClick={(e) =>
-                                // deleteWorkout(index)
-                                setWorkout1([...workout1.slice(0,index), ...workout1.slice(index+1)])
-
-                            }
-                        >X</button>
-                    </div>
-             
-            )
-        )
-    }
+                        dangerouslySetInnerHTML={{
+                            __html: workoutpart.text
+                        }}
+                    />
+                </div>
+                <button
+                    className="deleteWorkout"
+                    onClick={(e) => {
+                        setWorkout([
+                            ...workout.slice(0, index),
+                            ...workout.slice(index + 1)
+                        ]);
+                        setChangesMade(true);
+                    }}
+                >
+                    X
+                </button>
+            </div>
+        ));
+    };
 
     return (
         <div className="classInfoWrapper">
-            <button onClick={(e) => setClassMode("classinfo")}>
+            <button
+                className="backBtn"
+                onClick={(e) => setClassMode("classinfo")}
+            >
                 zurück zum Kurs
-            </button>
-            <button onClick={(e) => setClassMode("classinfo")}>
-                Änderungen speichern
             </button>
 
             <div className="classInfoBox">
                 <div className="classInfoInnerWrapper">
-                    {/* <div className="popUpBeforeDelete">
-                        <p>Bist du sicher?</p>
-                        <button>Nein, abbrechen</button>
-                        <button>Ja, löschen</button>
-                    </div>
-                    <div className="popUpBeforeSave">
-                        <p>Bist du sicher?</p>
-                        <button>Nein, abbrechen</button>
-                        <button>Ja, speichern</button>
-                    </div> */}
                     <div className="classDetails">
                         Bearbeitungsmodus
-                        <h2>{classObjects[0].ClassType}</h2>
+                        {changesMade && (
+                            <div className="saveBtnsWrapper">
+                                <button
+                                    className="revertChangesBtn"
+                                    onClick={(e) => revertChanges()}
+                                >
+                                    Änderungen zurücksetzen
+                                </button>
+                                <button
+                                    className="saveChangesBtn"
+                                    onClick={(e) => saveChanges()}
+                                >
+                                    Änderungen speichern
+                                </button>
+                            </div>
+                        )}
+                        <h2>{classObject.ClassType}</h2>
                         <div>
-                            ({classObjects[0].FreeSpots} freie Plätze) um{" "}
-                            {classObjects[0].StartTime}-{classObjects[0].EndTime} am{" "}
-                            {todaysDateString}
+                            {`(${
+                                classObject.MaxSpots -
+                                classObject.SignedUp.length
+                            } freie Plätze) um ${classObject.StartTime}-${
+                                classObject.EndTime
+                            } am 
+                            ${todaysDateString}`}
                         </div>
                     </div>
+                    <div className="minMaxInputWrapper">
+                        <div>
+                            <label>minimal</label>
+                            <input
+                                value={minSpots}
+                                onChange={(e) => {
+                                    setMinSpots(e.target.value);
+                                    setChangesMade(true);
+                                }}
+                                type="number"
+                                min="0"
+                            />
+                        </div>
+                        <div>
+                            <label>bis maximal</label>
+                            <input
+                                value={maxSpots}
+                                onChange={(e) => {
+                                    setMaxSpots(e.target.value);
+                                    setChangesMade(true);
+                                }}
+                                type="number"
+                                min="0"
+                            />
+                        </div>
+                        Teilnehmer
+                    </div>
                     <div className="classDescriptionText">
-                        <input
+                        <label htmlFor="descriptionTextArea">
+                            Beschreibung bearbeiten
+                        </label>
+                        <textarea
                             type="text"
-                            value={classDescription1}
-                            onChange={(e) =>
-                                setClassDescription1(e.target.value)
-                            }
+                            name="descriptionTextArea"
+                            value={classDescription}
+                            onChange={(e) => {
+                                setClassDescription(e.target.value);
+                                setChangesMade(true);
+                            }}
                         />
                     </div>
 
@@ -126,12 +173,13 @@ export const EditClass = () => {
                         <div className="workoutHeadline">
                             <h3>Workout </h3>{" "}
                             <div>
-                                mit Coach{" "}
+                                Coach:
                                 <select
                                     className="dropDownBox"
-                                    value={coach1}
+                                    value={coach}
                                     onChange={(e) => {
-                                        setCoach1(e.target.value);
+                                        setCoach(e.target.value);
+                                        setChangesMade(true);
                                     }}
                                 >
                                     <option value="Peter">Peter</option>
@@ -141,24 +189,38 @@ export const EditClass = () => {
                                 </select>
                             </div>
                         </div>
-                        <div className="workoutList">
-                                    {renderWorkoutList()}
-                        </div>
+                        <div className="workoutList">{renderWorkoutList()}</div>
                     </div>
-                            <button onClick={(e)=>setClassMode("addworkout")}>Workout hinzufügen</button>
+                    <button
+                        className="addWorkoutBtn"
+                        onClick={(e) => setClassMode("addworkout")}
+                    >
+                        + Workout-Komponente
+                    </button>
 
-                    <div className="signedUpList">
-                        <div className="signedUpBtn">
+                    <div className="signedUpAndWaitingList">
+                        <div className="signedUpList">
                             <ul>
                                 <b>Teilnehmer</b>
-                                {signedUp1.map((athlete, index) => {
+                                {signedUp.map((athlete, index) => {
                                     return (
                                         <li key={athlete}>
                                             {athlete}
                                             <button
                                                 onClick={(e) =>
                                                     // deleteAthlete(index)
-                                                    setSignedUp1([...signedUp1.slice(0,index), ...signedUp1.slice(index+1)])
+                                                    {
+                                                        setSignedUp([
+                                                            ...signedUp.slice(
+                                                                0,
+                                                                index
+                                                            ),
+                                                            ...signedUp.slice(
+                                                                index + 1
+                                                            )
+                                                        ]);
+                                                        setChangesMade(true);
+                                                    }
                                                 }
                                             >
                                                 X
@@ -168,9 +230,11 @@ export const EditClass = () => {
                                 })}
                                 <button>Teilnehmer hinzufügen</button>
                             </ul>
+                        </div>
+                        <div className="waitingList">
                             <ul>
                                 <b>Warteliste</b>
-                                {classObjects[0].Waiting.map((athlete) => {
+                                {classObject.Waiting.map((athlete) => {
                                     return <li key={athlete}>{athlete}</li>;
                                 })}
                             </ul>

@@ -4,7 +4,7 @@ import { BBxContext } from "./BBxContext";
 // import './header.css';
 
 export const Menu = () => {
-    const { status, setStatus, memberType} = useContext(BBxContext);
+    const { status, setStatus, memberType, setClassMode} = useContext(BBxContext);
 
     return (
         <div className="menubox">
@@ -14,7 +14,7 @@ export const Menu = () => {
                         ? "headerOption profile selected"
                         : "headerOption profile"
                 }
-                onClick={(e) => setStatus("PROFILE")}
+                onClick={(e) => {setStatus("PROFILE");setClassMode("closed")}}
             />
             <button
                 className={
@@ -22,7 +22,7 @@ export const Menu = () => {
                         ? "headerOption timetable selected"
                         : "headerOption timetable"
                 }
-                onClick={(e) => setStatus("TIMETABLE")}
+                onClick={(e) => {setStatus("TIMETABLE"); setClassMode("closed")}}
             />
             {/* <button
                 className={

@@ -6,9 +6,7 @@ import TimetableFull from "../components/timetable-full";
 import ClassInfo from "../components/class-info";
 import EditClass from "../components/edit-class";
 import AddWorkout from "../components/add-workout";
-
-// const getWeekDates = () => {
-// }
+import NewClass from "../components/new-class";
 
 export const Timetable = () => {
     const { classMode} = useContext(BBxContext);
@@ -17,6 +15,7 @@ export const Timetable = () => {
         <div className="timetableBox">
             {classMode === "classinfo" &&<ClassInfo />}
             {classMode === "editclass" && <EditClass/>}
+            {classMode === "newclass"&&<NewClass/>}
             {classMode==="addworkout"&&<AddWorkout/>}
             {classMode === "closed" &&<TimetableFull />}
 

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { BBxContext } from "./BBxContext";
 
@@ -9,7 +9,15 @@ import Classes from "./classes";
 // }
 
 export const TimetableFull = () => {
-    const { memberType, todaysDate, todaysDateString } = useContext(BBxContext);
+    const {
+        memberType,
+        todaysDate,
+        todaysDateString,
+        setClassMode,
+        setSelectedClassObject,
+        selectedClassObject,
+        classObjects
+    } = useContext(BBxContext);
 
     const now = todaysDate;
     const todaysWeekDay = now.getDay();
@@ -77,6 +85,35 @@ export const TimetableFull = () => {
         );
     };
 
+    useEffect(() => {
+        console.log("selectedClassObject should be empty:",selectedClassObject);
+    }, [selectedClassObject]);
+
+    useEffect(() => {
+        console.log("classObjects:",classObjects);
+    }, [classObjects]);
+
+const triggerSetClassMode = () => {
+    setClassMode("newclass");
+} 
+
+    const openAddNewClass = () => {
+        setSelectedClassObject({
+            ClassKey: classObjects.length,
+            ClassDescription: "",
+            ClassType: "",
+            Coach: "",
+            StartTime: "",
+            EndTime: "",
+            Date: todaysDateString,
+            Workout: [],
+            MinSpots: 0,
+            MaxSpots: 0,
+            SignedUp: [],
+            Waiting: []
+        },[triggerSetClassMode()]);
+    };
+
     return (
         <div className="FullTimetableWrapper">
             {memberType !== "Athlet" && (
@@ -95,7 +132,12 @@ export const TimetableFull = () => {
                         {generateWeekdayBtn("SO", 0, 6)}
                     </div>
                     {memberType !== "Athlet" && (
-                        <div className="addClass">
+                        <div
+                            onClick={(e) => {
+                                openAddNewClass();
+                            }}
+                            className="addClass"
+                        >
                             Sonderkurs am {selectedDate} hinzufügen
                         </div>
                     )}
