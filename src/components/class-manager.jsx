@@ -1,18 +1,26 @@
 import React, { useContext } from "react";
 import { BBxContext } from "./BBxContext";
+import ClassSettings from "./class-settings";
+import ClassTypes from "./class-types";
+import WeekBase from "./week-base";
 
-// import './header.css';
+import "./class-manager.scss";
 
-
-// const getWeekDates = () => {
-// }
 
 export const ClassManager = () => {
-    const { isClassLayerVisible } = useContext(BBxContext);
+    const { setClassMode } = useContext(BBxContext);
 
     return (
-        <div className="classMngrWrapper">
-
+        <div className="classManagerWrapper">
+                            <button
+                    className="backBtn"
+                    onClick={(e) => setClassMode("closed")}
+                    >
+                    zurück zur Kursübersicht
+                </button>
+            <ClassTypes />
+            <ClassSettings />
+            <WeekBase />
         </div>
     );
 };

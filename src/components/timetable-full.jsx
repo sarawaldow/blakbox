@@ -66,7 +66,7 @@ export const TimetableFull = () => {
         setSelectedDate(dates[dateObjIndex]);
     };
 
-    const generateWeekdayBtn = (weeekdayString, weekdayIndex, dateObjIndex) => {
+    const generateWeekdayBtn = (weekdayString, weekdayIndex, dateObjIndex) => {
         return (
             <div
                 className={
@@ -78,7 +78,7 @@ export const TimetableFull = () => {
                     dateSelectionHandler(weekdayIndex, dateObjIndex)
                 }
             >
-                {weeekdayString}
+                {weekdayString}
                 <br />
                 {dates[dateObjIndex]}
             </div>
@@ -117,11 +117,16 @@ const triggerSetClassMode = () => {
     return (
         <div className="FullTimetableWrapper">
             {memberType !== "Athlet" && (
-                <div className="classMngBtn">Kursverwaltung</div>
+                <div className="classMngBtn" onClick={(e)=> setClassMode("classmanager")}>Kursverwaltung</div>
             )}
             <div className="timetableWrapper">
                 <h2>Kursplan</h2>
                 <div className="week">
+                    <div className="switchWeekButtonsWrapper">
+                        <button className="lastWeekBtn">zurück</button>
+                        <div>KW x</div>
+                        <button className="nextWeekBtn">vor</button>
+                    </div>
                     <div className="weekdayWrapper">
                         {generateWeekdayBtn("MO", 1, 0)}
                         {generateWeekdayBtn("DI", 2, 1)}

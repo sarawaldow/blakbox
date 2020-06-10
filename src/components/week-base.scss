@@ -1,0 +1,43 @@
+@import "../variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+.weekBaseBox {
+    color: white;
+
+    .weekDayRow {
+        margin: auto;
+        .oneWeekDay {
+            border: none;
+            border-bottom: 1px solid white;
+        }
+        .oneClass {
+            border: none;
+            border-bottom: 1px solid $orange;
+        }
+    }
+}
+
+.editWeekBaseWrapper {
+    .weekdayWrapper{
+        display: flex;
+        justify-content: space-evenly;
+        .weekday {
+            display: flex;
+            font-weight: bold;
+
+            font-size: $mobileFontSizeBig;
+            justify-content: center;
+            text-align: center;
+            background-color: $orange;
+            border: 1px solid $darkgrey;
+            color: $darkgrey;
+            height: 40px;
+            width: calc(100% / 7);
+
+            &.selected {
+                background-color: white;
+            }
+        }
+    }
+}

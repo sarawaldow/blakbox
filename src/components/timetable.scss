@@ -29,11 +29,13 @@
             display: flex;
             justify-content: space-evenly;
             .weekday {
+                font-weight: bold;
                 display: flex;
                 justify-content: center;
                 text-align: center;
+                color: $darkgrey;
                 background-color: $orange;
-                border: 1px solid white;
+                border: 1px solid $darkgrey;
                 height: 40px;
                 width: calc(100% / 7);
 
