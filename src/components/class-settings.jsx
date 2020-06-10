@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export const ClassSettings = () => {
     const {
-        setClassMode,
         signUpTime,
         setSignUpTime,
         signOffTill,

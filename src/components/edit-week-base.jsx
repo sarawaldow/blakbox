@@ -43,6 +43,7 @@ export const EditWeekBase = () => {
                     (weekday) =>
                         weekday.Day === selectedDay && (
                             <div className="weekDayRow">
+                                <button>+ Kurs</button>
                                 {weekday.Classes.map((oneClass) => (
                                     <div className="oneClass">
                                         {oneClass.Class}
@@ -64,6 +65,23 @@ export const EditWeekBase = () => {
                                                 WOD Fortgeschrittene
                                             </option>
                                         </select>
+                                        <select
+                                            className="chooseCoach"
+                                            value={oneClass.Coach}
+                                        >
+                                            <option value="Peter">
+                                                Peter
+                                            </option>
+                                            <option value="Anke">
+                                                Anke
+                                            </option>
+                                            <option value="Hans">
+                                                Hans
+                                            </option>
+                                            <option value="Gerda">
+                                                Gerda
+                                            </option>
+                                        </select>
                                         <input
                                             value={oneClass.StartTime}
                                             type="time"
@@ -82,6 +100,16 @@ export const EditWeekBase = () => {
                                             type="number"
                                             min="0"
                                         />
+                                        <div className="checkboxesWrapper">
+
+                                        <label>MO<input type="checkbox"/></label>
+                                        <label>DI<input type="checkbox"/></label>
+                                        <label>MI<input type="checkbox"/></label>
+                                        <label>DO<input type="checkbox"/></label>
+                                        <label>FR<input type="checkbox"/></label>
+                                        <label>SA<input type="checkbox"/></label>
+                                        <label>SO<input type="checkbox"/></label>
+                                        </div>
                                         <button>Kurs löschen</button>
                                     </div>
                                 ))}
@@ -97,7 +125,7 @@ export const EditWeekBase = () => {
     return (
         <div className="editWeekBaseWrapper">
             <button onClick={(e) => setClassMode("classmanager")}>
-                aktuelle Basis bearbeiten
+                zurück zur Kursverwaltung
             </button>
 
             <h3>Basis bearbeiten</h3>

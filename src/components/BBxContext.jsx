@@ -159,7 +159,7 @@ const BBxProvider = (props) => {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"",
+                            Coach:"Peter",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -168,7 +168,7 @@ const BBxProvider = (props) => {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"",
+                            Coach:"Anke",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -177,7 +177,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"",
+                            Coach:"Hans",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -186,7 +186,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"",
+                            Coach:"Gerda",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -200,7 +200,7 @@ const BBxProvider = (props) => {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"",
+                            Coach:"Peter",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -209,7 +209,7 @@ const BBxProvider = (props) => {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"",
+                            Coach:"Anke",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -218,7 +218,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"",
+                            Coach:"Hans",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -227,7 +227,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"",
+                            Coach:"Gerda",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -241,7 +241,7 @@ const BBxProvider = (props) => {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"",
+                            Coach:"Peter",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -250,7 +250,7 @@ const BBxProvider = (props) => {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"",
+                            Coach:"Anke",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -259,7 +259,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"",
+                            Coach:"Hans",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -268,7 +268,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"",
+                            Coach:"Gerda",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -282,7 +282,7 @@ const BBxProvider = (props) => {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"",
+                            Coach:"Peter",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -291,7 +291,7 @@ const BBxProvider = (props) => {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"",
+                            Coach:"Anke",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -300,7 +300,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"",
+                            Coach:"Hans",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -309,7 +309,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"",
+                            Coach:"Gerda",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -323,7 +323,7 @@ const BBxProvider = (props) => {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"",
+                            Coach:"Peter",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -332,7 +332,7 @@ const BBxProvider = (props) => {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"",
+                            Coach:"Anke",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -341,7 +341,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"",
+                            Coach:"Hans",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -350,7 +350,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"",
+                            Coach:"Gerda",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -364,7 +364,7 @@ const BBxProvider = (props) => {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"",
+                            Coach:"Peter",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -373,7 +373,7 @@ const BBxProvider = (props) => {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"",
+                            Coach:"Anke",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -382,7 +382,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"",
+                            Coach:"Hans",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -391,7 +391,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"",
+                            Coach:"Gerda",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -405,7 +405,7 @@ const BBxProvider = (props) => {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"",
+                            Coach:"Peter",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -414,7 +414,7 @@ const BBxProvider = (props) => {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"",
+                            Coach:"Anke",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -423,7 +423,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"",
+                            Coach:"Hans",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
@@ -432,7 +432,7 @@ const BBxProvider = (props) => {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"",
+                            Coach:"Gerda",
                             MinSpots:0,
                             MaxSpots:0,
                             Rhythm:"jede Woche"
