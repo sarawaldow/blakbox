@@ -8,7 +8,36 @@
     }
 
     .editMemberWrapper{
+
         color: white;
+        button{
+            margin-top: 20px;
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+    
+            color: white;
+            background-color: $darkgrey;
+        }
+        select{
+            font-size: $mobileFontSizeMedium;
+            background-color: $darkgrey;
+            color: white;
+            border: 1px solid white;   
+        }
+        .openContractSettingsBtn{
+            border: none;
+            font-size: $mobileFontSizeMedium;
+            
+            color: black;
+            margin-top: 10px;
+            
+            text-align: center;
+            background-color: $orange;
+        }
+
+        .deleteMember{
+        }
+
     }
 
 
