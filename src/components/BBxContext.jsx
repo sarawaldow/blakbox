@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const BBxContext = React.createContext(null);
 
 const BBxProvider = (props) => {
-    const [status, setStatus] = useState("TIMETABLE");
+    const [status, setStatus] = useState("MEMBERS");
 
     const [memberType, setMemberType] = useState("Box Owner");
 
@@ -14,7 +14,8 @@ const BBxProvider = (props) => {
             .substring(0, todaysDate.toLocaleDateString().length - 4)
     );
 
-    const [classMode, setClassMode] = useState("classmanager");
+    const [classMode, setClassMode] = useState("closed");
+    const [memberPageMode, setMemberPageMode] = useState("closed");
 
     // user info
     const [userName, setUserName] = useState("Maxi Muster");
@@ -31,6 +32,63 @@ const BBxProvider = (props) => {
 
     const [credits, setCredits] = useState(8);
     const [changesMade, setChangesMade] = useState(false);
+
+    const [selectedMember, setSelectedMember] = useState();
+
+    const [listOfMembers, setListOfMembers] = useState([
+        {
+            Key: 0,
+            Activated: true,
+            Name: "Susi Anders",
+            Bday: "02.02.1985",
+            EMail: "susi.anders@gmail.de",
+            Phone: "015198765432",
+            Address: "",
+            lastVisited: "27.05.2020",
+            Status: "Athlet",
+            Level: "Anfänger",
+            Contract: "Half Member"
+        },
+        {
+            Key: 1,
+            Activated: true,
+            Name: "Peter Müller",
+            Bday: "15.09.1972",
+            EMail: "peter.mueller@gmx.de",
+            Phone: "017012345678",
+            Address: "",
+            lastVisited: "11.06.2020",
+            Status: "Coach",
+            Level: "Fortgeschritten",
+            Contract: "Full Member"
+        },
+        {
+            Key: 2,
+            Activated: false,
+            Name: "Monika Löwe",
+            Bday: "15.09.1972",
+            EMail: "mo-lo@gmail.com",
+            Phone: "017012345678",
+            Address: "",
+            lastVisited: "",
+            Status: "Athlet",
+            Level: "Anfänger",
+            Contract: "Half Member"
+        },
+        {
+            Key: 3,
+            Activated: false,
+            Name: "Jan Christen",
+            Bday: "15.09.1972",
+            EMail: "jchristen@gmx.de",
+            Phone: "017012345678",
+            Address: "",
+            lastVisited: "",
+            Status: "Athlet",
+            Level: "Anfänger",
+            Contract: "Full Member"
+        }
+    ]);
 
     const [classObjects, setClassObjects] = useState([
         {
@@ -153,289 +211,289 @@ const BBxProvider = (props) => {
             Name: "Standardplan-01",
             WeekDays: [
                 {
-                    Day:"MO",
+                    Day: "MO",
                     Classes: [
                         {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"Peter",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Peter",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"Anke",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Anke",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"Hans",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Hans",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"Gerda",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Gerda",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         }
                     ]
                 },
                 {
-                    Day:"DI",
+                    Day: "DI",
                     Classes: [
                         {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"Peter",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Peter",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"Anke",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Anke",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"Hans",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Hans",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"Gerda",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Gerda",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         }
                     ]
                 },
                 {
-                    Day:"MI",
+                    Day: "MI",
                     Classes: [
                         {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"Peter",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Peter",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"Anke",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Anke",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"Hans",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Hans",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"Gerda",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Gerda",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         }
                     ]
                 },
                 {
-                    Day:"DO",
+                    Day: "DO",
                     Classes: [
                         {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"Peter",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Peter",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"Anke",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Anke",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"Hans",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Hans",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"Gerda",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Gerda",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         }
                     ]
                 },
                 {
-                    Day:"FR",
+                    Day: "FR",
                     Classes: [
                         {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"Peter",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Peter",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"Anke",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Anke",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"Hans",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Hans",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"Gerda",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Gerda",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         }
                     ]
                 },
                 {
-                    Day:"SA",
+                    Day: "SA",
                     Classes: [
                         {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"Peter",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Peter",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"Anke",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Anke",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"Hans",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Hans",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"Gerda",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Gerda",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         }
                     ]
                 },
                 {
-                    Day:"SO",
+                    Day: "SO",
                     Classes: [
                         {
                             Class: "Open Gym",
                             StartTime: "10:00",
                             EndTime: "11:00",
-                            Coach:"Peter",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Peter",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD Anfänger",
                             StartTime: "15:00",
                             EndTime: "16:00",
-                            Coach:"Anke",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Anke",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "18:00",
                             EndTime: "19:00",
-                            Coach:"Hans",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Hans",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         },
                         {
                             Class: "WOD All Level",
                             StartTime: "19:00",
                             EndTime: "20:00",
-                            Coach:"Gerda",
-                            MinSpots:0,
-                            MaxSpots:0,
-                            Rhythm:"jede Woche"
+                            Coach: "Gerda",
+                            MinSpots: 0,
+                            MaxSpots: 0,
+                            Rhythm: "jede Woche"
                         }
                     ]
                 }
@@ -511,10 +569,19 @@ const BBxProvider = (props) => {
                 currentWeekBase,
                 setCurrentWeekBase,
                 nextWeekBase,
-                setNextWeekBase,signUpTime, setSignUpTime,
-                signOffTill, setSignOffTill,
-                workoutVisibilityTime, setWorkoutVisibilityTime,
-                checkSignedUp, setCheckSignedUp
+                setNextWeekBase,
+                signUpTime,
+                setSignUpTime,
+                signOffTill,
+                setSignOffTill,
+                workoutVisibilityTime,
+                setWorkoutVisibilityTime,
+                checkSignedUp,
+                setCheckSignedUp,
+                listOfMembers,
+                setListOfMembers,
+                selectedMember,
+                setSelectedMember, memberPageMode, setMemberPageMode
             }}
         >
             {props.children}

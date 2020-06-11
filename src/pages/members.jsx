@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { BBxContext } from "../components/BBxContext";
 
-// import './header.css';
+import MembersList from "../components/members-list";
+import ContractTypes from "../components/contract-types";
+
+import "./members.scss";
+import EditMember from "../components/edit-member";
 
 export const Members = () => {
+    const { memberPageMode } = useContext(BBxContext);
+
     return (
         <div className="memberswrapper">
-            <div className="changeContractTypesBtn">bli</div>
-            <div className="registrationPendingList">bla</div>
-            <div className="membersList">blub</div>
+            {memberPageMode === "closed" && (
+                <div>
+                    <h2>Mitgliederverwaltung</h2>
+                    <ContractTypes />
+                    <MembersList />
+                </div>
+            )}
+            {memberPageMode === "editmember"&& <EditMember/>}
         </div>
     );
 };

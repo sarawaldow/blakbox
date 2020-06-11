@@ -1,0 +1,60 @@
+@import "../variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+.memberswrapper {
+    h2 {
+        color: $orange;
+    }
+
+    .editMemberWrapper{
+        color: white;
+    }
+
+
+    .contractTypesWrapper{
+        button {
+            font-size: $mobileFontSizeMedium;
+            border: none;
+            
+            // color: white;
+            background-color: $orange;
+        }
+    }
+
+    .registrationPendingListWrapper{
+        color: white;
+        .buttonWrapper{
+            select{
+                font-size: $mobileFontSizeMedium;
+                background-color: $darkgrey;
+                color: white;
+                border: 1px solid white;
+            }
+
+            .activateBtn{                
+                border: 1px solid $orange;
+                background-color: $orange;
+
+            }
+        }
+        .regBox{
+            border: 1px solid $orange;
+            margin-bottom: 10px;
+        }
+    }
+
+    .membersListWrapper {
+        color: white;
+        .checkboxesWrapper {
+            margin-bottom: 10px;
+        }
+        .searchBar {
+            margin-bottom: 10px;
+        }
+        .memberBox {
+            border: 1px solid $orange;
+            margin-bottom: 10px;
+        }
+    }
+}

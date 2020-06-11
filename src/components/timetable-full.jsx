@@ -36,6 +36,26 @@ export const TimetableFull = () => {
         6: -5
     };
 
+    const getWeek = () => {
+        let date = new Date(now.getTime());
+        date.setHours(0, 0, 0, 0);
+        // Thursday in current week decides the year.
+        date.setDate(date.getDate() + 3 - ((date.getDay() + 6) % 7));
+        // January 4 is always in week 1.
+        let week1 = new Date(date.getFullYear(), 0, 4);
+        // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+        return (
+            1 +
+            Math.round(
+                ((date.getTime() - week1.getTime()) / 86400000 -
+                    3 +
+                    ((week1.getDay() + 6) % 7)) /
+                    7
+            )
+        );
+    };
+    const thisWeekNumber = getWeek();
+
     const getMondaysDate = () => {
         let numberOfDaysToMonday = 0;
         Object.entries(weekDaysDifferenceToMonday).forEach(([key, value]) => {
@@ -86,46 +106,60 @@ export const TimetableFull = () => {
     };
 
     useEffect(() => {
-        console.log("selectedClassObject should be empty:",selectedClassObject);
+        console.log(
+            "selectedClassObject should be empty:",
+            selectedClassObject
+        );
     }, [selectedClassObject]);
 
     useEffect(() => {
-        console.log("classObjects:",classObjects);
+        console.log("classObjects:", classObjects);
     }, [classObjects]);
 
-const triggerSetClassMode = () => {
-    setClassMode("newclass");
-} 
+    const triggerSetClassMode = () => {
+        setClassMode("newclass");
+    };
 
     const openAddNewClass = () => {
-        setSelectedClassObject({
-            ClassKey: classObjects.length,
-            ClassDescription: "",
-            ClassType: "",
-            Coach: "",
-            StartTime: "",
-            EndTime: "",
-            Date: todaysDateString,
-            Workout: [],
-            MinSpots: 0,
-            MaxSpots: 0,
-            SignedUp: [],
-            Waiting: []
-        },[triggerSetClassMode()]);
+        setSelectedClassObject(
+            {
+                ClassKey: classObjects.length,
+                ClassDescription: "",
+                ClassType: "",
+                Coach: "",
+                StartTime: "",
+                EndTime: "",
+                Date: todaysDateString,
+                Workout: [],
+                MinSpots: 0,
+                MaxSpots: 0,
+                SignedUp: [],
+                Waiting: []
+            },
+            [triggerSetClassMode()]
+        );
     };
 
     return (
         <div className="FullTimetableWrapper">
             {memberType !== "Athlet" && (
-                <div className="classMngBtn" onClick={(e)=> setClassMode("classmanager")}>Kursverwaltung</div>
+                <div className="classMngBtnWrapper">
+
+                <button
+                    className="classMngBtn"
+                    onClick={(e) => setClassMode("classmanager")}
+                    >
+                    Kursverwaltung
+                </button>
+                    </div>
             )}
             <div className="timetableWrapper">
                 <h2>Kursplan</h2>
                 <div className="week">
                     <div className="switchWeekButtonsWrapper">
-                        <button className="lastWeekBtn">zurück</button>
-                        <div>KW x</div>
-                        <button className="nextWeekBtn">vor</button>
+            <button className="lastWeekBtn">{"<"}</button>
+                        <div>KW {thisWeekNumber}</div>
+                        <button className="nextWeekBtn">{">"}</button>
                     </div>
                     <div className="weekdayWrapper">
                         {generateWeekdayBtn("MO", 1, 0)}

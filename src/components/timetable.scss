@@ -2,10 +2,18 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 
+.classMngBtnWrapper{
+display: flex;
+flex-direction: column;
+    .classMngBtn{
+        margin-top: 20px;
+        font-size: $mobileFontSizeBig;
+        border: none;
 
-.classMngBtn{
-    border: 1px solid white;
-    color: white;
+        // color: white;
+        background-color: $orange;
+        align-self: flex-end;
+    }
 }
 
 .timetableWrapper {
@@ -25,6 +33,29 @@
         flex-direction: column;
         justify-content: space-evenly;
 
+        .switchWeekButtonsWrapper{
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            border:\ 1px solid $orange;
+            border: none;
+            
+            margin-bottom: 5px;
+            div{
+                color: white;
+                font-size: $mobileFontSizeBig;
+                align-self: center;
+
+            }
+            button{
+                width: 30px;
+                font-weight: bold;
+                background-color: $darkgrey;
+                border: none;
+                // border-left: 1px solid $orange;
+                color: $orange;
+            }
+        }
         .weekdayWrapper {
             display: flex;
             justify-content: space-evenly;
