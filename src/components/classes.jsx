@@ -4,10 +4,9 @@ import { BBxContext } from "./BBxContext";
 // import './header.css';
 
 export const Classes = () => {
-    const {
-        classObjects,
-        setSelectedClassObject, setClassMode
-    } = useContext(BBxContext);
+    const { classObjects, setSelectedClassObject, setClassMode } = useContext(
+        BBxContext
+    );
 
     const openSelectedClass = (obj) => {
         setSelectedClassObject(obj);
@@ -24,18 +23,19 @@ export const Classes = () => {
                         key={oneClass.ClassKey}
                     >
                         <div className="classDetailBox">
-                            <div className="classDetails">
+                            <div className="classDetails one">
                                 <div>
-                                    <b>{oneClass.ClassType}</b>
-                                </div>
-                                <div>
-                                    {oneClass.StartTime}-{oneClass.EndTime}
+                                    <div>
+                                        {oneClass.StartTime}-{oneClass.EndTime}
+                                    </div>
+                                    <h3>{oneClass.ClassType}</h3>
                                 </div>
                             </div>
-                            <div className="classDetails">
-                                <div>Coach:{" "}{oneClass.Coach}</div>
+                            <div className="classDetails two">
+                                <div>Coach: {oneClass.Coach}</div>
                                 <div>
-                                    {`${oneClass.MaxSpots - oneClass.SignedUp.length}/${oneClass.MaxSpots} Spots frei`}
+                                    <span>{oneClass.MaxSpots - oneClass.SignedUp.length}</span>
+                                    {`/${oneClass.MaxSpots} Spots frei`}
                                 </div>
                             </div>
                         </div>

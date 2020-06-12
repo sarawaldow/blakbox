@@ -50,15 +50,13 @@
                 flex-direction: column;
                 justify-content: space-between;
 
-                
                 margin-top: 20px;
                 margin-bottom: 20px;
                 border-bottom: 1px solid $orange;
-                &.newClass{
+                &.newClass {
                     border: none;
                     margin-bottom: 0;
-                    
-                            }
+                }
                 .saveClassBtn {
                     width: 200px;
                     margin: auto;
@@ -72,9 +70,9 @@
                     display: flex;
                     flex-direction: column;
 
-                    .selectClassTypeWrapper{
+                    .selectClassTypeWrapper {
                         margin-bottom: 15px;
-                        
+
                         select {
                             margin-top: 10px;
                             font-size: $mobileFontSizeBig;
@@ -117,7 +115,7 @@
                                     margin-top: 5px;
                                     font-size: $mobileFontSizeBig;
                                     width: 100px;
-                                    height: 30px;
+                                    height: 20px;
                                     border: 1px solid $orange;
                                     color: white;
                                     background-color: $darkgrey;
@@ -158,14 +156,13 @@
                 color: $orange;
                 margin: 0;
                 margin-bottom: 10px;
-
             }
             .minMaxInputWrapper {
                 font-size: $mobileFontSizeMedium;
                 input[type="number"] {
                     font-size: $mobileFontSizeBig;
                     width: 30px;
-                    height: 30px;
+                    height: 20px;
                     border: 1px solid $orange;
                     color: white;
                     background-color: $darkgrey;
@@ -226,8 +223,13 @@
                     }
                     .workoutPart {
                         display: flex;
-                        width: 70%;
+                        width: 100%;
                         justify-content: space-between;
+                        .workoutPartWrapper {
+                            margin-left: 10px;
+                            max-width: 500px;
+                            word-break: break-word;
+                        }
                         div {
                             white-space: pre-line;
                         }
@@ -236,7 +238,6 @@
                             color: $orange;
                         }
                         margin-bottom: 20px;
-                        margin-left: 10px;
                         &:last-of-type {
                             margin-bottom: 0;
                         }

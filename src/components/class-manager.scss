@@ -7,6 +7,16 @@ h3 {
     color: $orange;
     margin-bottom: 10px;
 }
+.classManagerWrapper{
+    .backBtn{
+        margin-top: 20px;
+        font-size: $mobileFontSizeBig;
+        border: 1px solid white;
+
+        color: white;
+        background-color: $darkgrey;
+    }
+}
 
 .settingsWrapper{
     width: 100%;

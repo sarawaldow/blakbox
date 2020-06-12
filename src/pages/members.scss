@@ -7,67 +7,90 @@
         color: $orange;
     }
 
-    .editMemberWrapper{
-
+    .editContractWrapper {
         color: white;
-        button{
+        button {
             margin-top: 20px;
             font-size: $mobileFontSizeMedium;
             border: 1px solid white;
-    
+
             color: white;
             background-color: $darkgrey;
         }
-        select{
+        select {
             font-size: $mobileFontSizeMedium;
             background-color: $darkgrey;
             color: white;
-            border: 1px solid white;   
+            border: 1px solid white;
         }
-        .openContractSettingsBtn{
+        input {
+            margin: auto;
+            margin-top: 5px;
+            font-size: $mobileFontSizeMedium;
+            width: 125px;
+            height: 20px;
+            border: 1px solid $orange;
+            color: white;
+            background-color: $darkgrey;
+        }
+    }
+    .editMemberWrapper {
+        color: white;
+        button {
+            margin-top: 20px;
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+
+            color: white;
+            background-color: $darkgrey;
+        }
+        select {
+            font-size: $mobileFontSizeMedium;
+            background-color: $darkgrey;
+            color: white;
+            border: 1px solid white;
+        }
+        .openContractSettingsBtn {
             border: none;
             font-size: $mobileFontSizeMedium;
-            
+
             color: black;
             margin-top: 10px;
-            
+
             text-align: center;
             background-color: $orange;
         }
 
-        .deleteMember{
+        .deleteMember {
         }
-
     }
 
-
-    .contractTypesWrapper{
+    .contractTypesWrapper {
         button {
             font-size: $mobileFontSizeMedium;
             border: none;
-            
+
             // color: white;
             background-color: $orange;
         }
     }
 
-    .registrationPendingListWrapper{
+    .registrationPendingListWrapper {
         color: white;
-        .buttonWrapper{
-            select{
+        .buttonWrapper {
+            select {
                 font-size: $mobileFontSizeMedium;
                 background-color: $darkgrey;
                 color: white;
                 border: 1px solid white;
             }
 
-            .activateBtn{                
+            .activateBtn {
                 border: 1px solid $orange;
                 background-color: $orange;
-
             }
         }
-        .regBox{
+        .regBox {
             border: 1px solid $orange;
             margin-bottom: 10px;
         }

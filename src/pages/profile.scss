@@ -2,66 +2,147 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 
+.editProfileWrapper {
+    width: 95vw;
+    max-width: 600px;
+    margin: auto;
 
-.profileInfoBox{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    .backBtn{
+        margin-top: 20px;
+        font-size: $mobileFontSizeBig;
+        border: 1px solid white;
+
+        color: white;
+        background-color: $darkgrey;
+    }
+
+    .saveProfileChanges {
+        margin: auto;
+        margin-bottom: 20px;
+        
+        font-size: $mobileFontSizeBig;
+        border: none;
+        
+        color: black;
+        background-color: $orange;
+    }
+    select {
+        font-size: $mobileFontSizeMedium;
+        background-color: $darkgrey;
+        color: white;
+        width: 150px;
+
+        border: 1px solid white;
+    }
+    input {
+        // margin: auto;
+        margin-top: 5px;
+        font-size: $mobileFontSizeMedium;
+        width: 150px;
+        height: 20px;
+        border: 1px solid $orange;
+        color: white;
+        background-color: $darkgrey;
+    }
+    .addressInputWrapper{
+        .street{
+
+        }
+        .houseNumber{
+            width: 30px;
+        }
+        .extraInfo{
+            width: 30px;
+            
+        }
+        .postcode{
+            width: 50px;
+            
+        }
+    }
+
+}
+
+.profileInfoBox {
     width: 100vw;
     height: 100px;
     background-color: $orange;
-    .profileInfoInnerWrapper{
+    .profileInfoInnerWrapper {
         display: flex;
         width: 95vw;
         height: 100%;
         max-width: 600px;
         margin: auto;
         justify-content: space-between;
-        .profilePic{
-            width: calc(100% / 4);
-            margin-top:5px;
-            height: 90%;
-            background-color: white;
+        .profilePicWrapper{
+            height: 100%;
+            /* display: block; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .profilePic {
+                width: 70px;
+                height: 70px;
+                border: none;
+                border-radius: 100%;
+                background-color: white;
+            }
         }
-        .profileInfo{
-            margin-top:5px;
-            height: 90%;
-            width: calc(100% / 2);
-        }
-        .editProfileInfo{
-            margin-top:5px;
-            height: 45%;
-            width: calc(100% / 4);
-            border: 1px solid $darkgrey;
 
+        .profileInfoWrapper {
+            width: calc(100% - 75px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .profileInfo {
+
+                // height: 90px;
+                // width: calc(100% / 2);
+            }
+            .editProfileBtnWrapper {
+                display: flex;
+                flex-direction: column;
+                .editProfileInfo {
+                    align-self: flex-end;
+
+                    border: 1px solid $darkgrey;
+                }
+            }
         }
     }
-    
 }
 
-.signedUpClassesList{
+.signedUpClassesList {
     width: 95vw;
     max-width: 600px;
     margin: auto;
 
-    h2{
+    h2 {
         color: $orange;
     }
 }
 
-.allClasses{
+.allClasses {
 }
 
-
-.myClasses{
+.myClasses {
     width: 100%;
     height: 40px;
     margin: auto;
     display: flex;
-    div{
+    button {
         width: 50%;
         text-align: center;
-        background-color: white;
-
-        &.selected{
-            background-color: $orange;
+        font-size: $mobileFontSizeMedium;
+        color: $darkgrey;
+        font-weight: bold;
+        background-color: $orange;
+        border: 1px solid $darkgrey;
+        &.selected {
+            background-color: white;
         }
     }
 }
@@ -72,36 +153,46 @@
 }
 .class {
     font-size: $mobileFontSizeMedium;
-
+    color: white;
     display: flex;
     justify-content: space-between;
     border: 1px solid $orange;
     border-radius: 10px;
 
-    background-color: white;
+    background-color: $darkgrey;
     height: 100px;
     margin: auto;
     margin-top: 5px;
     width: 99%;
     .classDetailBox {
-        width: calc(100% - 65px);
+        width: 90%;
         margin: auto;
+        display: flex;
+        // flex-direction: row;
         .classDetails {
+            span {
+                color: $orange;
+                font-weight: bold;
+            }
+            div {
+                // display: flex;
+                h3 {
+                    margin: 0;
+                }
+            }
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             margin-bottom: 20px;
-            div {
+            &.one {
+                width: calc((100% / 5) * 3);
             }
-        }
-    }
-    .openClass {
-        width: 60px;
-        background-color: $darkgrey;
-        color: white;
-        display: flex;
-        justify-content: center;
-        div {
-            margin-top: 15px;
+            &.two {
+                div {
+                    margin-bottom: 5px;
+                }
+                width: calc((100% / 5) * 2);
+            }
         }
     }
 }

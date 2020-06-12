@@ -64,7 +64,7 @@ export const EditMember = () => {
                 <div>Add.: {selectedMember.Address}</div>
                 <div>letzter Besuch: {selectedMember.lastVisited}</div>
 
-                <button className="openContractSettingsBtn">Vertragsverwaltung und Kündigung</button>
+                <button onClick={(e)=>setMemberPageMode("editcontract")}className="openContractSettingsBtn">Vertragsverwaltung und Kündigung</button>
                 <button className="deleteMember">{selectedMember.Name} löschen</button>
             </div>
         </div>

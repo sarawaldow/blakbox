@@ -2,9 +2,51 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 
+.backBtn{
+    margin-top: 20px;
+    font-size: $mobileFontSizeBig;
+    border: 1px solid white;
+
+    color: white;
+    background-color: $darkgrey;
+} 
+.weekBaseWrapper{
+    .headlineWrap{
+        display: flex;
+        width: 100%;
+        max-width: 350px;
+        justify-content: space-between;
+
+        button {
+            // font-size: $mobileFontSizeMedium;
+            border: none;
+            width: 150px;
+            // color: white;
+            background-color: $orange;
+            align-self: flex-end;
+        }
+    }
+}
+
 .weekBaseBox {
     color: white;
-
+    .headlineWrap{
+        display: flex;
+        width: 100%;
+        max-width: 350px;
+        justify-content: space-between;
+        h3{
+            color: white;
+        }
+        button {
+            // font-size: $mobileFontSizeMedium;
+            border: none;
+            width: 120px;
+            // color: white;
+            background-color: $orange;
+            align-self: flex-end;
+        }
+    }
     .weekDayRow {
         margin: auto;
         .oneWeekDay {
@@ -12,14 +54,29 @@
             border-bottom: 1px solid white;
         }
         .oneClass {
+            padding-top: 5px;
+            padding-bottom: 5px;
             border: none;
+            display: flex;
+            h3{
+                margin: 0;
+                color: white;
+            }
             border-bottom: 1px solid $orange;
         }
     }
 }
 
 .editWeekBaseWrapper {
+    .saveChangesBtn{
+        // width: 200px;
+        margin: auto;
+        font-size: $mobileFontSizeMedium;
+        border: none;
+        background-color: $orange;
+    }
     .weekdayWrapper{
+        margin-top: 10px;
         display: flex;
         justify-content: space-evenly;
         .weekday {
@@ -37,6 +94,68 @@
 
             &.selected {
                 background-color: white;
+            }
+        }
+    }
+    .editBaseBox{
+        color: white;
+        .addClassBtn{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+        
+            color: white;
+            background-color: $darkgrey;
+        }
+        .oneClass {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border: none;
+
+            border-top: 1px solid $orange;
+            border-bottom: 1px solid $orange;
+
+            .chooseClassType{
+                width: 150px;
+            }
+            .chooseCoach{
+                width: 70px;
+
+            }
+            button {
+                margin-top: 20px;
+                font-size: $mobileFontSizeMedium;
+                border: 1px solid white;
+    
+                color: white;
+                background-color: $darkgrey;
+            }
+            select {
+                font-size: $mobileFontSizeMedium;
+                background-color: $darkgrey;
+                color: white;
+                border: 1px solid white;
+            }
+            input[type=time]{
+                margin: auto;
+                margin-top: 5px;
+                font-size: $mobileFontSizeMedium;
+                width: 80px;
+                height: 30px;
+                border: 1px solid $orange;
+                color: white;
+                background-color: $darkgrey;
+            }
+            input[type=number]{
+                margin: auto;
+                margin-top: 5px;
+                font-size: $mobileFontSizeMedium;
+                width: 30px;
+                height: 30px;
+                border: 1px solid $orange;
+                color: white;
+                background-color: $darkgrey;
             }
         }
     }

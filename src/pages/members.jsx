@@ -6,6 +6,7 @@ import ContractTypes from "../components/contract-types";
 
 import "./members.scss";
 import EditMember from "../components/edit-member";
+import EditContract from "../components/edit-contract";
 
 export const Members = () => {
     const { memberPageMode } = useContext(BBxContext);
@@ -20,6 +21,7 @@ export const Members = () => {
                 </div>
             )}
             {memberPageMode === "editmember"&& <EditMember/>}
+            {memberPageMode === "editcontract"&& <EditContract/>}
         </div>
     );
 };

@@ -144,22 +144,23 @@ export const TimetableFull = () => {
         <div className="FullTimetableWrapper">
             {memberType !== "Athlet" && (
                 <div className="classMngBtnWrapper">
-
-                <button
-                    className="classMngBtn"
-                    onClick={(e) => setClassMode("classmanager")}
+                    <button
+                        className="classMngBtn"
+                        onClick={(e) => setClassMode("classmanager")}
                     >
-                    Kursverwaltung
-                </button>
-                    </div>
+                        Kursverwaltung
+                    </button>
+                </div>
             )}
             <div className="timetableWrapper">
-                <h2>Kursplan</h2>
                 <div className="week">
-                    <div className="switchWeekButtonsWrapper">
-            <button className="lastWeekBtn">{"<"}</button>
-                        <div>KW {thisWeekNumber}</div>
-                        <button className="nextWeekBtn">{">"}</button>
+                    <div className="headlineAndWeekSwitchWrapper">
+                        <h2>Kursplan</h2>
+                        <div className="switchWeekButtonsWrapper">
+                            <button className="lastWeekBtn">{"<"}</button>
+                            <div>KW {thisWeekNumber}</div>
+                            <button className="nextWeekBtn">{">"}</button>
+                        </div>
                     </div>
                     <div className="weekdayWrapper">
                         {generateWeekdayBtn("MO", 1, 0)}

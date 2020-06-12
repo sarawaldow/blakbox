@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BBxContext } from "../components/BBxContext";
+import { BBxContext } from "./BBxContext";
 
 export const EditClass = () => {
     const {
@@ -128,6 +128,7 @@ export const EditClass = () => {
                         </div>
                     </div>
                     <div className="minMaxInputWrapper">
+                            Teilnehmeranzahl
                         <div>
                             <label>minimal</label>
                             <input
@@ -152,7 +153,6 @@ export const EditClass = () => {
                                 min="0"
                             />
                         </div>
-                        Teilnehmer
                     </div>
                     <div className="classDescriptionText">
                         <label htmlFor="descriptionTextArea">

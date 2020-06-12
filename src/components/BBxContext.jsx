@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const BBxContext = React.createContext(null);
 
 const BBxProvider = (props) => {
-    const [status, setStatus] = useState("MEMBERS");
+    const [status, setStatus] = useState("PROFILE");
 
     const [memberType, setMemberType] = useState("Box Owner");
 
@@ -200,7 +200,7 @@ const BBxProvider = (props) => {
     const [workoutVisibilityTime, setWorkoutVisibilityTime] = useState(8);
     const [checkSignedUp, setCheckSignedUp] = useState(1.5);
 
-    const [currentWeekBase, setCurrentWeekBase] = useState(0);
+    const [currentWeekBase, setCurrentWeekBase] = useState("Standardplan-01");
     const [nextWeekBase, setNextWeekBase] = useState({
         Key: 0,
         StartDate: new Date()
