@@ -3,16 +3,67 @@ import React, { useState } from "react";
 const BBxContext = React.createContext(null);
 
 const BBxProvider = (props) => {
-    const [status, setStatus] = useState("PROFILE");
+    const [status, setStatus] = useState("TIMETABLE");
 
     const [memberType, setMemberType] = useState("Box Owner");
 
     const [todaysDate, setTodaysDate] = useState(new Date());
-    const [todaysDateString, setTodaysDateString] = useState(
-        todaysDate
-            .toLocaleDateString()
-            .substring(0, todaysDate.toLocaleDateString().length - 4)
-    );
+
+
+    const getWeek = () => {
+        let date = new Date(todaysDate.getTime());
+        date.setHours(0, 0, 0, 0);
+        // Thursday in current week decides the year.
+        date.setDate(date.getDate() + 3 - ((date.getDay() + 6) % 7));
+        // January 4 is always in week 1.
+        let week1 = new Date(date.getFullYear(), 0, 4);
+        // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+        return (
+            1 +
+            Math.round(
+                ((date.getTime() - week1.getTime()) / 86400000 -
+                    3 +
+                    ((week1.getDay() + 6) % 7)) /
+                    7
+            )
+        );
+    };
+    const [weekNumber, setWeekNumber] = useState(getWeek());
+
+    let datesThisWeek = [];
+    const numberOfDates = 7;
+    const monday = new Date();
+
+    const weekDaysDifferenceToMonday = {
+        0: -7,
+        1: 0,
+        2: -1,
+        3: -2,
+        4: -3,
+        5: -4,
+        6: -5
+    };
+
+    const getMondaysDate = () => {
+        let numberOfDaysToMonday = 0;
+        Object.entries(weekDaysDifferenceToMonday).forEach(([key, value]) => {
+            // eslint-disable-next-line eqeqeq
+            if (todaysDate.getDay() == key) numberOfDaysToMonday = value;
+        });
+        monday.setDate(monday.getDate() + numberOfDaysToMonday);
+        return monday;
+    };
+    const thisMondaysDate = getMondaysDate();
+
+    for (let i = 0; i < numberOfDates; i++) {
+        const MondayPlusI = new Date(thisMondaysDate);
+
+        MondayPlusI.setDate(MondayPlusI.getDate() + i);
+        datesThisWeek.push(MondayPlusI);
+    }
+
+    const [dates, setDates] = useState(datesThisWeek);
+    const [selectedDate, setSelectedDate] = useState(todaysDate);
 
     const [classMode, setClassMode] = useState("closed");
     const [memberPageMode, setMemberPageMode] = useState("closed");
@@ -21,11 +72,12 @@ const BBxProvider = (props) => {
     const [userName, setUserName] = useState("Maxi Muster");
     const [userGender, setUserGender] = useState("männlich");
     const [userMail, setUserMail] = useState("Maxi@Muster.de");
-    const [userBDay, setUserBDay] = useState("09.09.1990");
+    const [userBDay, setUserBDay] = useState("1990-09-09");
     const [userPhone, setUserPhone] = useState("0123 456 789");
-    const [userAddress, setUserAddress] = useState(
-        "Hafenstraße 20, 12345 Lübeck"
-    );
+    const [userStreet, setUserStreet] = useState("Hafenstraße");
+    const [userHouseNr, setUserHouseNr] = useState("20");
+    const [userExtraInfo, setUserExtraInfo] = useState("a");
+    const [userPostCode, setUserPostCode] = useState("12345 Lübeck");
     const [contractType, setContractType] = useState("Half Member");
 
     const [signedUpClasses, setSignedUpClasses] = useState([]);
@@ -522,8 +574,10 @@ const BBxProvider = (props) => {
                 setClassObjects,
                 todaysDate,
                 setTodaysDate,
-                todaysDateString,
-                setTodaysDateString,
+                dates,
+                setDates,
+                selectedDate,
+                setSelectedDate,
                 selectedClassObject,
                 setSelectedClassObject,
                 signedUpClasses,
@@ -542,8 +596,14 @@ const BBxProvider = (props) => {
                 setUserBDay,
                 userPhone,
                 setUserPhone,
-                userAddress,
-                setUserAddress,
+                userStreet,
+                setUserStreet,
+                userHouseNr,
+                setUserHouseNr,
+                userExtraInfo,
+                setUserExtraInfo,
+                userPostCode,
+                setUserPostCode,
                 changesMade,
                 setChangesMade,
                 classMode,
@@ -581,7 +641,9 @@ const BBxProvider = (props) => {
                 listOfMembers,
                 setListOfMembers,
                 selectedMember,
-                setSelectedMember, memberPageMode, setMemberPageMode
+                setSelectedMember,
+                memberPageMode,
+                setMemberPageMode, weekNumber, setWeekNumber
             }}
         >
             {props.children}

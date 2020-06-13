@@ -15,8 +15,14 @@ export const EditProfile = () => {
         setUserBDay,
         userPhone,
         setUserPhone,
-        userAddress,
-        setUserAddress
+        userStreet,
+        setUserStreet,
+        userHouseNr,
+        setUserHouseNr,
+        userExtraInfo,
+        setUserExtraInfo,
+        userPostCode,
+        setUserPostCode
     } = useContext(BBxContext);
 
     const [dummyUserName, setDummyUserName] = useState(userName);
@@ -24,7 +30,12 @@ export const EditProfile = () => {
     const [dummyUserMail, setDummyUserMail] = useState(userMail);
     const [dummyUserBDay, setDummyUserBDay] = useState(userBDay);
     const [dummyUserPhone, setDummyUserPhone] = useState(userPhone);
-    const [dummyUserAddress, setDummyUserAddress] = useState(userAddress);
+    const [dummyUserStreet, setDummyUserStreet] = useState(userStreet);
+    const [dummyUserHouseNr, setDummyUserHouseNr] = useState(userHouseNr);
+    const [dummyUserExtraInfo, setDummyUserExtraInfo] = useState(userExtraInfo);
+    const [dummyUserPostCode, setDummyUserPostCode] = useState(userPostCode);
+
+    const [changesMade, setChangesMade] = useState(false);
 
     const saveProfileChanges = () => {
         setUserName(dummyUserName);
@@ -32,7 +43,11 @@ export const EditProfile = () => {
         setUserMail(dummyUserMail);
         setUserBDay(dummyUserBDay);
         setUserPhone(dummyUserPhone);
-        setUserAddress(dummyUserAddress);
+        setUserStreet(dummyUserStreet);
+        setUserHouseNr(dummyUserHouseNr);
+        setUserExtraInfo(dummyUserExtraInfo);
+        setUserPostCode(dummyUserPostCode);
+        setChangesMade(false);
     };
 
     return (
@@ -41,57 +56,131 @@ export const EditProfile = () => {
                 zurück zur Profilübersicht
             </button>
             <h3>persönliche Daten bearbeiten</h3>
-            Name{" "}
-            <input
-                type="text"
-                value={dummyUserName}
-                onChange={(e) => setDummyUserName(e.target.value)}
-            />
-            Geschlecht
-            <select
-                value={dummyUserGender}
-                onChange={(e) => setDummyUserGender(e.target.value)}
-            >
-                <option value="weiblich">weiblich</option>
-                <option value="männlich">männlich</option>
-                {/* <option value="Divers">Divers</option> */}
-            </select>
-            Geburtsdatum*{" "}
-            <input
-                type="date"
-                value={dummyUserBDay}
-                onChange={(e) => setDummyUserBDay(e.target.value)}
-            />
-            E-Mail-Adresse*
-            <input
-                type="email"
-                value={dummyUserMail}
-                onChange={(e) => setDummyUserMail(e.target.value)}
-            />
-            Telefonnummer*
-            <input
-                type="tel"
-                value={dummyUserPhone}
-                onChange={(e) => setDummyUserPhone(e.target.value)}
-            />{" "}
-            Anschrift*
-            <div className="addressInputWrapper">
-                Straße <input className="street" type="text"                 value={dummyUserAddress}
-                onChange={(e) => setDummyUserAddress(e.target.value)}/> Hausnummer
+            {/* <div className="inputWrapper"></div> */}
+            {changesMade && (
+                <button
+                    className="saveProfileChanges"
+                    onClick={(e) => saveProfileChanges()}
+                >
+                    Änderungen speichern
+                </button>
+            )}
+            <div className="inputWrapper">
+                <div>Name</div>
                 <input
-                    className="houseNumber"
-                    type="number"
-                    min="1"
-                /> Zusatz <input className="extraInfo" type="text" /> PLZ{" "}
-                <input className="postcode" type="text" />
+                    type="text"
+                    value={dummyUserName}
+                    onChange={(e) => {
+                        setDummyUserName(e.target.value);
+                        setChangesMade(true);
+                    }}
+                />
+            </div>
+            <div className="inputWrapper">
+                <div>Geschlecht</div>
+                <select
+                    value={dummyUserGender}
+                    onChange={(e) => {
+                        setDummyUserGender(e.target.value);
+                        setChangesMade(true);
+                    }}
+                >
+                    <option value="weiblich">weiblich</option>
+                    <option value="männlich">männlich</option>
+                    {/* <option value="Divers">Divers</option> */}
+                </select>
+            </div>
+            <div className="inputWrapper">
+                <div>Geburtsdatum* </div>
+                <input
+                    type="date"
+                    value={dummyUserBDay}
+                    onChange={(e) => {
+                        setDummyUserBDay(e.target.value);
+                        setChangesMade(true);
+                    }}
+                />
+            </div>
+            {/* <div className="inputWrapper"></div> */}
+            <div className="inputWrapper">
+                <div>E-Mail-Adresse*</div>
+                <input
+                    type="email"
+                    value={dummyUserMail}
+                    onChange={(e) => {
+                        setDummyUserMail(e.target.value);
+                        setChangesMade(true);
+                    }}
+                />
+            </div>
+            <div className="inputWrapper">
+                <div>Telefonnummer*</div>
+                <input
+                    type="tel"
+                    value={dummyUserPhone}
+                    onChange={(e) => {
+                        setDummyUserPhone(e.target.value);
+                        setChangesMade(true);
+                    }}
+                />
+            </div>
+            <div>Anschrift*</div>
+            <div className="addressInputWrapper">
+                <div className="inputWrapper">
+                    <div>Straße</div>
+                    <input
+                        className="street"
+                        type="text"
+                        value={dummyUserStreet}
+                        onChange={(e) => {
+                            setDummyUserStreet(e.target.value);
+                            setChangesMade(true);
+                        }}
+                    />
+                </div>
+                <div className="inputWrapper">
+                    <div>Hausnr. und Zusatz</div>
+                    <div className="flexEndWrapper">
+                        <input
+                            className="houseNumber"
+                            type="number"
+                            min="1"
+                            value={dummyUserHouseNr}
+                            onChange={(e) => {
+                                setDummyUserHouseNr(e.target.value);
+                                setChangesMade(true);
+                            }}
+                        />
+                        <input
+                            className="extraInfo"
+                            type="text"
+                            value={dummyUserExtraInfo}
+                            onChange={(e) => {
+                                setDummyUserExtraInfo(e.target.value);
+                                setChangesMade(true);
+                            }}
+                        />
+                    </div>
+                </div>
+                <div className="inputWrapper">
+                    <div>
+                        PLZ
+                        </div>
+                        <input
+                            className="postcode"
+                            type="text"
+                            value={dummyUserPostCode}
+                            onChange={(e) => {
+                                setDummyUserPostCode(e.target.value);
+                                setChangesMade(true);
+                            }}
+                        />
+                </div>
             </div>
             <p>
                 Die mit * gekennzeichneten Informationen sind nur für den
                 Box-Owner sichtbar
             </p>
-            <button className="saveProfileChanges" onClick={(e) => saveProfileChanges()}>
-                Änderungen speichern
-            </button>
         </div>
     );
 };

@@ -5,9 +5,6 @@ import { BBxContext } from "./BBxContext";
 import "./timetable.scss";
 import Classes from "./classes";
 
-// const getWeekDates = () => {
-// }
-
 export const TimetableFull = () => {
     const {
         memberType,
@@ -16,70 +13,28 @@ export const TimetableFull = () => {
         setClassMode,
         setSelectedClassObject,
         selectedClassObject,
-        classObjects
+        classObjects,
+        selectedDate,
+        setSelectedDate,
+        dates,
+        setDates,
+        weekNumber,
+        setWeekNumber
     } = useContext(BBxContext);
 
     const now = todaysDate;
     const todaysWeekDay = now.getDay();
     const [selectedDay, setSelectedDay] = useState(todaysWeekDay);
-    const [selectedDate, setSelectedDate] = useState(todaysDateString);
 
-    const monday = new Date();
-
-    const weekDaysDifferenceToMonday = {
-        0: -7,
-        1: 0,
-        2: -1,
-        3: -2,
-        4: -3,
-        5: -4,
-        6: -5
+    const shortenDateString = (datestring) => {
+        const dateFormatted = datestring.substring(0, datestring.length - 4);
+        return dateFormatted;
     };
 
-    const getWeek = () => {
-        let date = new Date(now.getTime());
-        date.setHours(0, 0, 0, 0);
-        // Thursday in current week decides the year.
-        date.setDate(date.getDate() + 3 - ((date.getDay() + 6) % 7));
-        // January 4 is always in week 1.
-        let week1 = new Date(date.getFullYear(), 0, 4);
-        // Adjust to Thursday in week 1 and count number of weeks from date to week1.
-        return (
-            1 +
-            Math.round(
-                ((date.getTime() - week1.getTime()) / 86400000 -
-                    3 +
-                    ((week1.getDay() + 6) % 7)) /
-                    7
-            )
-        );
+    const formatDate = (dateObj) => {
+        const dateString = dateObj.toLocaleDateString();
+        return dateString;
     };
-    const thisWeekNumber = getWeek();
-
-    const getMondaysDate = () => {
-        let numberOfDaysToMonday = 0;
-        Object.entries(weekDaysDifferenceToMonday).forEach(([key, value]) => {
-            // eslint-disable-next-line eqeqeq
-            if (todaysWeekDay == key) numberOfDaysToMonday = value;
-        });
-        console.log("selectedDay:", selectedDay);
-        monday.setDate(monday.getDate() + numberOfDaysToMonday);
-    };
-    getMondaysDate();
-
-    let dates = [];
-    const numberOfDates = 7;
-
-    for (let i = 0; i < numberOfDates; i++) {
-        const MondayPlusI = new Date(monday);
-
-        MondayPlusI.setDate(MondayPlusI.getDate() + i);
-        const dateFormatted = MondayPlusI.toLocaleDateString().substring(
-            0,
-            MondayPlusI.toLocaleDateString().length - 4
-        );
-        dates.push(dateFormatted);
-    }
 
     const dateSelectionHandler = (weekdayIndex, dateObjIndex) => {
         setSelectedDay(weekdayIndex);
@@ -100,20 +55,51 @@ export const TimetableFull = () => {
             >
                 {weekdayString}
                 <br />
-                {dates[dateObjIndex]}
+                {shortenDateString(formatDate(dates[dateObjIndex]))}
             </div>
         );
     };
 
+    const switchWeekDates = (nextOrLast) => {
+        const arr = dates;
+        // const dt = selectedDate;
+        switch (nextOrLast) {
+            case "next":
+                arr.map((date) => date.setDate(date.getDate() + 7));
+                setDates(arr);
+                // dt.setDate(dt.getDate() + 7)
+                // setSelectedDate(dt);
+                setWeekNumber(weekNumber + 1);
+                break;
+            case "last":
+                arr.map((date) => date.setDate(date.getDate() - 7));
+                setDates(arr);
+                // dt.setDate(dt.getDate() - 7)
+                // setSelectedDate(dt);
+                setWeekNumber(weekNumber - 1);
+                break;
+            default:
+                return;
+        }
+    };
+
+    // useEffect(() => {
+    //     console.log("dates:", dates);
+    // }, [dates]);
+
     useEffect(() => {
-        console.log(
-            "selectedClassObject should be empty:",
-            selectedClassObject
-        );
+        // console.log(
+        //     "selectedClassObject should be empty:",
+        //     selectedClassObject
+        // );
     }, [selectedClassObject]);
 
     useEffect(() => {
-        console.log("classObjects:", classObjects);
+        console.log("selectedDate:", selectedDate);
+    }, [selectedDate]);
+
+    useEffect(() => {
+        // console.log("classObjects:", classObjects);
     }, [classObjects]);
 
     const triggerSetClassMode = () => {
@@ -157,9 +143,19 @@ export const TimetableFull = () => {
                     <div className="headlineAndWeekSwitchWrapper">
                         <h2>Kursplan</h2>
                         <div className="switchWeekButtonsWrapper">
-                            <button className="lastWeekBtn">{"<"}</button>
-                            <div>KW {thisWeekNumber}</div>
-                            <button className="nextWeekBtn">{">"}</button>
+                            <button
+                                onClick={(e) => switchWeekDates("last")}
+                                className="lastWeekBtn"
+                            >
+                                {"<"}
+                            </button>
+                            <div>KW {weekNumber}</div>
+                            <button
+                                onClick={(e) => switchWeekDates("next")}
+                                className="nextWeekBtn"
+                            >
+                                {">"}
+                            </button>
                         </div>
                     </div>
                     <div className="weekdayWrapper">
@@ -178,7 +174,7 @@ export const TimetableFull = () => {
                             }}
                             className="addClass"
                         >
-                            Sonderkurs am {selectedDate} hinzufügen
+                            Sonderkurs am {formatDate(selectedDate)} hinzufügen
                         </div>
                     )}
                     <div className="classWrapper">

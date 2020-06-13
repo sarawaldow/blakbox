@@ -17,7 +17,7 @@ export const Profile = () => {
         setClassMode,
         userName,
         credits,
-        contractType
+        contractType, setSelectedDate
     } = useContext(BBxContext);
     const openSelectedClass = (obj) => {
         setSelectedClassObject(obj);
@@ -41,8 +41,8 @@ export const Profile = () => {
                             </button>
                         </div>
                         <div className="profileInfo">
-                                <div>{userName}</div>
-                                <div>{contractType}</div>{" "}
+                            <div>{userName}</div>
+                            <div>{contractType}</div>{" "}
                             <div>{credits}/8 Anmeldungen übrig</div>
                         </div>
                     </div>
@@ -50,7 +50,10 @@ export const Profile = () => {
             </div>
         );
     };
-
+    const formatDate = (date) => {
+        const dateString = date.toLocaleDateString();
+        return dateString;
+    }
     const renderSignedUpClassesList = () => {
         return (
             <div className="signedUpClassesList">
@@ -67,46 +70,57 @@ export const Profile = () => {
 
                     {
                         // eslint-disable-next-line array-callback-return
-                        classObjects.map((oneClass) => {
-                            if (signedUpClasses.includes(oneClass.ClassKey)) {
-                                return (
-                                    <div
-                                        className="class"
-                                        onClick={(e) =>
-                                            openSelectedClass(oneClass)
-                                        }
-                                        key={oneClass.ClassKey}
-                                    >
-                                        <div className="classDetailBox">
-                                            <div className="classDetails one">
-                                                <div>
+                        signedUpClasses.map((signedUpClass) => 
+                            <div>
+                                <h3>{formatDate(signedUpClass.Date)}</h3>
+                                {
+                                // eslint-disable-next-line array-callback-return
+                                classObjects.map((oneClass)=>{
+                                    if (signedUpClass.Key === oneClass.ClassKey) {
+                                        return (
+                                        <div
+                                            className="class"
+                                            onClick={(e) =>
+                                                {openSelectedClass(oneClass);setSelectedDate(signedUpClass.Date)}
+                                            }
+                                            key={oneClass.ClassKey}
+                                        >
+                                            <div className="classDetailBox">
+                                                <div className="classDetails one">
                                                     <div>
-                                                        {oneClass.StartTime}-
-                                                        {oneClass.EndTime}
+                                                        <div>
+                                                            {oneClass.StartTime}
+                                                            -{oneClass.EndTime}
+                                                        </div>
+                                                        <h3>
+                                                            {oneClass.ClassType}
+                                                        </h3>
                                                     </div>
-                                                    <h3>
-                                                        {oneClass.ClassType}
-                                                    </h3>
                                                 </div>
-                                            </div>
-                                            <div className="classDetails two">
-                                                <div>
-                                                    Coach: {oneClass.Coach}
-                                                </div>
-                                                <div>
-                                                    <span>
-                                                        {oneClass.MaxSpots -
-                                                            oneClass.SignedUp
-                                                                .length}
-                                                    </span>
-                                                    {`/${oneClass.MaxSpots} Spots frei`}
+                                                <div className="classDetails two">
+                                                    <div>
+                                                        Coach: {oneClass.Coach}
+                                                    </div>
+                                                    <div>
+                                                        <span>
+                                                            {oneClass.MaxSpots -
+                                                                oneClass
+                                                                    .SignedUp
+                                                                    .length}
+                                                        </span>
+                                                        {`/${oneClass.MaxSpots} Spots frei`}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                );
-                            }
-                        })
+                                    );
+                                }
+                            })}
+                            </div>
+
+                        
+                            )
+                        
                     }
                 </div>
             </div>

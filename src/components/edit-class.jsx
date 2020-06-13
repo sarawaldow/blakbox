@@ -5,7 +5,7 @@ export const EditClass = () => {
     const {
         classObjects,
         selectedClassObject,
-        todaysDateString,
+        selectedDate,
         setClassMode,
         changesMade,
         setChangesMade
@@ -87,6 +87,11 @@ export const EditClass = () => {
         ));
     };
 
+    const formatDate = (date) => {
+        const dateString = date.toLocaleDateString();
+        return dateString;
+    }
+
     return (
         <div className="classInfoWrapper">
             <button
@@ -124,7 +129,7 @@ export const EditClass = () => {
                             } freie Plätze) um ${classObject.StartTime}-${
                                 classObject.EndTime
                             } am 
-                            ${todaysDateString}`}
+                            ${formatDate(selectedDate)}`}
                         </div>
                     </div>
                     <div className="minMaxInputWrapper">

@@ -8,21 +8,33 @@ export const ClassInfo = () => {
     const {
         classObjects,
         selectedClassObject,
-        todaysDateString,
         signedUpClasses,
         memberType,
         userName,
         setSignedUpClasses,
         credits,
         setCredits,
-        setClassMode
+        setClassMode,
+        selectedDate
     } = useContext(BBxContext);
 
     const classKey = selectedClassObject.ClassKey;
 
-    const [signedUp, setSignedUp] = useState(
-        signedUpClasses.includes(classKey)
-    );
+    const signedUpClassObj = { Key: classKey, Date: selectedDate };
+
+    
+    const isAlreadySignedUp = () => {
+        let isSignedUp = false;
+        // eslint-disable-next-line array-callback-return
+        signedUpClasses.map((oneClass) => {
+            if (oneClass.Key === signedUpClassObj.Key && selectedDate === signedUpClassObj.Date){
+                isSignedUp = true
+            }
+        });
+        return isSignedUp;
+    };
+    
+    const [signedUp, setSignedUp] = useState(isAlreadySignedUp());
 
     const [signedUpList, setSignedUpList] = useState(
         selectedClassObject.SignedUp
@@ -58,13 +70,23 @@ export const ClassInfo = () => {
     };
 
     useEffect(() => {
-        console.log(signedUpList);
+        // console.log(signedUp);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [signedUp]);
+
+    useEffect(() => {
+        console.log("signedUpClasses",signedUpClasses);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [signedUpClasses]);
+
+    useEffect(() => {
+        // console.log(signedUpList);
         classObjects[selectedClassObject.ClassKey].SignedUp = signedUpList;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [signedUpList]);
 
     useEffect(() => {
-        console.log(waitingList);
+        // console.log(waitingList);
         classObjects[selectedClassObject.ClassKey].Waiting = waitingList;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [waitingList]);
@@ -72,70 +94,73 @@ export const ClassInfo = () => {
     const waitingListSignUpOrOffHandler = () => {
         if (signedUp) {
             const newArr = signedUpClasses;
-            console.log(newArr);
-            newArr.splice(newArr.indexOf(classKey), 1);
-            console.log(newArr);
+            newArr.splice(newArr.indexOf(signedUpClassObj), 1);
             setSignedUpClasses(newArr);
             setSignedUp(false);
-            setCredits(credits + 1);
-            console.log("indexOf username", waitingList.indexOf(userName));
+            
             setWaitingList([
                 ...waitingList.slice(0, waitingList.indexOf(userName)),
                 ...waitingList.slice(waitingList.indexOf(userName) + 1)
             ]);
         } else {
-            setSignedUpClasses([...signedUpClasses, classKey]);
+            setSignedUpClasses([...signedUpClasses, signedUpClassObj]);
             setSignedUp(true);
-            setCredits(credits - 1);
+
             setWaitingList([...waitingList, userName]);
         }
     };
 
     const signUpOrOffHandler = () => {
+        console.log("signUpOrOffHandler");
+        
         if (signedUp) {
+            console.log("signUpOrOffHandler signedUp");
             const newArr = signedUpClasses;
-            console.log(newArr);
-            newArr.splice(newArr.indexOf(classKey), 1);
-            console.log(newArr);
+            newArr.splice(newArr.indexOf(signedUpClassObj), 1);
             setSignedUpClasses(newArr);
             setSignedUp(false);
             setCredits(credits + 1);
-            console.log("indexOf username", signedUpList.indexOf(userName));
+            
             setSignedUpList([
                 ...signedUpList.slice(0, signedUpList.indexOf(userName)),
                 ...signedUpList.slice(signedUpList.indexOf(userName) + 1)
             ]);
         } else {
-            setSignedUpClasses([...signedUpClasses, classKey]);
+            console.log("signUpOrOffHandler not signedUp");
+            const newArr = signedUpClasses;
+            console.log("zhe old signed up classes:", signedUpClasses, "the new class:",signedUpClassObj);
+            newArr.push(signedUpClassObj);
+            setSignedUpClasses(newArr);
             setSignedUp(true);
             setCredits(credits - 1);
+
             setSignedUpList([...signedUpList, userName]);
         }
     };
 
-    useEffect(() => {
-        console.log(signedUp);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [signedUp]);
+    const formatDate = (date) => {
+        const dateString = date.toLocaleDateString();
+        return dateString;
+    };
 
     return (
         <div className="classInfoWrapper">
             <div>
                 <div className="topBtnsWrapper">
-                <button
-                    className="backBtn"
-                    onClick={(e) => setClassMode("closed")}
-                    >
-                    Kursinfo schließen
-                </button>
-                {memberType !== "Athlet" && (
                     <button
-                    className="editClassBtn"
-                    onClick={(e) => setClassMode("editclass")}
+                        className="backBtn"
+                        onClick={(e) => setClassMode("closed")}
                     >
-                        Kurs bearbeiten
+                        Kursinfo schließen
                     </button>
-                )}
+                    {memberType !== "Athlet" && (
+                        <button
+                            className="editClassBtn"
+                            onClick={(e) => setClassMode("editclass")}
+                        >
+                            Kurs bearbeiten
+                        </button>
+                    )}
                 </div>
 
                 <div className="classInfoBox">
@@ -151,7 +176,7 @@ export const ClassInfo = () => {
                                 }
                                 - ${
                                     selectedClassObject.EndTime
-                                } am ${todaysDateString}`}
+                                } am ${formatDate(selectedDate)}`}
                             </div>
                         </div>
                         <div className="classDescriptionText">
@@ -161,14 +186,6 @@ export const ClassInfo = () => {
                         <div className="signUpArea">
                             <div>02:30h bis Abmeldesperre</div>
                             <div className="signUpBtnWrapper">
-                                {/* <div
-                                    className="signUpBtn"
-                                    onClick={(e) =>
-                                        signUpOrOffHandler(classKey)
-                                    }
-                                >
-                                    {signedUp ? "abmelden" : "anmelden"}
-                                </div> */}
                                 {checkIfClassIsFull()}
                                 <div>{credits} Anmeldungen übrig</div>
                             </div>
