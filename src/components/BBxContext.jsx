@@ -7,62 +7,14 @@ const BBxProvider = (props) => {
 
     const [memberType, setMemberType] = useState("Box Owner");
 
-    const [todaysDate, setTodaysDate] = useState(new Date());
+
+    const today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    const [todaysDate, setTodaysDate] = useState(today);
 
 
-    const getWeek = () => {
-        let date = new Date(todaysDate.getTime());
-        date.setHours(0, 0, 0, 0);
-        // Thursday in current week decides the year.
-        date.setDate(date.getDate() + 3 - ((date.getDay() + 6) % 7));
-        // January 4 is always in week 1.
-        let week1 = new Date(date.getFullYear(), 0, 4);
-        // Adjust to Thursday in week 1 and count number of weeks from date to week1.
-        return (
-            1 +
-            Math.round(
-                ((date.getTime() - week1.getTime()) / 86400000 -
-                    3 +
-                    ((week1.getDay() + 6) % 7)) /
-                    7
-            )
-        );
-    };
-    const [weekNumber, setWeekNumber] = useState(getWeek());
-
-    let datesThisWeek = [];
-    const numberOfDates = 7;
-    const monday = new Date();
-
-    const weekDaysDifferenceToMonday = {
-        0: -7,
-        1: 0,
-        2: -1,
-        3: -2,
-        4: -3,
-        5: -4,
-        6: -5
-    };
-
-    const getMondaysDate = () => {
-        let numberOfDaysToMonday = 0;
-        Object.entries(weekDaysDifferenceToMonday).forEach(([key, value]) => {
-            // eslint-disable-next-line eqeqeq
-            if (todaysDate.getDay() == key) numberOfDaysToMonday = value;
-        });
-        monday.setDate(monday.getDate() + numberOfDaysToMonday);
-        return monday;
-    };
-    const thisMondaysDate = getMondaysDate();
-
-    for (let i = 0; i < numberOfDates; i++) {
-        const MondayPlusI = new Date(thisMondaysDate);
-
-        MondayPlusI.setDate(MondayPlusI.getDate() + i);
-        datesThisWeek.push(MondayPlusI);
-    }
-
-    const [dates, setDates] = useState(datesThisWeek);
     const [selectedDate, setSelectedDate] = useState(todaysDate);
 
     const [classMode, setClassMode] = useState("closed");
@@ -574,8 +526,6 @@ const BBxProvider = (props) => {
                 setClassObjects,
                 todaysDate,
                 setTodaysDate,
-                dates,
-                setDates,
                 selectedDate,
                 setSelectedDate,
                 selectedClassObject,
@@ -643,7 +593,7 @@ const BBxProvider = (props) => {
                 selectedMember,
                 setSelectedMember,
                 memberPageMode,
-                setMemberPageMode, weekNumber, setWeekNumber
+                setMemberPageMode
             }}
         >
             {props.children}

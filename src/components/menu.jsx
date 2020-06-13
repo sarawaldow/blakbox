@@ -1,10 +1,17 @@
 import React, { useContext } from "react";
 import { BBxContext } from "./BBxContext";
+// import { useEffect } from "react";
 
 // import './header.css';
 
 export const Menu = () => {
-    const { status, setStatus, memberType, setClassMode, setMemberPageMode} = useContext(BBxContext);
+    const { status, setStatus, memberType, setClassMode, setMemberPageMode
+        // ,selectedDate, setSelectedDate, todaysDate
+    } = useContext(BBxContext);
+
+// useEffect(()=>{
+// console.log(selectedDate);
+// },[selectedDate])
 
     return (
         <div className="menubox">
@@ -14,7 +21,9 @@ export const Menu = () => {
                         ? "headerOption profile selected"
                         : "headerOption profile"
                 }
-                onClick={(e) => {setStatus("PROFILE");setClassMode("closed")}}
+                onClick={(e) => {setStatus("PROFILE");setClassMode("closed");
+                // setSelectedDate(todaysDate)
+            }}
             />
             <button
                 className={
@@ -22,7 +31,9 @@ export const Menu = () => {
                         ? "headerOption timetable selected"
                         : "headerOption timetable"
                 }
-                onClick={(e) => {setStatus("TIMETABLE"); setClassMode("closed")}}
+                onClick={(e) => {setStatus("TIMETABLE"); setClassMode("closed");
+                // setSelectedDate(todaysDate)
+            }}
             />
 
             {memberType === 'Box Owner'? <button
@@ -31,7 +42,9 @@ export const Menu = () => {
                         ? "headerOption members selected"
                         : "headerOption members"
                 }
-                onClick={(e) => {setStatus("MEMBERS"); setMemberPageMode("closed")}}
+                onClick={(e) => {setStatus("MEMBERS"); setMemberPageMode("closed");
+                // setSelectedDate(todaysDate)
+            }}
             />: <button className="headerOption" disabled/>}
             <button
                 className="headerOption"
