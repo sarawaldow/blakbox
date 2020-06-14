@@ -28,7 +28,7 @@ export const EditMember = () => {
     return (
         <div className="editMemberWrapper">
             <button onClick={(e) => setMemberPageMode("closed")}>
-                zurück zur Mitgliederübersicht
+                X
             </button>
             <div className="memberSettings">
                 <div>

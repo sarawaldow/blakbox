@@ -103,18 +103,24 @@ export const AddWorkout = () => {
         }
     ];
 
-    // const selectWorkout = (obj) => {
-    //     setSelectedWOD(obj);
-    // };
-
     useEffect(() => {
         console.log(selectedWOD);
     }, [selectedWOD]);
 
+    const addSelectedClass = (workout) => {
+        if (
+            selectedWOD.label === workout.label &&
+            selectedWOD.text === workout.text
+        ) {
+            return "workoutPart framed selected";
+        } else return "workoutPart framed";
+    };
+
     const generateSearchForWorkoutType = () => {
         return (
             <div className="searchWODBox">
-                <input type="text" placeholder="suche..." />
+                <h3>Komponente suchen</h3>
+
                 <div
                     className="wodOptions"
                     onChange={(e) => setSelectedWodType(e.target.value)}
@@ -125,7 +131,7 @@ export const AddWorkout = () => {
                             value="boxWOD"
                             id="boxWOD"
                             name="wodOpt"
-                        />{" "}
+                        />
                         Box-WODs
                     </label>
                     <label htmlFor="benchmarkWOD">
@@ -138,64 +144,79 @@ export const AddWorkout = () => {
                         Benchmark-WODs
                     </label>
                 </div>
+                <input type="text" placeholder="suche..." />
                 <div>
-                    Wähle ein WOD
-                    {selectedWodType === "boxWOD" &&
-                        listOfBoxWods.map((workoutpart, index) => {
-                            const selected =
-                                selectedWOD === workoutpart || false;
-                            console.log("selected:", selected);
-                            return (
-                                <div
-                                    onClick={(e) => setSelectedWOD(workoutpart)}
-                                    className={
-                                        selected
-                                            ? "workoutPart framed selected"
-                                            : "workoutPart framed"
-                                    }
-                                    // className="workoutPart framed"
-                                    key={`${workoutpart.label}-${index}`}
-                                >
-                                    <div className="workoutPartWrapper ">
-                                        <b>{workoutpart.label}</b>
-                                        <div
-                                            dangerouslySetInnerHTML={{
-                                                __html: workoutpart.text
-                                            }}
-                                        />
+                    {selectedWodType === "boxWOD" && (
+                        <div>
+                            <h3>Wähle ein WOD</h3>
+
+                            {listOfBoxWods.map((workoutpart, index) => {
+                                return (
+                                    <div
+                                        onClick={(e) =>
+                                            setSelectedWOD(workoutpart)
+                                        }
+                                        className={addSelectedClass(
+                                            workoutpart
+                                        )}
+                                        key={`${workoutpart.label}-${index}`}
+                                    >
+                                        <div className="workoutPartWrapper ">
+                                            <b>{workoutpart.label}</b>
+                                            <div
+                                                dangerouslySetInnerHTML={{
+                                                    __html: workoutpart.text
+                                                }}
+                                            />
+                                        </div>
                                     </div>
-                                    <button className="selectWOD">
-                                        wählen
-                                    </button>
-                                </div>
-                            );
-                        })}
-                    {selectedWodType === "benchmarkWOD" &&
-                        listOfBenchmarkWods.map((workoutpart, index) => {
-                            return (
-                                <div
-                                    onClick={(e) => setSelectedWOD(workoutpart)}
-                                    className={
-                                        selectedWOD === workoutpart
-                                            ? "workoutPart framed selected"
-                                            : "workoutPart framed"
-                                    }
-                                    key={`${workoutpart.label}-${index}`}
-                                >
-                                    <div className="workoutPartWrapper">
-                                        <b>{workoutpart.label}</b>
-                                        <div
-                                            dangerouslySetInnerHTML={{
-                                                __html: workoutpart.text
-                                            }}
-                                        />
+                                );
+                            })}
+                            <button
+                                className="addThisWorkout"
+                                onClick={(e) =>
+                                    handleAddOldWorkout(selectedWorkoutType)
+                                }
+                            >
+                                zum Workout hinzufügen
+                            </button>
+                        </div>
+                    )}
+                    {selectedWodType === "benchmarkWOD" && (
+                        <div>
+                            <h3>Wähle ein WOD</h3>
+                            {listOfBenchmarkWods.map((workoutpart, index) => {
+                                return (
+                                    <div
+                                        onClick={(e) =>
+                                            setSelectedWOD(workoutpart)
+                                        }
+                                        className={addSelectedClass(
+                                            workoutpart
+                                        )}
+                                        key={`${workoutpart.label}-${index}`}
+                                    >
+                                        <div className="workoutPartWrapper">
+                                            <b>{workoutpart.label}</b>
+                                            <div
+                                                dangerouslySetInnerHTML={{
+                                                    __html: workoutpart.text
+                                                }}
+                                            />
+                                        </div>
                                     </div>
-                                    <button className="selectWOD">
-                                        wählen
-                                    </button>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                            <button
+                                className="addThisWorkout"
+                                onClick={(e) =>
+                                    handleAddOldWorkout(selectedWorkoutType)
+                                }
+                            >
+                                zum Workout hinzufügen
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         );
@@ -206,6 +227,8 @@ export const AddWorkout = () => {
             case "WOD":
                 return (
                     <div className="newWorkoutInputBox">
+                        <h3>neue Komponente</h3>
+
                         <input
                             className="workoutNameInput"
                             type="text"
@@ -240,6 +263,8 @@ export const AddWorkout = () => {
             case "Warm-Up":
                 return (
                     <div className="newWorkoutInputBox">
+                        <h3>neue Komponente</h3>
+
                         <input
                             className="workoutNameInput"
                             type="text"
@@ -260,6 +285,8 @@ export const AddWorkout = () => {
             case "Strength":
                 return (
                     <div className="newWorkoutInputBox">
+                        <h3>neue Komponente</h3>
+
                         <input
                             className="workoutNameInput"
                             type="text"
@@ -279,6 +306,8 @@ export const AddWorkout = () => {
             case "Find-Your-X-Rep":
                 return (
                     <div className="newWorkoutInputBox">
+                        <h3>neue Komponente</h3>
+
                         <input
                             className="workoutNameInput"
                             type="text"
@@ -314,9 +343,9 @@ export const AddWorkout = () => {
     return (
         <div className="addWorkoutBox">
             {showSuccessfullyAdded && (
-                <div>
-                    Workout erfolgreich hinzugefügt
-                    {selectedClassObject.ClassKey === classObjects.length?
+                <div className="successfullyAddedLayer">
+                    <h3>Workout erfolgreich hinzugefügt</h3>
+                    {selectedClassObject.ClassKey === classObjects.length ? (
                         <button
                             onClick={(e) => {
                                 setClassMode("newclass");
@@ -324,7 +353,7 @@ export const AddWorkout = () => {
                         >
                             zurück zur Kurserstellung
                         </button>
-                        :
+                    ) : (
                         <button
                             onClick={(e) => {
                                 setClassMode("editclass");
@@ -332,8 +361,7 @@ export const AddWorkout = () => {
                         >
                             zurück zum Bearbeitungsmodus
                         </button>
-
-                    }
+                    )}
                 </div>
             )}
             {!showSuccessfullyAdded && (
@@ -344,7 +372,7 @@ export const AddWorkout = () => {
                     >
                         abbrechen
                     </button>
-                    <div className="selectLabel">Komponente aussuchen</div>
+                    <h3>Komponente aussuchen</h3>
                     <select
                         className="dropDownBox"
                         value={selectedWorkoutType}
@@ -400,14 +428,6 @@ export const AddWorkout = () => {
                     {addWorkoutOpt === "searchWorkout" && (
                         <div className="searchWorkoutBox">
                             {generateSearchForWorkoutType()}
-                            <button
-                                className="addThisWorkout"
-                                onClick={(e) =>
-                                    handleAddOldWorkout(selectedWorkoutType)
-                                }
-                            >
-                                zum Workout hinzufügen
-                            </button>
                         </div>
                     )}
                 </div>

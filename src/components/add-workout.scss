@@ -40,18 +40,47 @@
         background-color: $darkgrey;
     }
 }
+
+
 .addWorkoutBox {
     color: white;
     width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    // .addWorkoutBoxCard{
-    //     position: absolute;
-    //     left: 0;
-    //     top: 0;
-    //     background-color: $darkgrey;
-    // }
+
+    .successfullyAddedLayer{
+        button{
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+            color: white;
+            // height: 30px;
+    
+            background-color: $darkgrey;
+        }
+    }
+
+    .searchWorkoutBox{
+        margin-top: 10px;
+        
+        .wodOptions{
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-top: 10px;
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+            background-color: $darkgrey;
+            color: white;
+            
+            &::placeholder{
+                color: white;
+                opacity: 1;
+                
+            }
+        }
+    }
 
     .backBtn{
         font-size: $mobileFontSizeBig;
@@ -116,23 +145,45 @@
 
     .newWorkoutBox {
         .newWorkoutInputBox {
-            margin-top: 10px;
             margin-bottom: 10px;
             display: flex;
             flex-direction: column;
 
 
+            input {
+                font-size: $mobileFontSizeBig;
+                border: 1px solid white;
+                background-color: $darkgrey;
+                color: white;
+                
+                &::placeholder{
+                    color: white;
+                    opacity: 1;
+                    
+                }
+            }
+            
             select {
                 font-size: $mobileFontSizeBig;
                 background-color: $darkgrey;
                 color: white;
                 border: 1px solid white;
             }
-
+            
             textarea {
+                font-size: $mobileFontSizeBig;
                 margin-top: 10px;
                 height: 100px;
                 resize: none;
+                border: 1px solid white;
+                background-color: $darkgrey;
+                color: white;
+
+                &::placeholder{
+                    color: white;
+                    opacity: 1;
+
+                }
             }
         }
         button {

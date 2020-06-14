@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { BBxContext } from "../components/BBxContext";
+import { useState } from "react";
 
 export const NewClass = () => {
     const {
@@ -25,6 +26,8 @@ export const NewClass = () => {
         classTypeNC,
         setClassTypeNC
     } = useContext(BBxContext);
+
+    const [showSuccessfullyAdded, setShowSuccessfullyAdded] = useState(false);
 
     useEffect(() => {
         console.log(selectedClassObject);
@@ -56,7 +59,7 @@ export const NewClass = () => {
 
         const newObj = selectedClassObject;
         console.log(newObj);
-        setClassObjects([...classObjects, newObj], [setClassMode("closed")]);
+        setClassObjects([...classObjects, newObj],setShowSuccessfullyAdded(true));
     };
 
     const renderWorkoutList = () => {
@@ -92,11 +95,25 @@ export const NewClass = () => {
 
     return (
         <div className="classInfoWrapper">
-            <button className="backBtn" onClick={(e) => setClassMode("closed")}>
-                zurück zum Kurs
-            </button>
+            {showSuccessfullyAdded && (
+                <div className="successfullyAddedLayer">
+                    <h3>Sonderkurs erfolgreich hinzugefügt</h3>
+              
+                        <button
+                            onClick={(e) => {
+                                setClassMode("closed");
+                            }}
+                        >
+                            zurück zur Kursübersicht
+                        </button>
+                    
+                </div>
+            )}
 
-            <div className="classInfoBox">
+            {!showSuccessfullyAdded&&<div className="classInfoBox">
+            <button className="backBtn" onClick={(e) => setClassMode("closed")}>
+                X
+            </button>
                 <div className="classInfoInnerWrapper newclass">
                     <div className="classDetails newClass">
                         <button
@@ -105,9 +122,7 @@ export const NewClass = () => {
                         >
                             Kurs speichern
                         </button>
-                        {/* <h2>
-                            Sonderkurs am {formatDate(selectedDate)} hinzufügen
-                        </h2> */}
+
                         <div className="newClassInputs">
                             <div className="selectClassTypeWrapper">
                                 <h3 className="bigLabel">Kursart auswählen</h3>
@@ -156,7 +171,6 @@ export const NewClass = () => {
                                         />
                                     </div>
                                 </div>
-                                {/* <label>Teilnehmer</label> */}
                             </div>
                             <div className="startEndTimeInputWrapper">
                                 <h3 className="bigLabel">Uhrzeit und Datum</h3>
@@ -229,7 +243,8 @@ export const NewClass = () => {
                         + Workout-Komponente
                     </button>
                 </div>
-            </div>
+            </div>}
+
         </div>
     );
 };

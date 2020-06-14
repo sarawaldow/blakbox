@@ -5,6 +5,17 @@
 .classInfoWrapper {
     font-size: $mobileFontSizeBig;
 
+    .successfullyAddedLayer{
+        button{
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+            color: white;
+            // height: 30px;
+    
+            background-color: $darkgrey;
+        }
+    }
+    
     h2 {
         color: $orange;
         margin-top: 0px;
@@ -158,15 +169,29 @@
                 margin-bottom: 10px;
             }
             .minMaxInputWrapper {
-                font-size: $mobileFontSizeMedium;
-                input[type="number"] {
-                    font-size: $mobileFontSizeBig;
-                    width: 30px;
-                    height: 20px;
-                    border: 1px solid $orange;
-                    color: white;
-                    background-color: $darkgrey;
+                margin-bottom: 15px;
+                display: flex;
+                flex-direction: column;
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    div {
+                        margin-right: 20px;
+                        display: flex;
+                        flex-direction: column;
+                        input[type="number"] {
+                            font-size: $mobileFontSizeBig;
+                            margin: auto;
+                            margin-top: 5px;
+                            width: 30px;
+                            height: 20px;
+                            border: 1px solid $orange;
+                            color: white;
+                            background-color: $darkgrey;
+                        }
+                    }
                 }
+                font-size: $mobileFontSizeMedium;
             }
 
             .classDescriptionText {
@@ -326,9 +351,11 @@
                 .signUpBtn {
                     border: none;
                     font-size: $mobileFontSizeBig;
-                    width: 50%;
+                    width: 230px;
                     color: black;
                     margin: auto;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
                     text-align: center;
                     background-color: $orange;
                 }
@@ -363,6 +390,27 @@
                             background-color: $darkgrey;
                         }
                     }
+                    .addParticipant {
+                        width: 100%;
+                        height: 30px;
+                        margin-top: 5px;
+                        font-size: $mobileFontSizeMedium;
+                        border: 1px solid $orange;
+                        color: $orange;
+                        background-color: $darkgrey;
+                    }
+                }
+            }
+            .deleteOrCancelClassWrapper {
+                display: flex;
+                justify-content: flex-end;
+                button {
+                    color: white;
+                    // margin: auto;
+                    margin-top: 20px;
+                    font-size: $mobileFontSizeMedium;
+                    background-color: $darkgrey;
+                    border: 1px solid white;
                 }
             }
         }

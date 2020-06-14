@@ -90,7 +90,7 @@ export const EditClass = () => {
     const formatDate = (date) => {
         const dateString = date.toLocaleDateString();
         return dateString;
-    }
+    };
 
     return (
         <div className="classInfoWrapper">
@@ -132,7 +132,7 @@ export const EditClass = () => {
                             ${formatDate(selectedDate)}`}
                         </div>
                     </div>
-                    <div className="minMaxInputWrapper">
+                    {/* <div className="minMaxInputWrapper">
                             Teilnehmeranzahl
                         <div>
                             <label>minimal</label>
@@ -158,10 +158,40 @@ export const EditClass = () => {
                                 min="0"
                             />
                         </div>
+                    </div> */}
+                    <div className="minMaxInputWrapper">
+                        <h3 className="bigLabel">Teilnehmerzahl</h3>
+                        <div>
+                            <div>
+                                <label>minimal</label>
+                                <input
+                                    value={minSpots}
+                                    onChange={(e) => {
+                                        setMinSpots(e.target.value);
+                                        setChangesMade(true);
+                                    }}
+                                    type="number"
+                                    min="0"
+                                />
+                            </div>
+                            <div>
+                                <label>bis maximal</label>
+                                <input
+                                    value={maxSpots}
+                                    onChange={(e) => {
+                                        setMaxSpots(e.target.value);
+                                        setChangesMade(true);
+                                    }}
+                                    type="number"
+                                    min="0"
+                                />
+                            </div>
+                        </div>
+                        {/* <label>Teilnehmer</label> */}
                     </div>
                     <div className="classDescriptionText">
                         <label htmlFor="descriptionTextArea">
-                            Beschreibung bearbeiten
+                            <h3 className="bigLabel">Beschreibung</h3>
                         </label>
                         <textarea
                             type="text"
@@ -233,19 +263,27 @@ export const EditClass = () => {
                                         </li>
                                     );
                                 })}
-                                <button>Teilnehmer hinzufügen</button>
+                                <button className="addParticipant">
+                                    + Teilnehmer
+                                </button>
                             </ul>
                         </div>
-                        <div className="waitingList">
-                            <ul>
-                                <b>Warteliste</b>
-                                {classObject.Waiting.map((athlete) => {
-                                    return <li key={athlete}>{athlete}</li>;
-                                })}
-                            </ul>
-                        </div>
+                        {classObject.Waiting.length > 0 && (
+                            <div className="waitingList">
+                                <ul>
+                                    <b>Warteliste</b>
+                                    {classObject.Waiting.map((athlete) => {
+                                        return <li key={athlete}>{athlete}</li>;
+                                    })}
+                                </ul>
+                            </div>
+                        )}
                     </div>
-                    <button>Kurs löschen oder absagen</button>
+                    <div className="deleteOrCancelClassWrapper">
+                        <button className="deleteOrCancelClass">
+                            Kurs löschen oder absagen
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

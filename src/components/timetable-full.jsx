@@ -229,7 +229,7 @@ export const TimetableFull = () => {
                             }}
                             className="addClass"
                         >
-                            Sonderkurs am {formatDate(selectedDate)} hinzufügen
+                            + Sonderkurs am {formatDate(selectedDate)}
                         </div>
                     )}
                     <div className="classWrapper">

@@ -4,9 +4,13 @@ import { BBxContext } from "./BBxContext";
 // import './header.css';
 
 export const MembersList = () => {
-    const { listOfMembers, setListOfMembers, setMemberPageMode,
+    const {
+        listOfMembers,
+        setListOfMembers,
+        setMemberPageMode,
         // selectedMember,
-         setSelectedMember } = useContext(BBxContext);
+        setSelectedMember
+    } = useContext(BBxContext);
 
     const [showOwners, setShowOwners] = useState(true);
     const [showCoaches, setShowCoaches] = useState(true);
@@ -26,18 +30,14 @@ export const MembersList = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedEmails]);
 
-
-
-
     const openMemberSettings = (member) => {
         setSelectedMember(member);
         setMemberPageMode("editmember");
-
-    }
+    };
 
     const renderMembersList = () => {
         return (
-            <div>
+            <div className="memberBoxesWrapper">
                 {listOfMembers.map(
                     (member) =>
                         member.Activated && (
@@ -49,10 +49,15 @@ export const MembersList = () => {
                                 key={member.EMail}
                             >
                                 <div className="memberInfo">
-                                    <div> {member.Name}</div>
-                                    <div>{member.Status}</div>
-                                    <div>{member.Contract}</div>
-                                    <div>{member.Level}</div>
+                                    <div>
+                                        <h3>
+                                            {member.Name} ({member.Status})
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <div>{member.Contract}</div>
+                                        <div>Level {member.Level}</div>
+                                    </div>
                                 </div>
                             </div>
                         )
@@ -83,23 +88,25 @@ export const MembersList = () => {
 
     const renderRegPendingList = () => {
         return (
-            <div>
+            <div className="regBoxesWrapper">
                 {listOfMembers.map(
                     (member) =>
                         !member.Activated && (
                             <div className="regBox" key={member.EMail}>
-                                {member.Name}
-                                <br />
-                                {member.EMail}
+                                <div className="info">
+
+                                <div>{member.Name}</div>
+                                <div>{member.EMail}</div>
                                 <input
                                     type="checkbox"
                                     onChange={(e) =>
                                         handleCheckedEmail(
                                             member.EMail,
                                             e.target.checked
-                                        )
-                                    }
-                                />
+                                            )
+                                        }
+                                        />
+                                        </div>
                             </div>
                         )
                 )}

@@ -152,7 +152,7 @@ export const ClassInfo = () => {
                 
                 onClick={(e) => {setClassMode("closed");setSelectedDate(todaysDate)}}
                     >
-                        Kursinfo schließen
+                        X
                     </button>
                     {memberType !== "Athlet" && (
                         <button
@@ -230,7 +230,7 @@ export const ClassInfo = () => {
                                     })}
                                 </ul>
                             </div>
-                            <div className="waitingList">
+                            {waitingList.length >0 && <div className="waitingList">
                                 <ul>
                                     <b>Warteliste</b>
 
@@ -238,7 +238,7 @@ export const ClassInfo = () => {
                                         return <li key={athlete}>{athlete}</li>;
                                     })}
                                 </ul>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 </div>

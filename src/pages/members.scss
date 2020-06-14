@@ -66,7 +66,9 @@
     }
 
     .contractTypesWrapper {
+        display: flex;
         button {
+            margin: auto;
             font-size: $mobileFontSizeMedium;
             border: none;
 
@@ -78,6 +80,10 @@
     .registrationPendingListWrapper {
         color: white;
         .buttonWrapper {
+            // align-self: flex-end;
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
             select {
                 font-size: $mobileFontSizeMedium;
                 background-color: $darkgrey;
@@ -90,9 +96,24 @@
                 background-color: $orange;
             }
         }
-        .regBox {
-            border: 1px solid $orange;
-            margin-bottom: 10px;
+        .regBoxesWrapper{
+            margin: auto;
+            margin-top: 10px;
+            max-width: 500px;
+            .regBox {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 30px;
+                border: 1px solid $orange;
+                margin-bottom: 10px;
+                .info{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    
+                }
+            }
         }
     }
 
@@ -104,9 +125,25 @@
         .searchBar {
             margin-bottom: 10px;
         }
-        .memberBox {
-            border: 1px solid $orange;
-            margin-bottom: 10px;
+        .memberBoxesWrapper{
+            max-width: 500px;
+            margin: auto;
+            .memberBox {
+                border: 1px solid $orange;
+                margin-bottom: 10px;
+                
+                .memberInfo{
+                    margin: auto;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    
+                    width: 90%;
+                    height: 100%;
+                    h3{
+                        margin: 0;
+                    }
+                }
+            }
         }
     }
 }
