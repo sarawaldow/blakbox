@@ -15,7 +15,7 @@ export const ClassInfo = () => {
         credits,
         setCredits,
         setClassMode,
-        selectedDate
+        selectedDate, setSelectedDate,todaysDate
     } = useContext(BBxContext);
 
     const classKey = selectedClassObject.ClassKey;
@@ -149,7 +149,8 @@ export const ClassInfo = () => {
                 <div className="topBtnsWrapper">
                     <button
                         className="backBtn"
-                        onClick={(e) => setClassMode("closed")}
+                
+                onClick={(e) => {setClassMode("closed");setSelectedDate(todaysDate)}}
                     >
                         Kursinfo schließen
                     </button>

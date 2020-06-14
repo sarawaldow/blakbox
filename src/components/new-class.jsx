@@ -5,7 +5,7 @@ export const NewClass = () => {
     const {
         classObjects,
         setClassObjects,
-        // todaysDateString,
+        selectedDate,
         setClassMode,
         selectedClassObject,
         workoutNC,
@@ -85,6 +85,11 @@ export const NewClass = () => {
         ));
     };
 
+    const formatToISODate = (date) => {
+        const dateString =  date.toISOString().substring(0, 10);
+        return dateString;
+    };
+
     return (
         <div className="classInfoWrapper">
             <button className="backBtn" onClick={(e) => setClassMode("closed")}>
@@ -100,6 +105,9 @@ export const NewClass = () => {
                         >
                             Kurs speichern
                         </button>
+                        {/* <h2>
+                            Sonderkurs am {formatDate(selectedDate)} hinzufügen
+                        </h2> */}
                         <div className="newClassInputs">
                             <div className="selectClassTypeWrapper">
                                 <h3 className="bigLabel">Kursart auswählen</h3>
@@ -151,7 +159,10 @@ export const NewClass = () => {
                                 {/* <label>Teilnehmer</label> */}
                             </div>
                             <div className="startEndTimeInputWrapper">
-                                <h3 className="bigLabel">Uhrzeit</h3>
+                                <h3 className="bigLabel">Uhrzeit und Datum</h3>
+                                <div>
+                                    <input type="date" value={formatToISODate(selectedDate)}/>
+                                </div>
                                 <div>
                                     <div>
                                         <label>von</label>
@@ -175,7 +186,6 @@ export const NewClass = () => {
                                         />
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>

@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import { BBxContext } from "./BBxContext";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 
 // import './header.css';
 
 export const Menu = () => {
     const { status, setStatus, memberType, setClassMode, setMemberPageMode
-        // ,selectedDate, setSelectedDate, todaysDate
+        ,selectedDate, setSelectedDate, todaysDate
     } = useContext(BBxContext);
 
-// useEffect(()=>{
-// console.log(selectedDate);
-// },[selectedDate])
+useEffect(()=>{
+console.log(selectedDate);
+},[selectedDate])
 
     return (
         <div className="menubox">
@@ -32,7 +32,7 @@ export const Menu = () => {
                         : "headerOption timetable"
                 }
                 onClick={(e) => {setStatus("TIMETABLE"); setClassMode("closed");
-                // setSelectedDate(todaysDate)
+                setSelectedDate(todaysDate)
             }}
             />
 
