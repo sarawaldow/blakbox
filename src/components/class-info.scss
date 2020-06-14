@@ -65,15 +65,22 @@
                 margin-bottom: 20px;
                 border-bottom: 1px solid $orange;
                 &.newClass {
+                    margin-top: 0px;
                     border: none;
                     margin-bottom: 0;
-                }
-                .saveClassBtn {
-                    width: 200px;
-                    margin: auto;
-                    font-size: $mobileFontSizeBig;
-                    border: none;
-                    background-color: $orange;
+                    .buttonsWrapper{
+                        display: flex;
+                        justify-content: space-between;
+                        
+                        .saveClassBtn {
+                            width: 200px;
+                            height: 30px;
+                            margin-top:20px;
+                            font-size: $mobileFontSizeBig;
+                            border: none;
+                            background-color: $orange;
+                        }
+                    }
                 }
 
                 .newClassInputs {
@@ -112,6 +119,16 @@
                         }
                     }
                     .startEndTimeInputWrapper {
+
+                        input[type=date]{
+                            margin-top: 5px;
+                            font-size: $mobileFontSizeMedium;
+                            width: 150px;
+                            height: 20px;
+                            border: 1px solid $orange;
+                            color: white;
+                            background-color: $darkgrey;
+                        }
                         margin-bottom: 15px;
                         font-size: $mobileFontSizeMedium;
                         div {
@@ -131,6 +148,7 @@
                                     color: white;
                                     background-color: $darkgrey;
                                 }
+
                             }
                         }
                     }
@@ -203,7 +221,7 @@
                 }
                 textarea {
                     font-size: $mobileFontSizeMedium;
-                    width: 100%;
+                    width: 90%;
                     height: 50px;
                     background-color: transparent;
                     border: 1px solid white;

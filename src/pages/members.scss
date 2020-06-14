@@ -8,26 +8,57 @@
     }
 
     .editContractWrapper {
+        width: 100%;
+        max-width: 450px;
+        margin: auto;
         color: white;
         button {
+            margin: auto;
             margin-top: 20px;
             font-size: $mobileFontSizeMedium;
             border: 1px solid white;
-
             color: white;
             background-color: $darkgrey;
         }
-        select {
-            font-size: $mobileFontSizeMedium;
-            background-color: $darkgrey;
-            color: white;
-            border: 1px solid white;
+
+        .buttonWrapper{
+            display: flex;
+            flex-direction: column;
+
+            .saveChanges{
+                border: none;
+                font-size: $mobileFontSizeBig;
+                
+                color: black;
+                margin-top: 10px;
+                
+                text-align: center;
+                background-color: $orange;
+            }
+        }
+            
+            select {
+                font-size: $mobileFontSizeMedium;
+                background-color: $darkgrey;
+                color: white;
+                border: 1px solid white;
+            }
+            .inputWrapper {
+                display: flex;
+                align-items: center;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            div {
+                width: 50%;
+            }
+            .textAlignEnd {
+                text-align: end;
+            }
         }
         input {
-            margin: auto;
             margin-top: 5px;
             font-size: $mobileFontSizeMedium;
-            width: 125px;
+            width: 150px;
             height: 20px;
             border: 1px solid $orange;
             color: white;
@@ -36,6 +67,36 @@
     }
     .editMemberWrapper {
         color: white;
+        width: 100%;
+        max-width: 450px;
+        .inputWrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            div {
+                width: 50%;
+            }
+            .textAlignEnd {
+                text-align: end;
+            }
+        }
+        .flexEndWrapper {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .infoWrapper{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            justify-content: space-between;
+        }
+
+        label{
+            margin-top: 10px;
+        }
+
         button {
             margin-top: 20px;
             font-size: $mobileFontSizeMedium;
@@ -79,11 +140,34 @@
 
     .registrationPendingListWrapper {
         color: white;
+        .showPendingListBtn {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            h3 {
+                margin: 0;
+                margin-right: 10px;
+            }
+            .arrowIcon {
+                width: 20px;
+                height: 20px;
+                background-image: url("../assets/arrow.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                &.up {
+                    transform: rotate(180deg);
+                }
+            }
+        }
         .buttonWrapper {
             // align-self: flex-end;
             display: flex;
             justify-content: space-between;
-            width: 50%;
+            width: 90%;
+            max-width: 300px;
+            margin: auto;
             select {
                 font-size: $mobileFontSizeMedium;
                 background-color: $darkgrey;
@@ -96,7 +180,7 @@
                 background-color: $orange;
             }
         }
-        .regBoxesWrapper{
+        .regBoxesWrapper {
             margin: auto;
             margin-top: 10px;
             max-width: 500px;
@@ -107,11 +191,10 @@
                 height: 30px;
                 border: 1px solid $orange;
                 margin-bottom: 10px;
-                .info{
+                .info {
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
-                    
                 }
             }
         }
@@ -124,22 +207,32 @@
         }
         .searchBar {
             margin-bottom: 10px;
+
+            font-size: $mobileFontSizeBig;
+            border: 1px solid white;
+            background-color: $darkgrey;
+            color: white;
+
+            &::placeholder {
+                color: white;
+                opacity: 1;
+            }
         }
-        .memberBoxesWrapper{
+        .memberBoxesWrapper {
             max-width: 500px;
             margin: auto;
             .memberBox {
                 border: 1px solid $orange;
                 margin-bottom: 10px;
-                
-                .memberInfo{
+
+                .memberInfo {
                     margin: auto;
                     margin-top: 10px;
                     margin-bottom: 10px;
-                    
+
                     width: 90%;
                     height: 100%;
-                    h3{
+                    h3 {
                         margin: 0;
                     }
                 }

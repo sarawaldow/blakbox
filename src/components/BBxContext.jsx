@@ -51,7 +51,9 @@ const BBxProvider = (props) => {
             lastVisited: "27.05.2020",
             Status: "Athlet",
             Level: "Anfänger",
-            Contract: "Half Member"
+            Contract: "Half Member",
+            NewContract: {Contract:"", Date:""},
+            Termination: {NoticeDate:"", TerminationDate:""}
         },
         {
             Key: 1,
@@ -64,7 +66,10 @@ const BBxProvider = (props) => {
             lastVisited: "11.06.2020",
             Status: "Coach",
             Level: "Fortgeschritten",
-            Contract: "Full Member"
+            Contract: "Full Member",
+            NewContract: {Contract:"", Date:""},
+            Termination: {NoticeDate:"", TerminationDate:""}
+
         },
         {
             Key: 2,

@@ -137,14 +137,16 @@ export const MembersList = () => {
     return (
         <div>
             <div className="registrationPendingListWrapper">
-                <h3
+                <div className="showPendingListBtn"
                     onClick={(e) =>
                         setShowPendingRegistrations(!showPendingRegistrations)
                     }
                 >
-                    Warten auf Freischaltung (
+                    <h3>Warten auf Freischaltung (
                     {getNumberOfPendingRegistrations()})
-                </h3>
+                    </h3>
+                    {showPendingRegistrations?<div className="arrowIcon up"/>:<div className="arrowIcon"/>}
+                </div>
                 {showPendingRegistrations && (
                     <div>
                         <div className="buttonWrapper">
