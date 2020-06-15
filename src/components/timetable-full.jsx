@@ -19,9 +19,7 @@ export const TimetableFull = () => {
 
     } = useContext(BBxContext);
 
-    // const now = todaysDate;
-    // const todaysWeekDay = now.getDay();
-    // const [selectedDay, setSelectedDay] = useState(todaysWeekDay);
+    // console.log(todaysDate);
 
     const getWeek = () => {
         let date = new Date(todaysDate.getTime());
@@ -63,8 +61,8 @@ export const TimetableFull = () => {
             // eslint-disable-next-line eqeqeq
             if (todaysDate.getDay() == key) numberOfDaysToMonday = value;
         });
-        monday.setDate(monday.getDate() + numberOfDaysToMonday + 1);
-        console.log("monday",monday);
+        monday.setDate(monday.getDate() + numberOfDaysToMonday);
+        // console.log("monday",monday);
         return monday;
     };
     const thisMondaysDate = getMondaysDate();
@@ -150,7 +148,7 @@ export const TimetableFull = () => {
     }, [selectedClassObject]);
 
     useEffect(() => {
-        console.log("selectedDate:", selectedDate);
+        // console.log("selectedDate:", selectedDate);
     }, [selectedDate]);
 
     useEffect(() => {

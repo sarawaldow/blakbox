@@ -6,19 +6,20 @@ import WeekBase from "./week-base";
 
 import "./class-manager.scss";
 
-
 export const ClassManager = () => {
     const { setClassMode } = useContext(BBxContext);
 
     return (
         <div className="classManagerWrapper">
-                            <button
+            <div className="topBtnsWrapper">
+                <button
                     className="backBtn"
                     onClick={(e) => setClassMode("closed")}
-                    >
-                    zurück zur Kursübersicht
+                >
+                    X
                 </button>
-            <ClassTypes />
+                <ClassTypes />
+            </div>
             <ClassSettings />
             <WeekBase />
         </div>

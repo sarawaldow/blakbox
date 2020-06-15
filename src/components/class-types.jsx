@@ -7,7 +7,7 @@ export const ClassTypes = () => {
 
     return (
         <div className="classTypesWrapper">
-            <h3>Kursarten</h3>
+            <button>Kursarten verwalten</button>
         </div>
     );
 };

@@ -3,8 +3,8 @@ import { BBxContext } from "./BBxContext";
 
 import "./week-base.scss";
 
-export const EditWeekBase = () => {
-    const { setClassMode, weekBaseObjects, currentWeekBase } = useContext(
+export const NewWeekBase = () => {
+    const { setClassMode } = useContext(
         BBxContext
     );
 
@@ -30,38 +30,28 @@ export const EditWeekBase = () => {
     };
 
     const generateWeekBase = () => {
-        let weekbase = {};
-        // eslint-disable-next-line array-callback-return
-        weekBaseObjects.map((obj) => {
-            obj.Name === currentWeekBase ? (weekbase = obj) : console.log("");
-        });
-        console.log("weekbase", weekbase);
-
+ 
         return (
             <div className="editBaseBox">
-                {weekbase.WeekDays.map(
-                    (weekday) =>
-                        weekday.Day === selectedDay && (
+
                             <div className="weekDayRow">
                                 <button className="addClassBtn">+ Kurs</button>
-                                {weekday.Classes.map((oneClass) => (
+
+                       
                                     <div className="oneClass">
                                         <div className="allInputsWrapper">
                                             <div className="inputWrapper time">
                                                 <input
-                                                    value={oneClass.StartTime}
                                                     type="time"
                                                 />{" "}
                                                 bis{" "}
                                                 <input
-                                                    value={oneClass.EndTime}
                                                     type="time"
                                                 />
                                             </div>
                                             <div className="inputWrapper">
                                                 <select
                                                     className="chooseClassType"
-                                                    value={oneClass.Class}
                                                 >
                                                     <option value="Open Gym">
                                                         Open Gym
@@ -81,7 +71,6 @@ export const EditWeekBase = () => {
                                                 Coach
                                                 <select
                                                     className="chooseCoach"
-                                                    value={oneClass.Coach}
                                                 >
                                                     <option value="Peter">
                                                         Peter
@@ -103,9 +92,7 @@ export const EditWeekBase = () => {
                                                     <div>
                                                         <label>min.</label>
                                                         <input
-                                                            value={
-                                                                oneClass.MinSpots
-                                                            }
+                                             
                                                             type="number"
                                                             min="0"
                                                         />
@@ -114,9 +101,7 @@ export const EditWeekBase = () => {
                                                         <label>max.</label>
 
                                                         <input
-                                                            value={
-                                                                oneClass.MaxSpots
-                                                            }
+                                           
                                                             type="number"
                                                             min="0"
                                                         />
@@ -168,10 +153,13 @@ export const EditWeekBase = () => {
                                             <button>Kurs löschen</button>
                                         </div>
                                     </div>
-                                ))}
+                            
+
+
+
+
                             </div>
-                        )
-                )}
+
             </div>
         );
     };
@@ -187,7 +175,8 @@ export const EditWeekBase = () => {
                 zurück zur Kursverwaltung
             </button>
 
-            <h3>{currentWeekBase} bearbeiten</h3>
+            <h3>Basis wechseln</h3>
+            <h3>neue Basis</h3>
             <button
                 className="saveChangesBtn"
                 onClick={(e) => saveWeekBaseChanges()}
@@ -199,4 +188,4 @@ export const EditWeekBase = () => {
         </div>
     );
 };
-export default EditWeekBase;
+export default NewWeekBase;

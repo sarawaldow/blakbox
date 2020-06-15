@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const BBxContext = React.createContext(null);
 
 const BBxProvider = (props) => {
-    const [status, setStatus] = useState("MEMBERS");
+    const [status, setStatus] = useState("TIMETABLE");
 
     const [memberType, setMemberType] = useState("Box Owner");
 
@@ -82,7 +82,9 @@ const BBxProvider = (props) => {
             lastVisited: "",
             Status: "Athlet",
             Level: "Anfänger",
-            Contract: "Half Member"
+            Contract: "Half Member",
+            NewContract: {Contract:"", Date:""},
+            Termination: {NoticeDate:"", TerminationDate:""}
         },
         {
             Key: 3,
@@ -95,7 +97,9 @@ const BBxProvider = (props) => {
             lastVisited: "",
             Status: "Athlet",
             Level: "Anfänger",
-            Contract: "Full Member"
+            Contract: "Full Member",
+            NewContract: {Contract:"", Date:""},
+            Termination: {NoticeDate:"", TerminationDate:""}
         }
     ]);
 
@@ -227,8 +231,8 @@ const BBxProvider = (props) => {
                             StartTime: "10:00",
                             EndTime: "11:00",
                             Coach: "Peter",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -236,8 +240,8 @@ const BBxProvider = (props) => {
                             StartTime: "15:00",
                             EndTime: "16:00",
                             Coach: "Anke",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -245,8 +249,8 @@ const BBxProvider = (props) => {
                             StartTime: "18:00",
                             EndTime: "19:00",
                             Coach: "Hans",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -254,8 +258,8 @@ const BBxProvider = (props) => {
                             StartTime: "19:00",
                             EndTime: "20:00",
                             Coach: "Gerda",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         }
                     ]
@@ -268,8 +272,8 @@ const BBxProvider = (props) => {
                             StartTime: "10:00",
                             EndTime: "11:00",
                             Coach: "Peter",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -277,8 +281,8 @@ const BBxProvider = (props) => {
                             StartTime: "15:00",
                             EndTime: "16:00",
                             Coach: "Anke",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -286,8 +290,8 @@ const BBxProvider = (props) => {
                             StartTime: "18:00",
                             EndTime: "19:00",
                             Coach: "Hans",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -295,8 +299,8 @@ const BBxProvider = (props) => {
                             StartTime: "19:00",
                             EndTime: "20:00",
                             Coach: "Gerda",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         }
                     ]
@@ -309,8 +313,8 @@ const BBxProvider = (props) => {
                             StartTime: "10:00",
                             EndTime: "11:00",
                             Coach: "Peter",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -318,8 +322,8 @@ const BBxProvider = (props) => {
                             StartTime: "15:00",
                             EndTime: "16:00",
                             Coach: "Anke",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -327,8 +331,8 @@ const BBxProvider = (props) => {
                             StartTime: "18:00",
                             EndTime: "19:00",
                             Coach: "Hans",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -336,8 +340,8 @@ const BBxProvider = (props) => {
                             StartTime: "19:00",
                             EndTime: "20:00",
                             Coach: "Gerda",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         }
                     ]
@@ -350,8 +354,8 @@ const BBxProvider = (props) => {
                             StartTime: "10:00",
                             EndTime: "11:00",
                             Coach: "Peter",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -359,8 +363,8 @@ const BBxProvider = (props) => {
                             StartTime: "15:00",
                             EndTime: "16:00",
                             Coach: "Anke",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -368,8 +372,8 @@ const BBxProvider = (props) => {
                             StartTime: "18:00",
                             EndTime: "19:00",
                             Coach: "Hans",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -377,8 +381,8 @@ const BBxProvider = (props) => {
                             StartTime: "19:00",
                             EndTime: "20:00",
                             Coach: "Gerda",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         }
                     ]
@@ -391,8 +395,8 @@ const BBxProvider = (props) => {
                             StartTime: "10:00",
                             EndTime: "11:00",
                             Coach: "Peter",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -400,8 +404,8 @@ const BBxProvider = (props) => {
                             StartTime: "15:00",
                             EndTime: "16:00",
                             Coach: "Anke",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -409,8 +413,8 @@ const BBxProvider = (props) => {
                             StartTime: "18:00",
                             EndTime: "19:00",
                             Coach: "Hans",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -418,8 +422,8 @@ const BBxProvider = (props) => {
                             StartTime: "19:00",
                             EndTime: "20:00",
                             Coach: "Gerda",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         }
                     ]
@@ -432,8 +436,8 @@ const BBxProvider = (props) => {
                             StartTime: "10:00",
                             EndTime: "11:00",
                             Coach: "Peter",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -441,8 +445,8 @@ const BBxProvider = (props) => {
                             StartTime: "15:00",
                             EndTime: "16:00",
                             Coach: "Anke",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -450,8 +454,8 @@ const BBxProvider = (props) => {
                             StartTime: "18:00",
                             EndTime: "19:00",
                             Coach: "Hans",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -459,8 +463,8 @@ const BBxProvider = (props) => {
                             StartTime: "19:00",
                             EndTime: "20:00",
                             Coach: "Gerda",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         }
                     ]
@@ -473,8 +477,8 @@ const BBxProvider = (props) => {
                             StartTime: "10:00",
                             EndTime: "11:00",
                             Coach: "Peter",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -482,8 +486,8 @@ const BBxProvider = (props) => {
                             StartTime: "15:00",
                             EndTime: "16:00",
                             Coach: "Anke",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -491,8 +495,8 @@ const BBxProvider = (props) => {
                             StartTime: "18:00",
                             EndTime: "19:00",
                             Coach: "Hans",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         },
                         {
@@ -500,8 +504,8 @@ const BBxProvider = (props) => {
                             StartTime: "19:00",
                             EndTime: "20:00",
                             Coach: "Gerda",
-                            MinSpots: 0,
-                            MaxSpots: 0,
+                            MinSpots: 2,
+                            MaxSpots: 10,
                             Rhythm: "jede Woche"
                         }
                     ]

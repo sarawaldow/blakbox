@@ -132,33 +132,7 @@ export const EditClass = () => {
                             ${formatDate(selectedDate)}`}
                         </div>
                     </div>
-                    {/* <div className="minMaxInputWrapper">
-                            Teilnehmeranzahl
-                        <div>
-                            <label>minimal</label>
-                            <input
-                                value={minSpots}
-                                onChange={(e) => {
-                                    setMinSpots(e.target.value);
-                                    setChangesMade(true);
-                                }}
-                                type="number"
-                                min="0"
-                            />
-                        </div>
-                        <div>
-                            <label>bis maximal</label>
-                            <input
-                                value={maxSpots}
-                                onChange={(e) => {
-                                    setMaxSpots(e.target.value);
-                                    setChangesMade(true);
-                                }}
-                                type="number"
-                                min="0"
-                            />
-                        </div>
-                    </div> */}
+
                     <div className="minMaxInputWrapper">
                         <h3 className="bigLabel">Teilnehmerzahl</h3>
                         <div>
@@ -187,7 +161,6 @@ export const EditClass = () => {
                                 />
                             </div>
                         </div>
-                        {/* <label>Teilnehmer</label> */}
                     </div>
                     <div className="classDescriptionText">
                         <label htmlFor="descriptionTextArea">

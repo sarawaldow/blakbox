@@ -7,9 +7,27 @@ h3 {
     color: $orange;
     margin-bottom: 10px;
 }
+
+.classTypesWrapper{
+    // display: flex;
+    margin-top: 20px;
+    button {
+        // margin: auto;
+        font-size: $mobileFontSizeBig;
+        border: none;
+
+        // color: white;
+        background-color: $orange;
+    }
+}
+
 .classManagerWrapper{
+    .topBtnsWrapper{
+        // margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
     .backBtn{
-        margin-top: 20px;
         font-size: $mobileFontSizeBig;
         border: 1px solid white;
 
@@ -18,17 +36,42 @@ h3 {
     }
 }
 
+.showSettingsToggleBtn{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    h3 {
+        margin: 0;
+        margin-right: 10px;
+    }
+    .arrowIcon {
+        width: 20px;
+        height: 20px;
+        background-image: url("../assets/arrow.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        &.up {
+            transform: rotate(180deg);
+        }
+    }
+}
+
 .settingsWrapper{
     width: 100%;
     max-width: 300px;
     color: white;
+    margin-bottom: 20px;
+
     div{
         margin-bottom: 10px;
         input{
             width: 30px;
-            font-size: $mobileFontSizeBig;
+            margin-right: 5px;
+            font-size: $mobileFontSizeMedium;
             width: 30px;
-            height: 30px;
+            height: 20px;
             border: 1px solid $orange;
             color: white;
             background-color: $darkgrey;

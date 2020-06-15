@@ -2,80 +2,86 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 
-.backBtn{
+.backBtn {
     margin-top: 20px;
     font-size: $mobileFontSizeBig;
     border: 1px solid white;
 
     color: white;
     background-color: $darkgrey;
-} 
-.weekBaseWrapper{
-    .headlineWrap{
+}
+.weekBaseWrapper {
+    .headlineWrap {
         display: flex;
+        flex-direction: column;
         width: 100%;
-        max-width: 350px;
-        justify-content: space-between;
-
-        button {
-            // font-size: $mobileFontSizeMedium;
-            border: none;
-            width: 150px;
-            // color: white;
-            background-color: $orange;
-            align-self: flex-end;
+        // max-width: 350px;
+        .buttonWrap{
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
+            button {
+                // font-size: $mobileFontSizeMedium;
+                border: 1px solid white;
+                width: 150px;
+                color: white;
+                background-color: $darkgrey;
+                align-self: flex-end;
+            }
         }
     }
 }
 
 .weekBaseBox {
     color: white;
-    .headlineWrap{
-        display: flex;
-        width: 100%;
-        max-width: 350px;
-        justify-content: space-between;
-        h3{
-            color: white;
-        }
-        button {
-            // font-size: $mobileFontSizeMedium;
-            border: none;
-            width: 120px;
-            // color: white;
-            background-color: $orange;
-            align-self: flex-end;
-        }
+
+    h3{
+        color: white;
     }
-    .weekDayRow {
+
+    .weekDayColsWrapper {
+        display: flex;
+        // width: 95vw;
         margin: auto;
-        .oneWeekDay {
-            border: none;
-            border-bottom: 1px solid white;
-        }
-        .oneClass {
-            padding-top: 5px;
-            padding-bottom: 5px;
-            border: none;
-            display: flex;
-            h3{
-                margin: 0;
-                color: white;
+        overflow-x: auto;
+        margin-top: 10px;
+        .weekDayCol {
+            margin: auto;
+            min-width: 200px;
+            margin-right: 10px;
+            .oneWeekDay {
+                border: none;
+                border-bottom: 1px solid white;
+                h3 {
+                    margin-top: 0;
+                    color: $orange;
+                }
             }
-            border-bottom: 1px solid $orange;
+            .oneClass {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                h3 {
+                    margin: 0;
+                    color: white;
+                }
+                border-bottom: 1px solid $orange;
+            }
         }
     }
 }
 
 .editWeekBaseWrapper {
-    .saveChangesBtn{
+    .saveChangesBtn {
         // width: 200px;
         margin: auto;
         font-size: $mobileFontSizeMedium;
         border: none;
         background-color: $orange;
     }
-    .weekdayWrapper{
+    .weekdayWrapper {
         margin-top: 10px;
         display: flex;
         justify-content: space-evenly;
@@ -97,37 +103,76 @@
             }
         }
     }
-    .editBaseBox{
+    .editBaseBox {
         color: white;
-        .addClassBtn{
+        .addClassBtn {
             margin-top: 5px;
             margin-bottom: 5px;
             font-size: $mobileFontSizeMedium;
             border: 1px solid white;
-        
+
             color: white;
             background-color: $darkgrey;
         }
         .oneClass {
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             border: none;
-
+            // margin:auto;
             border-top: 1px solid $orange;
             border-bottom: 1px solid $orange;
 
-            .chooseClassType{
+            .allInputsWrapper{
+                width: 90%;
+                margin: auto;
+                
+                .inputWrapper{
+                    // display: flex;
+                    width: 100%;
+                    // justify-content: space-between;
+                    margin-bottom: 10px;
+                    
+                    &.coach{
+                        select{
+                            margin-left: 10px;
+                        }
+                    }
+                    &.participants{
+                        div {
+                            display: flex;
+                            flex-direction: row;
+                            div {
+                                margin-right: 20px;
+                                display: flex;
+                                flex-direction: column;
+                                input {
+                                    margin: auto;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .checkboxesWrapper{
+                    .row{
+                        margin-bottom: 10px;
+                        label{
+                            margin-right: 15px;
+                        }
+                    }
+                }
+            }
+            .chooseClassType {
                 width: 150px;
             }
-            .chooseCoach{
+            .chooseCoach {
                 width: 70px;
-
             }
             button {
                 margin-top: 20px;
                 font-size: $mobileFontSizeMedium;
                 border: 1px solid white;
-    
+
                 color: white;
                 background-color: $darkgrey;
             }
@@ -137,7 +182,7 @@
                 color: white;
                 border: 1px solid white;
             }
-            input[type=time]{
+            input[type="time"] {
                 margin: auto;
                 margin-top: 5px;
                 font-size: $mobileFontSizeMedium;
@@ -147,7 +192,7 @@
                 color: white;
                 background-color: $darkgrey;
             }
-            input[type=number]{
+            input[type="number"] {
                 margin: auto;
                 margin-top: 5px;
                 font-size: $mobileFontSizeMedium;

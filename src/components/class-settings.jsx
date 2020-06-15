@@ -37,49 +37,63 @@ export const ClassSettings = () => {
                 className="showSettingsToggleBtn"
             >
                 <h3>allgemeine Kurseinstellungen</h3>
+                {areSettingsVisible?<div className="arrowIcon up"/>:<div className="arrowIcon"/>}
+
             </div>
             {areSettingsVisible && (
                 <div className="settingsWrapper">
                     <div className="inputsWrapper">
                         <div>
-                            Anmelden möglich ab{" "}
+                            <div>Anmelden möglich ab</div>
+                            <div>
+
                             <input
                                 type="number"
                                 min="0"
                                 value={dummySignUpTime}
                                 onChange={(e)=>setDummySignUpTime(e.target.value)}
-                            />
+                                />
                             Tage vor Kursbeginn
+                                </div>
                         </div>
                         <div>
-                            Abmeldesperre ab{" "}
+                            <div>Abmeldesperre ab</div>
+                            <div>
+
                             <input
                                 type="number"
                                 step="0.5"
                                 value={dummySignOffTill}
                                 onChange={(e)=>setDummySignOffTill(e.target.value)}
-                            />
+                                />
                             Stunden vor Kursbeginn
+                                </div>
                         </div>
                         <div>
-                            Workout anzeigen ab{" "}
+                            <div>Workout anzeigen ab</div>
+                            <div>
+
                             <input
                                 type="number"
                                 step="0.5"
                                 value={dummyWorkoutVisibilityTime}
                                 onChange={(e)=>setDummyWorkoutVisibilityTime(e.target.value)}
-                            />
+                                />
                             Stunden vor Kursbeginn
+                                </div>
                         </div>
                         <div>
-                            Teilnehmerminimum überprüfen{" "}
+                            <div>Teilnehmerminimum überprüfen</div>
+                            <div>
+
                             <input
                                 type="number"
                                 step="0.5"
                                 value={dummyCheckSignedUp}
                                 onChange={(e)=>setDummyCheckSignedUp(e.target.value)}
-                            />
+                                />
                             Stunden vor Kursbeginn
+                                </div>
                         </div>
                     </div>
                     <button onClick={(e)=>saveSettingChanges()}>Änderungen speichern</button>

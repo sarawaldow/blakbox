@@ -18,26 +18,25 @@ export const WeekBase = () => {
 
         return (
             <div className="weekBaseBox">
-                <div className="headlineWrap">
                     <h3>{weekbase.Name}</h3>
-                    <button onClick={(e) => setClassMode("editweekbase")}>
-                        aktuelle Basis bearbeiten
-                    </button>
-                </div>
-
-                {weekbase.WeekDays.map((weekday) => (
-                    <div className="weekDayRow">
-                        <div className="oneWeekDay">
-                            <h3>{weekday.Day}</h3>
-                        </div>
-                        {weekday.Classes.map((oneClass) => (
-                            <div className="oneClass">
-                                {oneClass.StartTime}-{oneClass.EndTime}
-                                <h3>{oneClass.Class}</h3>
+                <div className="weekDayColsWrapper">
+                    {weekbase.WeekDays.map((weekday) => (
+                        <div className="weekDayCol">
+                            <div className="oneWeekDay">
+                                <h3>{weekday.Day}</h3>
                             </div>
-                        ))}
-                    </div>
-                ))}
+                            {weekday.Classes.map((oneClass) => (
+                                <div className="oneClass">
+                                    <div>
+                                        <div>{oneClass.StartTime}-</div>
+                                        <div>{oneClass.EndTime}</div>
+                                    </div>
+                                    <h3>{oneClass.Class}</h3>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     };
@@ -46,12 +45,18 @@ export const WeekBase = () => {
         <div className="weekBaseWrapper">
             <div className="headlineWrap">
                 <h3>Wochenplanbasis</h3>
+                <div className="buttonWrap">
+
                 <button
                     className="newWeekBaseBtn"
-                    onClick={(e) => setClassMode("editweekbase")}
-                >
+                    onClick={(e) => setClassMode("newweekbase")}
+                    >
                     Basis wechseln/neu erstellen
                 </button>
+                <button onClick={(e) => setClassMode("editweekbase")}>
+                        aktuelle Basis bearbeiten
+                    </button>
+                    </div>
             </div>
             {generateWeekBase()}
         </div>

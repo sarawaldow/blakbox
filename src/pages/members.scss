@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 
 .memberswrapper {
+    padding-bottom: 20px;
+
     h2 {
         color: $orange;
     }
@@ -67,6 +69,8 @@
     }
     .editMemberWrapper {
         color: white;
+        margin: auto;
+
         width: 100%;
         max-width: 450px;
         .inputWrapper {
@@ -208,7 +212,7 @@
         .searchBar {
             margin-bottom: 10px;
 
-            font-size: $mobileFontSizeBig;
+            font-size: $mobileFontSizeMedium;
             border: 1px solid white;
             background-color: $darkgrey;
             color: white;

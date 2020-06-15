@@ -41,6 +41,8 @@ export const ClassInfo = () => {
     );
     const [waitingList, setWaitingList] = useState(selectedClassObject.Waiting);
 
+    const [showSuccessfullySignedUp, setShowSuccessfullySignedUp] = useState(false);
+
     const checkIfClassIsFull = () => {
         if (
             selectedClassObject.SignedUp.length >=
@@ -133,8 +135,8 @@ export const ClassInfo = () => {
             setSignedUpClasses(newArr);
             setSignedUp(true);
             setCredits(credits - 1);
-
             setSignedUpList([...signedUpList, userName]);
+            setShowSuccessfullySignedUp(true);
         }
     };
 
@@ -145,7 +147,22 @@ export const ClassInfo = () => {
 
     return (
         <div className="classInfoWrapper">
-            <div>
+            {showSuccessfullySignedUp && (
+                <div className="successfullyAddedLayer">
+                    <h3>
+                        Erfolgreich für Kurs angemeldet.
+                    </h3>
+
+                    <button
+                        onClick={(e) => {
+                            setClassMode("closed");setSelectedDate(todaysDate)
+                        }}
+                    >
+                        zurück zur Kursübersicht
+                    </button>
+                </div>
+            )}
+            {!showSuccessfullySignedUp&&<div>
                 <div className="topBtnsWrapper">
                     <button
                         className="backBtn"
@@ -242,7 +259,8 @@ export const ClassInfo = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
+
         </div>
     );
 };
