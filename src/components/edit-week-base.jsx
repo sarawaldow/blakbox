@@ -123,47 +123,107 @@ export const EditWeekBase = () => {
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div className="levelCheckboxes">
+                                                <div>zugelassene Trainingslevel</div>
+                                                <label>
+                                                    <input type="checkbox" defaultChecked/>
+                                                    Anfänger
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" defaultChecked/>
+                                                    Fortgeschritten
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" defaultChecked/>
+                                                    Hero
+                                                </label>
+                                            </div>
                                             <div className="checkboxesWrapper">
                                                 <div className="row">
                                                     <label>
                                                         MO
-                                                        <input type="checkbox" checked={selectedDay === "MO"}/>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                selectedDay ===
+                                                                "MO"
+                                                            }
+                                                        />
                                                     </label>
                                                     <label>
                                                         DI
-                                                        <input type="checkbox" checked={selectedDay === "DI"}/>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                selectedDay ===
+                                                                "DI"
+                                                            }
+                                                        />
                                                     </label>
                                                     <label>
                                                         MI
-                                                        <input type="checkbox"  checked={selectedDay === "MI"}/>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                selectedDay ===
+                                                                "MI"
+                                                            }
+                                                        />
                                                     </label>
                                                     <label>
                                                         DO
-                                                        <input type="checkbox" checked={selectedDay === "DO"}/>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                selectedDay ===
+                                                                "DO"
+                                                            }
+                                                        />
                                                     </label>
                                                 </div>
                                                 <div className="row">
                                                     <label>
                                                         FR
-                                                        <input type="checkbox" checked={selectedDay === "FR"}/>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                selectedDay ===
+                                                                "FR"
+                                                            }
+                                                        />
                                                     </label>
                                                     <label>
                                                         SA
-                                                        <input type="checkbox" checked={selectedDay === "SA"}/>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                selectedDay ===
+                                                                "SA"
+                                                            }
+                                                        />
                                                     </label>
                                                     <label>
                                                         SO
-                                                        <input type="checkbox" checked={selectedDay === "SO"}/>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                selectedDay ===
+                                                                "SO"
+                                                            }
+                                                        />
                                                     </label>
                                                 </div>
                                             </div>
                                             <div className="inputWrapper">
-
-                                            Wiederholungsrhythmus
-                                            <select>
-                                                <option value="jede Woche">jede Woche</option>
-                                                <option value="alle zwei Wochen">alle zwei Wochen</option>
-                                            </select>
+                                                Wiederholungsrhythmus
+                                                <select>
+                                                    <option value="jede Woche">
+                                                        jede Woche
+                                                    </option>
+                                                    <option value="alle zwei Wochen">
+                                                        alle zwei Wochen
+                                                    </option>
+                                                </select>
                                             </div>
                                             <button>Kurs löschen</button>
                                         </div>

@@ -74,9 +74,30 @@
 }
 
 .editWeekBaseWrapper {
+
+    .levelCheckboxes{
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .weekBaseNameInput{
+        margin-bottom: 10px;
+
+        font-size: $mobileFontSizeMedium;
+        border: 1px solid white;
+        background-color: $darkgrey;
+        color: white;
+
+        &::placeholder {
+            color: white;
+            opacity: 1;
+        }
+    }
     .saveChangesBtn {
         // width: 200px;
         margin: auto;
+margin-top: 10px;
         font-size: $mobileFontSizeMedium;
         border: none;
         background-color: $orange;
@@ -103,6 +124,27 @@
             }
         }
     }
+
+    .weekBaseOptions{
+        color: white;
+
+        select {
+            font-size: $mobileFontSizeMedium;
+            background-color: $darkgrey;
+            color: white;
+            border: 1px solid white;
+        }
+        input[type=date]{
+            margin-top: 5px;
+            font-size: $mobileFontSizeMedium;
+            width: 150px;
+            height: 20px;
+            border: 1px solid $orange;
+            color: white;
+            background-color: $darkgrey;
+        }
+    }
+
     .editBaseBox {
         color: white;
         .addClassBtn {
@@ -196,7 +238,7 @@
                 margin: auto;
                 margin-top: 5px;
                 font-size: $mobileFontSizeMedium;
-                width: 30px;
+                width: 40px;
                 height: 20px;
                 border: 1px solid $orange;
                 color: white;
