@@ -48,17 +48,17 @@ export const EditWeekBase = () => {
                                     <div className="oneClass">
                                         <div className="allInputsWrapper">
                                             <div className="inputWrapper time">
-                                                <input
+                                                Uhrzeit
+                                                <div><input
                                                     value={oneClass.StartTime}
                                                     type="time"
-                                                />{" "}
-                                                bis{" "}
-                                                <input
+                                                /> bis <input
                                                     value={oneClass.EndTime}
                                                     type="time"
-                                                />
+                                                /></div>
                                             </div>
                                             <div className="inputWrapper">
+                                                Kursart 
                                                 <select
                                                     className="chooseClassType"
                                                     value={oneClass.Class}
@@ -214,7 +214,7 @@ export const EditWeekBase = () => {
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div className="inputWrapper">
+                                            <div className="inputWrapper rhythm">
                                                 Wiederholungsrhythmus
                                                 <select>
                                                     <option value="jede Woche">

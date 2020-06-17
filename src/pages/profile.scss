@@ -46,22 +46,15 @@
         background-color: $orange;
     }
     select {
-        font-size: $mobileFontSizeMedium;
-        background-color: $darkgrey;
-        color: white;
+
         width: 150px;
 
-        border: 1px solid white;
     }
     input {
         // margin: auto;
         margin-top: 5px;
-        font-size: $mobileFontSizeMedium;
         width: 150px;
         height: 20px;
-        border: 1px solid $orange;
-        color: white;
-        background-color: $darkgrey;
     }
     .addressInputWrapper {
         .street {

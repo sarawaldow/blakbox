@@ -29,6 +29,7 @@ export const ClassSettings = () => {
         setSignOffTill(dummySignOffTill);
         setWorkoutVisibilityTime(dummyWorkoutVisibilityTime);
         setCheckSignedUp(dummyCheckSignedUp);
+        setAreSettingsVisible(false);
     };
     return (
         <div className="classSettingsWrapper">

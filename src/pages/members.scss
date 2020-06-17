@@ -39,12 +39,6 @@
             }
         }
             
-            select {
-                font-size: $mobileFontSizeMedium;
-                background-color: $darkgrey;
-                color: white;
-                border: 1px solid white;
-            }
             .inputWrapper {
                 display: flex;
                 align-items: center;
@@ -109,12 +103,7 @@
             color: white;
             background-color: $darkgrey;
         }
-        select {
-            font-size: $mobileFontSizeMedium;
-            background-color: $darkgrey;
-            color: white;
-            border: 1px solid white;
-        }
+
         .openContractSettingsBtn {
             border: none;
             font-size: $mobileFontSizeMedium;
@@ -172,12 +161,7 @@
             width: 90%;
             max-width: 300px;
             margin: auto;
-            select {
-                font-size: $mobileFontSizeMedium;
-                background-color: $darkgrey;
-                color: white;
-                border: 1px solid white;
-            }
+
 
             .activateBtn {
                 border: 1px solid $orange;

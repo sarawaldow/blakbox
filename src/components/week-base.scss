@@ -16,12 +16,12 @@
         flex-direction: column;
         width: 100%;
         // max-width: 350px;
-        .buttonWrap{
+        .buttonWrap {
             max-width: 400px;
             display: flex;
             justify-content: space-between;
             button {
-                // font-size: $mobileFontSizeMedium;
+                font-size: $mobileFontSizeMedium;
                 border: 1px solid white;
                 width: 150px;
                 color: white;
@@ -35,7 +35,7 @@
 .weekBaseBox {
     color: white;
 
-    h3{
+    h3 {
         color: white;
     }
 
@@ -74,20 +74,16 @@
 }
 
 .editWeekBaseWrapper {
-
-    .levelCheckboxes{
+    .levelCheckboxes {
         margin-bottom: 10px;
         display: flex;
         flex-direction: column;
     }
 
-    .weekBaseNameInput{
-        margin-bottom: 10px;
+    .weekBaseNameInput {
+        margin-top: 10px;
+        margin-bottom: 5px;
 
-        font-size: $mobileFontSizeMedium;
-        border: 1px solid white;
-        background-color: $darkgrey;
-        color: white;
 
         &::placeholder {
             color: white;
@@ -97,7 +93,7 @@
     .saveChangesBtn {
         // width: 200px;
         margin: auto;
-margin-top: 10px;
+        margin-top: 10px;
         font-size: $mobileFontSizeMedium;
         border: none;
         background-color: $orange;
@@ -125,26 +121,60 @@ margin-top: 10px;
         }
     }
 
-    .weekBaseOptions{
+    .switchBaseWrapper {
         color: white;
+        max-width: 400px;
+        margin-top: 20px;
 
-        select {
-            font-size: $mobileFontSizeMedium;
-            background-color: $darkgrey;
-            color: white;
-            border: 1px solid white;
-        }
-        input[type=date]{
+        input[type="date"] {
             margin-top: 5px;
-            font-size: $mobileFontSizeMedium;
             width: 150px;
             height: 20px;
-            border: 1px solid $orange;
-            color: white;
-            background-color: $darkgrey;
         }
     }
+    .inputWrapper {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
 
+        &.date {
+            margin-top: 10px;
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        &.coach {
+            select {
+                margin-left: 10px;
+            }
+        }
+        &.participants {
+            div {
+                display: flex;
+                flex-direction: row;
+                div {
+                    margin-right: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    input {
+                        margin: auto;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+        &.rhythm {
+            flex-direction: column;
+            select {
+                margin-top: 5px;
+                width: 150px;
+            }
+        }
+    }
     .editBaseBox {
         color: white;
         .addClassBtn {
@@ -164,41 +194,20 @@ margin-top: 10px;
             border-top: 1px solid $orange;
             border-bottom: 1px solid $orange;
 
-            .allInputsWrapper{
+            .allInputsWrapper {
                 width: 90%;
+                max-width: 400px;
                 margin: auto;
-                
-                .inputWrapper{
-                    // display: flex;
-                    width: 100%;
-                    // justify-content: space-between;
-                    margin-bottom: 10px;
-                    
-                    &.coach{
-                        select{
-                            margin-left: 10px;
-                        }
-                    }
-                    &.participants{
-                        div {
-                            display: flex;
-                            flex-direction: row;
-                            div {
-                                margin-right: 20px;
-                                display: flex;
-                                flex-direction: column;
-                                input {
-                                    margin: auto;
-                                    margin-top: 5px;
-                                }
-                            }
-                        }
+
+                .levelCheckboxes {
+                    div {
+                        margin-bottom: 5px;
                     }
                 }
-                .checkboxesWrapper{
-                    .row{
+                .checkboxesWrapper {
+                    .row {
                         margin-bottom: 10px;
-                        label{
+                        label {
                             margin-right: 15px;
                         }
                     }
@@ -218,31 +227,19 @@ margin-top: 10px;
                 color: white;
                 background-color: $darkgrey;
             }
-            select {
-                font-size: $mobileFontSizeMedium;
-                background-color: $darkgrey;
-                color: white;
-                border: 1px solid white;
-            }
+
             input[type="time"] {
                 margin: auto;
                 margin-top: 5px;
-                font-size: $mobileFontSizeMedium;
                 width: 80px;
                 height: 20px;
-                border: 1px solid $orange;
-                color: white;
-                background-color: $darkgrey;
+
             }
             input[type="number"] {
                 margin: auto;
                 margin-top: 5px;
-                font-size: $mobileFontSizeMedium;
                 width: 40px;
                 height: 20px;
-                border: 1px solid $orange;
-                color: white;
-                background-color: $darkgrey;
             }
         }
     }
