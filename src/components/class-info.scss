@@ -93,11 +93,7 @@
 
                         select {
                             margin-top: 10px;
-                            font-size: $mobileFontSizeBig;
-                            background-color: $darkgrey;
                             margin: auto;
-                            color: white;
-                            border: 1px solid white;
                         }
                     }
                     .minMaxInputWrapper {
@@ -122,12 +118,8 @@
 
                         input[type=date]{
                             margin-top: 5px;
-                            font-size: $mobileFontSizeMedium;
                             width: 150px;
                             height: 20px;
-                            border: 1px solid $orange;
-                            color: white;
-                            background-color: $darkgrey;
                         }
                         margin-bottom: 15px;
                         font-size: $mobileFontSizeMedium;
@@ -141,12 +133,9 @@
                                 input {
                                     margin: auto;
                                     margin-top: 5px;
-                                    font-size: $mobileFontSizeBig;
                                     width: 100px;
                                     height: 20px;
-                                    border: 1px solid $orange;
-                                    color: white;
-                                    background-color: $darkgrey;
+
                                 }
 
                             }
@@ -198,14 +187,10 @@
                         display: flex;
                         flex-direction: column;
                         input[type="number"] {
-                            font-size: $mobileFontSizeBig;
                             margin: auto;
                             margin-top: 5px;
                             width: 40px;
                             height: 20px;
-                            border: 1px solid $orange;
-                            color: white;
-                            background-color: $darkgrey;
                         }
                     }
                 }
@@ -243,12 +228,10 @@
                         display: flex;
                         align-self: flex-end;
                         select {
-                            font-size: $mobileFontSizeBig;
-                            background-color: $darkgrey;
+
                             margin: auto;
                             margin-left: 5px;
-                            color: white;
-                            border: 1px solid white;
+
                         }
                     }
                 }
@@ -327,12 +310,6 @@
                             display: flex;
                             flex-direction: column;
                         }
-                        select {
-                            font-size: $mobileFontSizeBig;
-                            background-color: $darkgrey;
-                            color: white;
-                            border: 1px solid white;
-                        }
 
                         .newWorkoutBox {
                             .newWorkoutInputBox {
@@ -341,12 +318,6 @@
                                 display: flex;
                                 flex-direction: column;
 
-                                select {
-                                    font-size: $mobileFontSizeBig;
-                                    background-color: $darkgrey;
-                                    color: white;
-                                    border: 1px solid white;
-                                }
                             }
                             button {
                                 font-size: $mobileFontSizeBig;

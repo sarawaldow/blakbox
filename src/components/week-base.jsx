@@ -51,7 +51,7 @@ export const WeekBase = () => {
                     className="newWeekBaseBtn"
                     onClick={(e) => setClassMode("newweekbase")}
                     >
-                    Basis wechseln/neu erstellen
+                    Basis wechseln/ erstellen
                 </button>
                 <button onClick={(e) => setClassMode("editweekbase")}>
                         aktuelle Basis bearbeiten

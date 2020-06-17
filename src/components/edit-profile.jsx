@@ -87,7 +87,7 @@ export const EditProfile = () => {
                 >
                     <option value="weiblich">weiblich</option>
                     <option value="männlich">männlich</option>
-                    {/* <option value="Divers">Divers</option> */}
+                    <option value="divers">divers</option>
                 </select>
             </div>
             <div className="inputWrapper">

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const BBxContext = React.createContext(null);
 
 const BBxProvider = (props) => {
-    const [status, setStatus] = useState("START");
+    const [status, setStatus] = useState("TIMETABLE");
 
     const [memberType, setMemberType] = useState("Box Owner");
 
