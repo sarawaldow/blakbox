@@ -131,6 +131,10 @@ input {
     }
 }
 
+input[type=radio]{
+    border-radius:100%;
+}
+
 
 textarea {
     font-size: $mobileFontSizeMedium;

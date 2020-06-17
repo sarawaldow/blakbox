@@ -149,7 +149,16 @@ export const AddWorkout = () => {
                     {selectedWodType === "boxWOD" && (
                         <div>
                             <h3>Wähle ein WOD</h3>
-
+                            {selectedWOD.label && (
+                                <button
+                                    className="addThisWorkout"
+                                    onClick={(e) =>
+                                        handleAddOldWorkout(selectedWorkoutType)
+                                    }
+                                >
+                                    zum Workout hinzufügen
+                                </button>
+                            )}
                             {listOfBoxWods.map((workoutpart, index) => {
                                 return (
                                     <div
@@ -172,19 +181,21 @@ export const AddWorkout = () => {
                                     </div>
                                 );
                             })}
-                            <button
-                                className="addThisWorkout"
-                                onClick={(e) =>
-                                    handleAddOldWorkout(selectedWorkoutType)
-                                }
-                            >
-                                zum Workout hinzufügen
-                            </button>
                         </div>
                     )}
                     {selectedWodType === "benchmarkWOD" && (
                         <div>
                             <h3>Wähle ein WOD</h3>
+                            {selectedWOD.label && (
+                                <button
+                                    className="addThisWorkout"
+                                    onClick={(e) =>
+                                        handleAddOldWorkout(selectedWorkoutType)
+                                    }
+                                >
+                                    zum Workout hinzufügen
+                                </button>
+                            )}
                             {listOfBenchmarkWods.map((workoutpart, index) => {
                                 return (
                                     <div
@@ -207,14 +218,6 @@ export const AddWorkout = () => {
                                     </div>
                                 );
                             })}
-                            <button
-                                className="addThisWorkout"
-                                onClick={(e) =>
-                                    handleAddOldWorkout(selectedWorkoutType)
-                                }
-                            >
-                                zum Workout hinzufügen
-                            </button>
                         </div>
                     )}
                 </div>
@@ -368,7 +371,7 @@ export const AddWorkout = () => {
                 <div className="addWorkoutBoxCard">
                     <button
                         className="backBtn"
-                        onClick={(e) => setClassMode("editclass")}
+                        onClick={(e) => {selectedClassObject.ClassKey === classObjects.length ? setClassMode("newclass"):setClassMode("editclass")}}
                     >
                         abbrechen
                     </button>
