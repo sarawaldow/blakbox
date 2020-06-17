@@ -1,0 +1,249 @@
+@import "../variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+.backBtn {
+    margin-top: 20px;
+    font-size: $mobileFontSizeBig;
+    border: 1px solid white;
+
+    color: white;
+    background-color: $darkgrey;
+}
+.weekBaseWrapper {
+    .headlineWrap {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        // max-width: 350px;
+        .buttonWrap{
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
+            button {
+                // font-size: $mobileFontSizeMedium;
+                border: 1px solid white;
+                width: 150px;
+                color: white;
+                background-color: $darkgrey;
+                align-self: flex-end;
+            }
+        }
+    }
+}
+
+.weekBaseBox {
+    color: white;
+
+    h3{
+        color: white;
+    }
+
+    .weekDayColsWrapper {
+        display: flex;
+        // width: 95vw;
+        margin: auto;
+        overflow-x: auto;
+        margin-top: 10px;
+        .weekDayCol {
+            margin: auto;
+            min-width: 200px;
+            margin-right: 10px;
+            .oneWeekDay {
+                border: none;
+                border-bottom: 1px solid white;
+                h3 {
+                    margin-top: 0;
+                    color: $orange;
+                }
+            }
+            .oneClass {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                h3 {
+                    margin: 0;
+                    color: white;
+                }
+                border-bottom: 1px solid $orange;
+            }
+        }
+    }
+}
+
+.editWeekBaseWrapper {
+
+    .levelCheckboxes{
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .weekBaseNameInput{
+        margin-bottom: 10px;
+
+        font-size: $mobileFontSizeMedium;
+        border: 1px solid white;
+        background-color: $darkgrey;
+        color: white;
+
+        &::placeholder {
+            color: white;
+            opacity: 1;
+        }
+    }
+    .saveChangesBtn {
+        // width: 200px;
+        margin: auto;
+margin-top: 10px;
+        font-size: $mobileFontSizeMedium;
+        border: none;
+        background-color: $orange;
+    }
+    .weekdayWrapper {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        .weekday {
+            display: flex;
+            font-weight: bold;
+
+            font-size: $mobileFontSizeBig;
+            justify-content: center;
+            text-align: center;
+            background-color: $orange;
+            border: 1px solid $darkgrey;
+            color: $darkgrey;
+            height: 40px;
+            width: calc(100% / 7);
+
+            &.selected {
+                background-color: white;
+            }
+        }
+    }
+
+    .weekBaseOptions{
+        color: white;
+
+        select {
+            font-size: $mobileFontSizeMedium;
+            background-color: $darkgrey;
+            color: white;
+            border: 1px solid white;
+        }
+        input[type=date]{
+            margin-top: 5px;
+            font-size: $mobileFontSizeMedium;
+            width: 150px;
+            height: 20px;
+            border: 1px solid $orange;
+            color: white;
+            background-color: $darkgrey;
+        }
+    }
+
+    .editBaseBox {
+        color: white;
+        .addClassBtn {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+
+            color: white;
+            background-color: $darkgrey;
+        }
+        .oneClass {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: none;
+            // margin:auto;
+            border-top: 1px solid $orange;
+            border-bottom: 1px solid $orange;
+
+            .allInputsWrapper{
+                width: 90%;
+                margin: auto;
+                
+                .inputWrapper{
+                    // display: flex;
+                    width: 100%;
+                    // justify-content: space-between;
+                    margin-bottom: 10px;
+                    
+                    &.coach{
+                        select{
+                            margin-left: 10px;
+                        }
+                    }
+                    &.participants{
+                        div {
+                            display: flex;
+                            flex-direction: row;
+                            div {
+                                margin-right: 20px;
+                                display: flex;
+                                flex-direction: column;
+                                input {
+                                    margin: auto;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .checkboxesWrapper{
+                    .row{
+                        margin-bottom: 10px;
+                        label{
+                            margin-right: 15px;
+                        }
+                    }
+                }
+            }
+            .chooseClassType {
+                width: 150px;
+            }
+            .chooseCoach {
+                width: 70px;
+            }
+            button {
+                margin-top: 20px;
+                font-size: $mobileFontSizeMedium;
+                border: 1px solid white;
+
+                color: white;
+                background-color: $darkgrey;
+            }
+            select {
+                font-size: $mobileFontSizeMedium;
+                background-color: $darkgrey;
+                color: white;
+                border: 1px solid white;
+            }
+            input[type="time"] {
+                margin: auto;
+                margin-top: 5px;
+                font-size: $mobileFontSizeMedium;
+                width: 80px;
+                height: 20px;
+                border: 1px solid $orange;
+                color: white;
+                background-color: $darkgrey;
+            }
+            input[type="number"] {
+                margin: auto;
+                margin-top: 5px;
+                font-size: $mobileFontSizeMedium;
+                width: 40px;
+                height: 20px;
+                border: 1px solid $orange;
+                color: white;
+                background-color: $darkgrey;
+            }
+        }
+    }
+}

@@ -1,0 +1,198 @@
+@import "../variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+.workoutPart {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    b {
+        color: $orange;
+    }
+    margin-bottom: 10px;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    &.framed {
+        margin-top: 10px;
+        width: 80%;
+        padding: 5px;
+        border: 1px solid white;
+
+        &.selected {
+            border: 1px solid $orange;
+        }
+    }
+
+    .deleteWorkout {
+        border: 1px solid $orange;
+        color: $orange;
+        height: 30px;
+        width: 30px;
+        background-color: $darkgrey;
+    }
+    .selectWOD {
+        border: none;
+        color: $orange;
+        height: 30px;
+
+        background-color: $darkgrey;
+    }
+}
+
+
+.addWorkoutBox {
+    color: white;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    .successfullyAddedLayer{
+        button{
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+            color: white;
+            // height: 30px;
+    
+            background-color: $darkgrey;
+        }
+    }
+
+    .searchWorkoutBox{
+        margin-top: 10px;
+        
+        .wodOptions{
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-top: 10px;
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+            background-color: $darkgrey;
+            color: white;
+            
+            &::placeholder{
+                color: white;
+                opacity: 1;
+                
+            }
+        }
+    }
+
+    .backBtn{
+        font-size: $mobileFontSizeBig;
+        border: 1px solid white;
+        // color: $orange;
+        // height: 30px;
+        color: white;
+        background-color: $darkgrey;
+    }
+
+    .addWorkoutBoxCard {
+        margin-top: 20px;
+        .selectLabel {
+            font-size: $mobileFontSizeBig;
+
+            color: $orange;
+            margin-top: 20px;
+        }
+    }
+    .dropDownBox {
+        margin-top: 10px;
+    }
+    .addWorkoutBtn {
+        font-size: $mobileFontSizeBig;
+        border: 1px solid $orange;
+        // color: $orange;
+        // height: 30px;
+
+        background-color: $orange;
+    }
+
+
+    
+    .addThisWorkout{
+        margin-top: 10px;
+        font-size: $mobileFontSizeBig;
+        border: 1px solid $orange;
+        // color: $orange;
+        // height: 30px;
+    
+        background-color: $orange;
+
+    }
+
+    .addingWorkoutOptions {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-top: 10px;
+        }
+    }
+    select {
+        font-size: $mobileFontSizeBig;
+        background-color: $darkgrey;
+        // width: 50%;
+        // margin: auto;
+        color: white;
+        border: 1px solid white;
+    }
+
+
+    .newWorkoutBox {
+        .newWorkoutInputBox {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+
+
+            input {
+                font-size: $mobileFontSizeBig;
+                border: 1px solid white;
+                background-color: $darkgrey;
+                color: white;
+                
+                &::placeholder{
+                    color: white;
+                    opacity: 1;
+                    
+                }
+            }
+            
+            select {
+                font-size: $mobileFontSizeBig;
+                background-color: $darkgrey;
+                color: white;
+                border: 1px solid white;
+            }
+            
+            textarea {
+                font-size: $mobileFontSizeBig;
+                margin-top: 10px;
+                height: 100px;
+                resize: none;
+                border: 1px solid white;
+                background-color: $darkgrey;
+                color: white;
+
+                &::placeholder{
+                    color: white;
+                    opacity: 1;
+
+                }
+            }
+        }
+        button {
+            font-size: $mobileFontSizeBig;
+            border: 1px solid $orange;
+            // color: $orange;
+            // height: 30px;
+
+            background-color: $orange;
+        }
+    }
+}

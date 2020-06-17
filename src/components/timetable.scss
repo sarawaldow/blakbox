@@ -2,10 +2,25 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 
+.classMngBtnWrapper {
+    display: flex;
+    flex-direction: column;
+    .classMngBtn {
+        margin-top: 20px;
+        font-size: $mobileFontSizeBig;
+        border: none;
+
+        // color: white;
+        background-color: $orange;
+        align-self: flex-end;
+    }
+}
+
 .timetableWrapper {
     // width: 95vw;
     // max-width: 600px;
     // margin: auto;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     h2 {
@@ -18,17 +33,44 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        background-color: $orange;
-        border: 1px solid white;
+
+        .headlineAndWeekSwitchWrapper {
+            display: flex;
+
+            .switchWeekButtonsWrapper {
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                border: \1px solid $orange;
+                border: none;
+
+                margin-bottom: 5px;
+                div {
+                    color: white;
+                    font-size: $mobileFontSizeBig;
+                    align-self: center;
+                }
+                button {
+                    width: 30px;
+                    font-weight: bold;
+                    background-color: $darkgrey;
+                    border: none;
+                    // border-left: 1px solid $orange;
+                    color: $orange;
+                }
+            }
+        }
         .weekdayWrapper {
             display: flex;
             justify-content: space-evenly;
             .weekday {
+                font-weight: bold;
                 display: flex;
                 justify-content: center;
                 text-align: center;
+                color: $darkgrey;
                 background-color: $orange;
-                border: 1px solid white;
+                border: 1px solid $darkgrey;
                 height: 40px;
                 width: calc(100% / 7);
 
@@ -38,54 +80,86 @@
             }
         }
         .classWrapper {
-            background-color: white;
-            height: 65vh;
-            max-height: 800px;
-            overflow: scroll;
-            /* Hide scrollbar for IE and Edge */
-            -ms-overflow-style: none;
-            /* Hide scrollbar for Chrome, Safari and Opera */
-            &::-webkit-scrollbar {
-                display: none;
-            }
+            min-height: 65vh;
+            margin-bottom: 20px;
+            // max-height: 800px;
+            // overflow: scroll;
+            // /* Hide scrollbar for IE and Edge */
+            // -ms-overflow-style: none;
+            // /* Hide scrollbar for Chrome, Safari and Opera */
+            // &::-webkit-scrollbar {
+            //     display: none;
+            // }
             // &.prev {
             //     height: 200px;
             // }
 
             .class {
-                font-size: $mobileFontSizeSmall;
-
+                font-size: $mobileFontSizeMedium;
+                color: white;
                 display: flex;
                 justify-content: space-between;
                 border: 1px solid $orange;
+                border-radius: 10px;
 
-                background-color: white;
-                height: 50px;
+                background-color: $darkgrey;
+                height: 100px;
                 margin: auto;
                 margin-top: 5px;
-                width: 90%;
+                width: 99%;
                 .classDetailBox {
-                    width: calc(100% - 65px);
+                    width: 90%;
                     margin: auto;
-                    .classDetails {
-                        display: flex;
-                        justify-content: space-between;
-                        div {
-                        }
-                    }
-                }
-                .openClass {
-                    width: 60px;
-                    background-color: $darkgrey;
-                    color: white;
                     display: flex;
-                    justify-content: center;
-                    div {
-                        margin-top: 15px;
+                    // flex-direction: row;
+                    .classDetails {
+                        span {
+                            color: $orange;
+                            font-weight: bold;
+                        }
+                        div {
+                            // display: flex;
+                            h3 {
+                                margin: 0;
+                            }
+                        }
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        margin-bottom: 20px;
+
+                        &.one {
+                            width: calc((100% / 5) * 3);
+                        }
+                        &.two {
+                            div {
+                                margin-bottom: 5px;
+                            }
+                            width: calc((100% / 5) * 2);
+                        }
                     }
                 }
             }
         }
 
+        .addClass {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: $darkgrey;
+            color: white;
+            margin: auto;
+            margin-top: 5px;
+            width: 99%;
+
+            height: 30px;
+            text-align: center;
+            // position: fixed;
+            // bottom: 15px;
+            border: 1px solid white;
+            // -webkit-box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.55);
+            // -moz-box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.55);
+            // box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.55);
+        }
     }
 }

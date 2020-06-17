@@ -2,48 +2,433 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 
-
 .classInfoWrapper {
+    font-size: $mobileFontSizeBig;
 
-    // position: fixed;
-    // z-index: 1;
-    // background-color: rgba(0, 0, 0, 0.8);
-    // top: 0;
-    // left: 0;
-    // // width: 100vw;
-    // height: calc(100vh - 50px);
+    .successfullyAddedLayer{
+        button{
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+            color: white;
+            // height: 30px;
+    
+            background-color: $darkgrey;
+        }
+    }
+    
     h2 {
         color: $orange;
         margin-top: 0px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
-    .classInfoBox{
-        background-color: white;
-        height: 75vh;
+    .backBtn {
+        margin-top: 20px;
+        font-size: $mobileFontSizeBig;
+        border: 1px solid white;
 
-        .classInfoInnerWrapper{
+        color: white;
+        background-color: $darkgrey;
+    }
+    .topBtnsWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .editClassBtn {
+            margin-top: 20px;
+            font-size: $mobileFontSizeBig;
+            border: none;
+
+            // color: white;
+            background-color: $orange;
+        }
+    }
+    .classInfoBox {
+        color: white;
+        padding-bottom: 20px;
+        min-height: 75vh;
+
+        .classInfoInnerWrapper {
             margin: auto;
-            // border: 1px solid black;
             width: 90%;
-            
-            .classWorkout {
-                h3 {
+
+            &.newclass {
+                width: 100%;
+                max-width: 450px;
+                margin: auto;            }
+
+            .classDetails {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid $orange;
+                &.newClass {
+                    margin-top: 0px;
+                    border: none;
+                    margin-bottom: 0;
+                    .buttonsWrapper{
+                        display: flex;
+                        justify-content: space-between;
+                        
+                        .saveClassBtn {
+                            width: 200px;
+                            height: 30px;
+                            margin-top:20px;
+                            font-size: $mobileFontSizeBig;
+                            border: none;
+                            background-color: $orange;
+                        }
+                    }
+                }
+
+                .newClassInputs {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+
+                    .selectClassTypeWrapper {
+                        margin-bottom: 15px;
+
+                        select {
+                            margin-top: 10px;
+                            font-size: $mobileFontSizeBig;
+                            background-color: $darkgrey;
+                            margin: auto;
+                            color: white;
+                            border: 1px solid white;
+                        }
+                    }
+                    .minMaxInputWrapper {
+                        margin-bottom: 15px;
+                        display: flex;
+                        flex-direction: column;
+                        div {
+                            display: flex;
+                            flex-direction: row;
+                            div {
+                                margin-right: 20px;
+                                display: flex;
+                                flex-direction: column;
+                                input {
+                                    margin: auto;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                    }
+                    .startEndTimeInputWrapper {
+
+                        input[type=date]{
+                            margin-top: 5px;
+                            font-size: $mobileFontSizeMedium;
+                            width: 150px;
+                            height: 20px;
+                            border: 1px solid $orange;
+                            color: white;
+                            background-color: $darkgrey;
+                        }
+                        margin-bottom: 15px;
+                        font-size: $mobileFontSizeMedium;
+                        div {
+                            display: flex;
+                            flex-direction: row;
+                            div {
+                                margin-right: 20px;
+                                display: flex;
+                                flex-direction: column;
+                                input {
+                                    margin: auto;
+                                    margin-top: 5px;
+                                    font-size: $mobileFontSizeBig;
+                                    width: 100px;
+                                    height: 20px;
+                                    border: 1px solid $orange;
+                                    color: white;
+                                    background-color: $darkgrey;
+                                }
+
+                            }
+                        }
+                    }
+                }
+                h2 {
                     margin: 0;
                 }
-                .workoutList{
-                    border: 3px solid $orange;
-                    max-height: 150px;
+                .saveBtnsWrapper {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    .saveChangesBtn {
+                        // position: fixed;
+                        // top: 60px;
+                        // right: 10px;
+                        width: 120px;
+                        font-size: $mobileFontSizeMedium;
+                        border: none;
+                        background-color: $orange;
+                    }
+                    .revertChangesBtn {
+                        // position: fixed;
+                        // top: 60px;
+                        // left: 10px;
+                        width: 120px;
+                        font-size: $mobileFontSizeMedium;
+                        border: none;
+                        background-color: $orange;
+                    }
+                }
+            }
+            .bigLabel {
+                font-size: $mobileFontSizeBig;
+                color: $orange;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+            .minMaxInputWrapper {
+                margin-bottom: 15px;
+                display: flex;
+                flex-direction: column;
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    div {
+                        margin-right: 20px;
+                        display: flex;
+                        flex-direction: column;
+                        input[type="number"] {
+                            font-size: $mobileFontSizeBig;
+                            margin: auto;
+                            margin-top: 5px;
+                            width: 40px;
+                            height: 20px;
+                            border: 1px solid $orange;
+                            color: white;
+                            background-color: $darkgrey;
+                        }
+                    }
+                }
+                font-size: $mobileFontSizeMedium;
+            }
+
+            .classDescriptionText {
+                margin-bottom: 20px;
+                white-space: pre-line;
+
+                label {
+                    font-size: $mobileFontSizeMedium;
+                }
+                textarea {
+                    font-size: $mobileFontSizeMedium;
+                    width: 90%;
+                    height: 50px;
+                    background-color: transparent;
+                    border: 1px solid white;
+                    color: white;
+                    resize: none;
+                }
+            }
+
+            .classWorkout {
+                .workoutHeadline {
+                    display: flex;
+                    margin-bottom: 5px;
+                    h3 {
+                        margin: 0;
+                        margin-right: 10px;
+                        color: $orange;
+                    }
+                    div {
+                        display: flex;
+                        align-self: flex-end;
+                        select {
+                            font-size: $mobileFontSizeBig;
+                            background-color: $darkgrey;
+                            margin: auto;
+                            margin-left: 5px;
+                            color: white;
+                            border: 1px solid white;
+                        }
+                    }
+                }
+                .workoutList {
+                    border: none;
+                    border-left: 3px solid $orange;
                     margin: auto;
+                    margin-bottom: 20px;
                     overflow: scroll;
                     /* Hide scrollbar for IE and Edge */
-                    // -ms-overflow-style: none;
+                    -ms-overflow-style: none;
                     /* Hide scrollbar for Chrome, Safari and Opera */
                     &::-webkit-scrollbar {
-                        // display: none;
+                        display: none;
                     }
-                    .workoutPart{
-                        margin-bottom: 10px;
+                    .workoutPart {
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        .workoutPartWrapper {
+                            margin-left: 10px;
+                            max-width: 500px;
+                            word-break: break-word;
+                        }
+                        div {
+                            white-space: pre-line;
+                        }
+
+                        b {
+                            color: $orange;
+                        }
+                        margin-bottom: 20px;
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+
+                        &.framed {
+                            margin-top: 10px;
+                            width: 80%;
+                            padding: 5px;
+                            border: 1px solid white;
+
+                            &.selected {
+                                border: 1px solid $orange;
+                            }
+                        }
+
+                        .deleteWorkout {
+                            border: 1px solid $orange;
+                            color: $orange;
+                            height: 30px;
+                            width: 30px;
+                            background-color: $darkgrey;
+                        }
+                        .selectWOD {
+                            border: none;
+                            color: $orange;
+                            height: 30px;
+
+                            background-color: $darkgrey;
+                        }
                     }
+                    .addWorkoutBox {
+                        width: 90%;
+                        margin: auto;
+                        display: flex;
+                        flex-direction: column;
+
+                        .addWorkoutBtn {
+                            font-size: $mobileFontSizeBig;
+                            border: none;
+                            background-color: $orange;
+                        }
+
+                        .addingWorkoutOptions {
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        select {
+                            font-size: $mobileFontSizeBig;
+                            background-color: $darkgrey;
+                            color: white;
+                            border: 1px solid white;
+                        }
+
+                        .newWorkoutBox {
+                            .newWorkoutInputBox {
+                                margin-top: 10px;
+                                margin-bottom: 10px;
+                                display: flex;
+                                flex-direction: column;
+
+                                select {
+                                    font-size: $mobileFontSizeBig;
+                                    background-color: $darkgrey;
+                                    color: white;
+                                    border: 1px solid white;
+                                }
+                            }
+                            button {
+                                font-size: $mobileFontSizeBig;
+                                border: none;
+                                background-color: $orange;
+                            }
+                        }
+                    }
+                }
+            }
+            .addWorkoutBtn {
+                font-size: $mobileFontSizeBig;
+                border: none;
+                background-color: $orange;
+            }
+            .signUpArea {
+                margin-bottom: 20px;
+                font-size: $mobileFontSizeSmall;
+                text-align: center;
+                .signUpBtn {
+                    border: none;
+                    font-size: $mobileFontSizeBig;
+                    width: 230px;
+                    color: black;
+                    margin: auto;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    text-align: center;
+                    background-color: $orange;
+                }
+            }
+            .signedUpAndWaitingList {
+                ul {
+                    width: 70%;
+                    max-width: 300px;
+                    margin: 0;
+                    margin-top: 20px;
+                    b {
+                        color: $orange;
+                    }
+                    padding: 0;
+
+                    li {
+                        &:nth-of-type(1) {
+                            border-top: 1px solid white;
+                        }
+                        display: flex;
+                        justify-content: space-between;
+                        list-style: none;
+
+                        border-bottom: 1px solid $orange;
+                        button {
+                            margin-top: 5px;
+                            margin-bottom: 5px;
+                            border: 1px solid $orange;
+                            color: $orange;
+                            height: 30px;
+                            width: 30px;
+                            background-color: $darkgrey;
+                        }
+                    }
+                    .addParticipant {
+                        width: 100%;
+                        height: 30px;
+                        margin-top: 5px;
+                        font-size: $mobileFontSizeMedium;
+                        border: 1px solid $orange;
+                        color: $orange;
+                        background-color: $darkgrey;
+                    }
+                }
+            }
+            .deleteOrCancelClassWrapper {
+                display: flex;
+                justify-content: flex-end;
+                button {
+                    color: white;
+                    // margin: auto;
+                    margin-top: 20px;
+                    font-size: $mobileFontSizeMedium;
+                    background-color: $darkgrey;
+                    border: 1px solid white;
                 }
             }
         }

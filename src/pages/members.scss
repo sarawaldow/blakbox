@@ -1,0 +1,246 @@
+@import "../variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+.memberswrapper {
+    padding-bottom: 20px;
+
+    h2 {
+        color: $orange;
+    }
+
+    .editContractWrapper {
+        width: 100%;
+        max-width: 450px;
+        margin: auto;
+        color: white;
+        button {
+            margin: auto;
+            margin-top: 20px;
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+            color: white;
+            background-color: $darkgrey;
+        }
+
+        .buttonWrapper{
+            display: flex;
+            flex-direction: column;
+
+            .saveChanges{
+                border: none;
+                font-size: $mobileFontSizeBig;
+                
+                color: black;
+                margin-top: 10px;
+                
+                text-align: center;
+                background-color: $orange;
+            }
+        }
+            
+            select {
+                font-size: $mobileFontSizeMedium;
+                background-color: $darkgrey;
+                color: white;
+                border: 1px solid white;
+            }
+            .inputWrapper {
+                display: flex;
+                align-items: center;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            div {
+                width: 50%;
+            }
+            .textAlignEnd {
+                text-align: end;
+            }
+        }
+        input {
+            margin-top: 5px;
+            font-size: $mobileFontSizeMedium;
+            width: 150px;
+            height: 20px;
+            border: 1px solid $orange;
+            color: white;
+            background-color: $darkgrey;
+        }
+    }
+    .editMemberWrapper {
+        color: white;
+        margin: auto;
+
+        width: 100%;
+        max-width: 450px;
+        .inputWrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            div {
+                width: 50%;
+            }
+            .textAlignEnd {
+                text-align: end;
+            }
+        }
+        .flexEndWrapper {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .infoWrapper{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            justify-content: space-between;
+        }
+
+        label{
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+
+            color: white;
+            background-color: $darkgrey;
+        }
+        select {
+            font-size: $mobileFontSizeMedium;
+            background-color: $darkgrey;
+            color: white;
+            border: 1px solid white;
+        }
+        .openContractSettingsBtn {
+            border: none;
+            font-size: $mobileFontSizeMedium;
+
+            color: black;
+            margin-top: 10px;
+
+            text-align: center;
+            background-color: $orange;
+        }
+
+        .deleteMember {
+        }
+    }
+
+    .contractTypesWrapper {
+        display: flex;
+        button {
+            margin: auto;
+            font-size: $mobileFontSizeMedium;
+            border: none;
+
+            // color: white;
+            background-color: $orange;
+        }
+    }
+
+    .registrationPendingListWrapper {
+        color: white;
+        .showPendingListBtn {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            h3 {
+                margin: 0;
+                margin-right: 10px;
+            }
+            .arrowIcon {
+                width: 20px;
+                height: 20px;
+                background-image: url("../assets/arrow.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                &.up {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .buttonWrapper {
+            // align-self: flex-end;
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 300px;
+            margin: auto;
+            select {
+                font-size: $mobileFontSizeMedium;
+                background-color: $darkgrey;
+                color: white;
+                border: 1px solid white;
+            }
+
+            .activateBtn {
+                border: 1px solid $orange;
+                background-color: $orange;
+            }
+        }
+        .regBoxesWrapper {
+            margin: auto;
+            margin-top: 10px;
+            max-width: 500px;
+            .regBox {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 30px;
+                border: 1px solid $orange;
+                margin-bottom: 10px;
+                .info {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+
+    .membersListWrapper {
+        color: white;
+        .checkboxesWrapper {
+            margin-bottom: 10px;
+        }
+        .searchBar {
+            margin-bottom: 10px;
+
+            font-size: $mobileFontSizeMedium;
+            border: 1px solid white;
+            background-color: $darkgrey;
+            color: white;
+
+            &::placeholder {
+                color: white;
+                opacity: 1;
+            }
+        }
+        .memberBoxesWrapper {
+            max-width: 500px;
+            margin: auto;
+            .memberBox {
+                border: 1px solid $orange;
+                margin-bottom: 10px;
+
+                .memberInfo {
+                    margin: auto;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+
+                    width: 90%;
+                    height: 100%;
+                    h3 {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
