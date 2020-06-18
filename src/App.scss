@@ -71,11 +71,21 @@
 }
 
 .startWrapper {
+
+    .logoBox{
+        width: 90%;
+        margin: auto;
+        margin-top: calc(50vh - 177px);
+        max-width: 400px;
+        height: 100px;
+        background-image: url("./assets/LOGO.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
     
     display: flex;
     flex-direction: column;
     .LoginTypesSec {
-        margin-top: calc(50vh - 77px);
         font-size: $mobileFontSizeBig;
         display: flex;
         flex-direction: column;

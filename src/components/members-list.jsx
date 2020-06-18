@@ -93,12 +93,13 @@ export const MembersList = () => {
                     (member) =>
                         !member.Activated && (
                             <div className="regBox" key={member.EMail}>
-                                <div className="info">
+                                <label htmlFor={member.EMail} className="info">
 
                                 <div>{member.Name}</div>
                                 <div>{member.EMail}</div>
                                 <input
                                     type="checkbox"
+                                    id={member.EMail}
                                     onChange={(e) =>
                                         handleCheckedEmail(
                                             member.EMail,
@@ -106,7 +107,7 @@ export const MembersList = () => {
                                             )
                                         }
                                         />
-                                        </div>
+                                        </label>
                             </div>
                         )
                 )}

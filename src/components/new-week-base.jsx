@@ -9,13 +9,14 @@ export const NewWeekBase = () => {
         setClassMode,
         weekBaseObjects,
         setWeekBaseObjects,
+        currentWeekBase,
         setCurrentWeekBase
     } = useContext(BBxContext);
 
     const [selectedDay, setSelectedDay] = useState("MO");
     const [weekBaseOption, setWeekBaseOption] = useState("");
 
-    const [switchToWeekBase, setSwitchToWeekBase] = useState("");
+    const [switchToWeekBase, setSwitchToWeekBase] = useState(currentWeekBase);
 
     const [newBaseName, setNewBaseName] = useState("");
     const [newBaseClassType, setNewBaseClassType] = useState("Open Gym");
@@ -25,14 +26,26 @@ export const NewWeekBase = () => {
     const [newClassMinSpots, setNewClassMinSpots] = useState(0);
     const [newClassMaxSpots, setNewClassMaxSpots] = useState(10);
     const [newClassRhythm, setNewClassRhythm] = useState("");
+    const [
+        showAskIfBaseShouldBeChanged,
+        setShowAskIfBaseShouldBeChanged
+    ] = useState(false);
+
+    const switchBaseHandler = () => {
+        setCurrentWeekBase(switchToWeekBase);
+        setClassMode("classmanager");
+    };
+
+    useEffect(() => {
+        console.log("week base objs:", weekBaseObjects);
+    }, [weekBaseObjects]);
 
     const saveChangesHandler = () => {
-        if(weekBaseOption === "switchBase"){
-            setCurrentWeekBase(switchToWeekBase);
-            setClassMode("classmanager");
+        if (weekBaseOption === "switchBase") {
+            setShowAskIfBaseShouldBeChanged(true);
         }
-        if(weekBaseOption === "newBase"){
-            const newClass ={
+        if (weekBaseOption === "newBase") {
+            const newClass = {
                 Class: newBaseClassType,
                 StartTime: newClassStartTime,
                 EndTime: newClassEndTime,
@@ -40,25 +53,24 @@ export const NewWeekBase = () => {
                 MinSpots: newClassMinSpots,
                 MaxSpots: newClassMaxSpots,
                 Rhythm: newClassRhythm
-            }
+            };
             const obj = {
-                Key: 0,
+                Key: 1,
                 Name: newBaseName,
                 WeekDays: [
-                    {Day: "MO",Classes: [newClass]},
-                    {Day: "DI",Classes: [newClass]},
-                    {Day: "MI",Classes: [newClass]},
-                    {Day: "DO",Classes: [newClass]},
-                    {Day: "FR",Classes: [newClass]},
-                    {Day: "SA",Classes: [newClass]},
-                    {Day: "SO",Classes: [newClass]}
+                    { Day: "MO", Classes: [newClass] },
+                    { Day: "DI", Classes: [newClass] },
+                    { Day: "MI", Classes: [newClass] },
+                    { Day: "DO", Classes: [newClass] },
+                    { Day: "FR", Classes: [newClass] },
+                    { Day: "SA", Classes: [newClass] },
+                    { Day: "SO", Classes: [newClass] }
                 ]
-            }
-            setWeekBaseObjects([...weekBaseObjects,obj]);
+            };
+            setWeekBaseObjects([...weekBaseObjects, obj]);
             setWeekBaseOption("switchBase");
         }
-
-    }
+    };
 
     useEffect(() => {
         console.log("opt:", weekBaseOption);
@@ -73,7 +85,7 @@ export const NewWeekBase = () => {
                     className="weekBaseNameInput"
                     type="text"
                     value={newBaseName}
-                    onChange={(e)=>setNewBaseName(e.target.value)}
+                    onChange={(e) => setNewBaseName(e.target.value)}
                     placeholder="Name der neuen Basis"
                 />
                 <div className="weekdayWrapper">
@@ -105,13 +117,32 @@ export const NewWeekBase = () => {
                             <div className="inputWrapper time">
                                 Uhrzeit{" "}
                                 <div>
-                                    <input type="time" value={newClassStartTime}onChange={(e)=>setNewClassStartTime(e.target.value)}/> bis{" "}
-                                    <input type="time" value={newClassEndTime}onChange={(e)=>setNewClassEndTime(e.target.value)}/>
+                                    <input
+                                        type="time"
+                                        value={newClassStartTime}
+                                        onChange={(e) =>
+                                            setNewClassStartTime(e.target.value)
+                                        }
+                                    />{" "}
+                                    bis{" "}
+                                    <input
+                                        type="time"
+                                        value={newClassEndTime}
+                                        onChange={(e) =>
+                                            setNewClassEndTime(e.target.value)
+                                        }
+                                    />
                                 </div>
                             </div>
                             <div className="inputWrapper">
                                 Kursart
-                                <select value={newBaseClassType} onChange={(e)=>{setNewBaseClassType(e.target.value)}} className="chooseClassType">
+                                <select
+                                    value={newBaseClassType}
+                                    onChange={(e) => {
+                                        setNewBaseClassType(e.target.value);
+                                    }}
+                                    className="chooseClassType"
+                                >
                                     <option value="Open Gym">Open Gym</option>
                                     <option value="WOD All Level">
                                         WOD All Level
@@ -126,7 +157,13 @@ export const NewWeekBase = () => {
                             </div>
                             <div className="inputWrapper coach">
                                 Coach
-                                <select value={newClassCoach} onChange={(e)=>{setNewClassCoach(e.target.value)}} className="chooseCoach">
+                                <select
+                                    value={newClassCoach}
+                                    onChange={(e) => {
+                                        setNewClassCoach(e.target.value);
+                                    }}
+                                    className="chooseCoach"
+                                >
                                     <option value="-">-</option>
                                     <option value="Peter">Peter</option>
                                     <option value="Anke">Anke</option>
@@ -139,12 +176,30 @@ export const NewWeekBase = () => {
                                 <div>
                                     <div>
                                         <label>min.</label>
-                                        <input type="number" value={newClassMinSpots} onChange={(e)=>{setNewClassMinSpots(e.target.value)}}min="0" />
+                                        <input
+                                            type="number"
+                                            value={newClassMinSpots}
+                                            onChange={(e) => {
+                                                setNewClassMinSpots(
+                                                    e.target.value
+                                                );
+                                            }}
+                                            min="0"
+                                        />
                                     </div>
                                     <div>
                                         <label>max.</label>
 
-                                        <input type="number" value={newClassMaxSpots} onChange={(e)=>{setNewClassMaxSpots(e.target.value)}}min="0" />
+                                        <input
+                                            type="number"
+                                            value={newClassMaxSpots}
+                                            onChange={(e) => {
+                                                setNewClassMaxSpots(
+                                                    e.target.value
+                                                );
+                                            }}
+                                            min="0"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -167,60 +222,44 @@ export const NewWeekBase = () => {
                                 <div className="row">
                                     <label>
                                         MO
-                                        <input
-                                            type="checkbox"
-                                            checked
-                                        />
+                                        <input type="checkbox" checked />
                                     </label>
                                     <label>
                                         DI
-                                        <input
-                                            type="checkbox"
-                                            checked
-                                        />
+                                        <input type="checkbox" checked />
                                     </label>
                                     <label>
                                         MI
-                                        <input
-                                            type="checkbox"
-                                            checked
-                                        />
+                                        <input type="checkbox" checked />
                                     </label>
                                     <label>
                                         DO
-                                        <input
-                                            type="checkbox"
-                                            checked
-                                        />
+                                        <input type="checkbox" checked />
                                     </label>
                                 </div>
                                 <div className="row">
                                     <label>
                                         FR
-                                        <input
-                                            type="checkbox"
-                                            checked
-                                        />
+                                        <input type="checkbox" checked />
                                     </label>
                                     <label>
                                         SA
-                                        <input
-                                            type="checkbox"
-                                            checked
-                                        />
+                                        <input type="checkbox" checked />
                                     </label>
                                     <label>
                                         SO
-                                        <input
-                                            type="checkbox"
-                                            checked
-                                        />
+                                        <input type="checkbox" checked />
                                     </label>
                                 </div>
                             </div>
                             <div className="inputWrapper rhythm">
                                 Wiederholungsrhythmus
-                                <select value={newClassRhythm} onChange={(e)=>{setNewClassRhythm(e.target.value)}}>
+                                <select
+                                    value={newClassRhythm}
+                                    onChange={(e) => {
+                                        setNewClassRhythm(e.target.value);
+                                    }}
+                                >
                                     <option value="jede Woche">
                                         jede Woche
                                     </option>
@@ -237,78 +276,116 @@ export const NewWeekBase = () => {
         );
     };
 
-
     return (
         <div className="editWeekBaseWrapper">
-            <button
-                className="backBtn"
-                onClick={(e) => setClassMode("classmanager")}
-            >
-                zurück zur Kursverwaltung
-            </button>
+            {showAskIfBaseShouldBeChanged && (
+                <div className="askIfSureLayer">
+                    <h3>Wochenplanbasis wirklich wechseln?</h3>
+                    <div>
+                        <button
+                        onClick={(e) => {
+                            setClassMode("classmanager");
+                        }}
+                        >
+                        abbrechen
+                    </button>
 
-            <div className="radiosWrapper">
-                <div
-                    className="weekBaseOptions"
-                    onChange={(e) => setWeekBaseOption(e.target.value)}
-                >
-                    <label htmlFor="switchBase">
-                        <h3>
-                            <input
-                                type="radio"
-                                value="switchBase"
-                                name="weekBaseOpt"
-                                id="switchBase"
-                                checked={weekBaseOption === "switchBase"}
-                            />
-                            Basis wechseln
-                        </h3>
-                    </label>
-
-                    <label htmlFor="newBase">
-                        <h3>
-                            <input
-                                type="radio"
-                                value="newBase"
-                                name="weekBaseOpt"
-                                id="newBase"
-                                checked={weekBaseOption === "newBase"}
-                            />
-                            neue Basis
-                        </h3>
-                    </label>
-                </div>
-            </div>
-            {weekBaseOption !== ""&&<button
-                className="saveChangesBtn"
-                onClick={(e) => {saveChangesHandler()}}
-            >
-                {weekBaseOption === "newBase"?"neue Basis speichern":"Änderungen speichern"}
-            </button>}
-            {weekBaseOption === "switchBase" && (
-                <div className="switchBaseWrapper">
-                    <div className="inputWrapper base">
-                        <div>Basis wählen</div>
-                        <select onChange={(e)=>setSwitchToWeekBase(e.target.value)}>
-                            {weekBaseObjects.map((base) => {
-                                return (
-                                    <option value={base.Name}>
-                                        {base.Name}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                    </div>
-                    <div className="inputWrapper date">
-                        <div>gültig ab:</div>
-                        <input type="date" />
-                    </div>
+                    <button
+                        onClick={(e) => {
+                            switchBaseHandler();
+                        }}
+                        >
+                        Basis wechseln
+                    </button>
+                        </div>
                 </div>
             )}
-            {weekBaseOption === "newBase" && (
+            {!showAskIfBaseShouldBeChanged && (
                 <div>
-                    {generateWeekdayBtn()}
-                    {generateWeekBase()}
+                    <button
+                        className="backBtn"
+                        onClick={(e) => setClassMode("classmanager")}
+                    >
+                        zurück zur Kursverwaltung
+                    </button>
+
+                    <div className="radiosWrapper">
+                        <div
+                            className="weekBaseOptions"
+                            onChange={(e) => setWeekBaseOption(e.target.value)}
+                        >
+                            <label htmlFor="switchBase">
+                                <h3>
+                                    <input
+                                        type="radio"
+                                        value="switchBase"
+                                        name="weekBaseOpt"
+                                        id="switchBase"
+                                        checked={
+                                            weekBaseOption === "switchBase"
+                                        }
+                                    />
+                                    Basis wechseln
+                                </h3>
+                            </label>
+
+                            <label htmlFor="newBase">
+                                <h3>
+                                    <input
+                                        type="radio"
+                                        value="newBase"
+                                        name="weekBaseOpt"
+                                        id="newBase"
+                                        checked={weekBaseOption === "newBase"}
+                                    />
+                                    neue Basis
+                                </h3>
+                            </label>
+                        </div>
+                    </div>
+                    {weekBaseOption !== "" && (
+                        <button
+                            className="saveChangesBtn"
+                            onClick={(e) => {
+                                saveChangesHandler();
+                            }}
+                        >
+                            {weekBaseOption === "newBase"
+                                ? "neue Basis speichern"
+                                : "Änderungen speichern"}
+                        </button>
+                    )}
+                    {weekBaseOption === "switchBase" && (
+                        <div className="switchBaseWrapper">
+                            <div className="inputWrapper base">
+                                <div>Basis wählen</div>
+                                <select
+                                    value={switchToWeekBase}
+                                    onChange={(e) =>
+                                        setSwitchToWeekBase(e.target.value)
+                                    }
+                                >
+                                    {weekBaseObjects.map((base) => {
+                                        return (
+                                            <option value={base.Name}>
+                                                {base.Name}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
+                            </div>
+                            <div className="inputWrapper date">
+                                <div>gültig ab:</div>
+                                <input type="date" />
+                            </div>
+                        </div>
+                    )}
+                    {weekBaseOption === "newBase" && (
+                        <div>
+                            {generateWeekdayBtn()}
+                            {generateWeekBase()}
+                        </div>
+                    )}
                 </div>
             )}
         </div>

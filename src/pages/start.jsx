@@ -15,6 +15,7 @@ export const Start = () => {
 
     return (
         <div className="startWrapper">
+            <div className="logoBox"/>
             <div className="LoginTypesSec">
 
             <button className={memberType === 'Box Owner'? "selected":""}

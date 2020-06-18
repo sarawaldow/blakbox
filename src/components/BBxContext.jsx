@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const BBxContext = React.createContext(null);
 
 const BBxProvider = (props) => {
-    const [status, setStatus] = useState("TIMETABLE");
+    const [status, setStatus] = useState("START");
 
     const [memberType, setMemberType] = useState("Box Owner");
 
@@ -160,7 +160,7 @@ const BBxProvider = (props) => {
         },
         {
             ClassKey: 3,
-            ClassDescription: "Blub",
+            ClassDescription: "Hier kommen alle auf ihre Kosten! Meldet euch an.",
             ClassType: "WOD All Level",
             Coach: "Gerda",
             StartTime: "19:00",

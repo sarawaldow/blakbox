@@ -162,10 +162,16 @@
             max-width: 300px;
             margin: auto;
 
+            select{
+                width: 120px;
+            }
 
             .activateBtn {
                 border: 1px solid $orange;
                 background-color: $orange;
+                font-weight: bold;
+                font-size: $mobileFontSizeMedium;
+
             }
         }
         .regBoxesWrapper {
