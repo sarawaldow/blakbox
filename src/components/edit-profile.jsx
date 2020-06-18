@@ -36,6 +36,7 @@ export const EditProfile = () => {
     const [dummyUserPostCode, setDummyUserPostCode] = useState(userPostCode);
 
     const [changesMade, setChangesMade] = useState(false);
+    const [showSuccessfullyEdited, setShowSuccessfullyEdited] = useState(false);
 
     const saveProfileChanges = () => {
         setUserName(dummyUserName);
@@ -48,10 +49,28 @@ export const EditProfile = () => {
         setUserExtraInfo(dummyUserExtraInfo);
         setUserPostCode(dummyUserPostCode);
         setChangesMade(false);
+        setShowSuccessfullyEdited(true);
     };
 
     return (
         <div className="editProfileWrapper">
+                        {showSuccessfullyEdited && (
+                <div className="successfullyAddedLayer">
+                    <h3>persönliche Daten erfolgreich geändert</h3>
+                    
+                        <button className="backBtn"
+                            onClick={(e) => {
+                                setClassMode("closed");
+                            }}
+                        >
+                zurück zur Profilübersicht
+                        </button>
+                 
+                </div>
+            )}
+            {!showSuccessfullyEdited&&<div>
+
+            
             <button className="backBtn" onClick={(e) => setClassMode("closed")}>
                 zurück zur Profilübersicht
             </button>
@@ -181,6 +200,7 @@ export const EditProfile = () => {
                 Die mit * gekennzeichneten Informationen sind nur für den
                 Box-Owner sichtbar
             </p>
+            </div>}
         </div>
     );
 };

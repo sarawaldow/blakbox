@@ -74,6 +74,22 @@
 }
 
 .editWeekBaseWrapper {
+    .askIfSureLayer{
+        div{
+            width: 300px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            button{
+                margin-top: 20px;
+                font-size: $mobileFontSizeMedium;
+                border: 1px solid white;
+                
+                color: white;
+                background-color: $darkgrey;
+            }
+        }
+    }
     .levelCheckboxes {
         margin-bottom: 10px;
         display: flex;
