@@ -130,7 +130,7 @@ export const ClassInfo = () => {
         } else {
             console.log("signUpOrOffHandler not signedUp");
             const newArr = signedUpClasses;
-            console.log("zhe old signed up classes:", signedUpClasses, "the new class:",signedUpClassObj);
+            // console.log("zhe old signed up classes:", signedUpClasses, "the new class:",signedUpClassObj);
             newArr.push(signedUpClassObj);
             setSignedUpClasses(newArr);
             setSignedUp(true);
@@ -150,8 +150,9 @@ export const ClassInfo = () => {
             {showSuccessfullySignedUp && (
                 <div className="successfullyAddedLayer">
                     <h3>
-                        Erfolgreich für Kurs angemeldet.
+            Erfolgreich für den Kurs {selectedClassObject.ClassType} am {formatDate(selectedDate)} um {selectedClassObject.StartTime} angemeldet.
                     </h3>
+                    <p>Abmeldung noch 2:30 h möglich.</p>
 
                     <button
                         onClick={(e) => {

@@ -114,8 +114,8 @@ export const NewWeekBase = () => {
 
                     <div className="oneClass">
                         <div className="allInputsWrapper">
+                                <h3>Uhrzeit</h3>
                             <div className="inputWrapper time">
-                                Uhrzeit{" "}
                                 <div>
                                     <input
                                         type="time"
@@ -134,8 +134,9 @@ export const NewWeekBase = () => {
                                     />
                                 </div>
                             </div>
+                            <h3>Kursart</h3>
                             <div className="inputWrapper">
-                                Kursart
+
                                 <select
                                     value={newBaseClassType}
                                     onChange={(e) => {
@@ -155,8 +156,9 @@ export const NewWeekBase = () => {
                                     </option>
                                 </select>
                             </div>
+                            <h3>Coach</h3>
                             <div className="inputWrapper coach">
-                                Coach
+
                                 <select
                                     value={newClassCoach}
                                     onChange={(e) => {
@@ -171,8 +173,9 @@ export const NewWeekBase = () => {
                                     <option value="Gerda">Gerda</option>
                                 </select>
                             </div>
+                            <h3>Teilnehmer</h3>
                             <div className="inputWrapper participants">
-                                Teilnehmer
+
                                 <div>
                                     <div>
                                         <label>min.</label>
@@ -203,7 +206,7 @@ export const NewWeekBase = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="levelCheckboxes">
+                            {/* <div className="levelCheckboxes">
                                 <div>zugelassene Trainingslevel</div>
                                 <label>
                                     <input type="checkbox" defaultChecked />
@@ -217,43 +220,46 @@ export const NewWeekBase = () => {
                                     <input type="checkbox" defaultChecked />
                                     Hero
                                 </label>
-                            </div>
+                            </div> */}
+                            <h3>Wochentage</h3>
                             <div className="checkboxesWrapper">
+
                                 <div className="row">
                                     <label>
                                         MO
-                                        <input type="checkbox" checked />
+                                        <input type="checkbox" defaultChecked />
                                     </label>
                                     <label>
                                         DI
-                                        <input type="checkbox" checked />
+                                        <input type="checkbox" defaultChecked />
                                     </label>
                                     <label>
                                         MI
-                                        <input type="checkbox" checked />
+                                        <input type="checkbox" defaultChecked />
                                     </label>
                                     <label>
                                         DO
-                                        <input type="checkbox" checked />
+                                        <input type="checkbox" defaultChecked />
                                     </label>
                                 </div>
                                 <div className="row">
                                     <label>
                                         FR
-                                        <input type="checkbox" checked />
+                                        <input type="checkbox" defaultChecked />
                                     </label>
                                     <label>
                                         SA
-                                        <input type="checkbox" checked />
+                                        <input type="checkbox" defaultChecked />
                                     </label>
                                     <label>
                                         SO
-                                        <input type="checkbox" checked />
+                                        <input type="checkbox" defaultChecked />
                                     </label>
                                 </div>
                             </div>
+                            <h3>Wiederholungsrhythmus</h3>
                             <div className="inputWrapper rhythm">
-                                Wiederholungsrhythmus
+
                                 <select
                                     value={newClassRhythm}
                                     onChange={(e) => {

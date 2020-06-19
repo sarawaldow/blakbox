@@ -5,17 +5,19 @@
 .classInfoWrapper {
     font-size: $mobileFontSizeBig;
 
-    .successfullyAddedLayer{
-        button{
+    .successfullyAddedLayer {
+        margin: auto;
+        // width: 80%;
+        button {
             font-size: $mobileFontSizeMedium;
             border: 1px solid white;
             color: white;
             // height: 30px;
-    
+
             background-color: $darkgrey;
         }
     }
-    
+
     h2 {
         color: $orange;
         margin-top: 0px;
@@ -54,7 +56,14 @@
             &.newclass {
                 width: 100%;
                 max-width: 450px;
-                margin: auto;            }
+                margin: auto;
+            
+                .addWorkoutBtn{
+                    display: block;
+                    margin: auto;
+                }
+            }
+
 
             .classDetails {
                 display: flex;
@@ -68,14 +77,14 @@
                     margin-top: 0px;
                     border: none;
                     margin-bottom: 0;
-                    .buttonsWrapper{
+                    .buttonsWrapper {
                         display: flex;
                         justify-content: space-between;
-                        
+
                         .saveClassBtn {
                             width: 200px;
                             height: 30px;
-                            margin-top:20px;
+                            margin-top: 20px;
                             font-size: $mobileFontSizeBig;
                             border: none;
                             background-color: $orange;
@@ -115,8 +124,7 @@
                         }
                     }
                     .startEndTimeInputWrapper {
-
-                        input[type=date]{
+                        input[type="date"] {
                             margin-top: 5px;
                             width: 150px;
                             height: 20px;
@@ -135,9 +143,7 @@
                                     margin-top: 5px;
                                     width: 100px;
                                     height: 20px;
-
                                 }
-
                             }
                         }
                     }
@@ -175,11 +181,19 @@
                 margin: 0;
                 margin-bottom: 10px;
             }
+            .inputWrapper {
+                width: 80%;
+                margin: auto;
+
+                &.time{
+                    margin-top: 10px;
+                }
+            }
             .minMaxInputWrapper {
                 margin-bottom: 15px;
                 display: flex;
                 flex-direction: column;
-                div {
+                .inputWrapper {
                     display: flex;
                     flex-direction: row;
                     div {
@@ -206,12 +220,10 @@
                 }
                 textarea {
                     font-size: $mobileFontSizeMedium;
-                    width: 90%;
+                    width: 80%;
+                    margin: auto;
+                    display: block;
                     height: 50px;
-                    background-color: transparent;
-                    border: 1px solid white;
-                    color: white;
-                    resize: none;
                 }
             }
 
@@ -228,10 +240,8 @@
                         display: flex;
                         align-self: flex-end;
                         select {
-
                             margin: auto;
                             margin-left: 5px;
-
                         }
                     }
                 }
@@ -317,7 +327,6 @@
                                 margin-bottom: 10px;
                                 display: flex;
                                 flex-direction: column;
-
                             }
                             button {
                                 font-size: $mobileFontSizeBig;

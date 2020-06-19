@@ -97,7 +97,7 @@
     }
 
     .weekBaseNameInput {
-        margin-top: 10px;
+        margin-top: 20px;
         margin-bottom: 5px;
 
 
@@ -150,11 +150,14 @@
     }
     .inputWrapper {
         display: flex;
-        width: 100%;
-        justify-content: space-between;
+        width: 80%;
+        margin: auto;
+        // justify-content: center;
         margin-bottom: 10px;
-
+        
         &.date {
+            width: 90%;
+            justify-content: space-between;
             margin-top: 10px;
             div {
                 display: flex;
@@ -162,12 +165,20 @@
                 justify-content: center;
             }
         }
-
-        &.coach {
-            select {
-                margin-left: 10px;
+        &.base{
+            width: 90%;
+            justify-content: space-between;
+            select{
+                width: 160px;
             }
+
         }
+
+        // &.coach {
+        //     select {
+        //         margin-left: 10px;
+        //     }
+        // }
         &.participants {
             div {
                 display: flex;
@@ -221,6 +232,9 @@
                     }
                 }
                 .checkboxesWrapper {
+                    // display: flex;
+                    width: 85%;
+                    margin: auto;
                     .row {
                         margin-bottom: 10px;
                         label {
@@ -233,7 +247,7 @@
                 width: 150px;
             }
             .chooseCoach {
-                width: 70px;
+                width: 150px;
             }
             button {
                 margin-top: 20px;
