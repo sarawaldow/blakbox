@@ -128,9 +128,9 @@ const BBxProvider = (props) => {
             EndTime: "16:00",
             Date: "",
             Workout: [
-                { label: "Warm-Up", text: "2km Laufen" },
-                { label: "Strength", text: "1 Deadlift" },
-                { label: "WOD", text: "AMRAP 15<br/>50 Squads<br/>50 Burpees" }
+                { label: "Warm-Up", text: "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose" },
+                { label: "Skill", text: "Kettlebell Snatch<br/>Dbl KB Snatch" },
+                { label: "WOD", text: "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups" }
             ],
             MinSpots: 2,
             MaxSpots: 10,
@@ -146,9 +146,9 @@ const BBxProvider = (props) => {
             EndTime: "19:00",
             Date: "",
             Workout: [
-                { label: "Warm-Up", text: "2km Laufen" },
-                { label: "Strength", text: "1 Deadlift" },
-                { label: "WOD", text: "AMRAP 15 50 Squads 50 Burpees" }
+                { label: "Warm-Up", text: "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose" },
+                { label: "Skill", text: "Kettlebell Snatch<br/>Dbl KB Snatch" },
+                { label: "WOD", text: "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups" }
             ],
             MinSpots: 2,
             MaxSpots: 10,
@@ -165,9 +165,9 @@ const BBxProvider = (props) => {
             EndTime: "12:00",
             Date: "",
             Workout: [
-                { label: "Warm-Up", text: "2km Laufen" },
-                { label: "Strength", text: "1 Deadlift" },
-                { label: "WOD", text: "AMRAP 15<br/>50 Squads<br/>50 Burpees" }
+                { label: "Warm-Up", text: "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose" },
+                { label: "Skill", text: "Kettlebell Snatch<br/>Dbl KB Snatch" },
+                { label: "WOD", text: "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups" }
             ],
             MinSpots: 2,
             MaxSpots: 10,
