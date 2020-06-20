@@ -47,18 +47,25 @@ export const EditWeekBase = () => {
                                 {weekday.Classes.map((oneClass) => (
                                     <div className="oneClass">
                                         <div className="allInputsWrapper">
+                                                <h3>Uhrzeit</h3>
                                             <div className="inputWrapper time">
-                                                Uhrzeit
-                                                <div><input
-                                                    value={oneClass.StartTime}
-                                                    type="time"
-                                                /> bis <input
-                                                    value={oneClass.EndTime}
-                                                    type="time"
-                                                /></div>
+                                                <div>
+                                                    <input
+                                                        value={
+                                                            oneClass.StartTime
+                                                        }
+                                                        type="time"
+                                                    />{" "}
+                                                    bis{" "}
+                                                    <input
+                                                        value={oneClass.EndTime}
+                                                        type="time"
+                                                    />
+                                                </div>
                                             </div>
+                                                <h3>Kursart</h3>
                                             <div className="inputWrapper">
-                                                Kursart 
+
                                                 <select
                                                     className="chooseClassType"
                                                     value={oneClass.Class}
@@ -77,8 +84,9 @@ export const EditWeekBase = () => {
                                                     </option>
                                                 </select>
                                             </div>
+                                                <h3>Coach</h3>
                                             <div className="inputWrapper coach">
-                                                Coach
+
                                                 <select
                                                     className="chooseCoach"
                                                     value={oneClass.Coach}
@@ -97,8 +105,9 @@ export const EditWeekBase = () => {
                                                     </option>
                                                 </select>
                                             </div>
+                                                <h3>Teilnehmer</h3>
                                             <div className="inputWrapper participants">
-                                                Teilnehmer
+
                                                 <div>
                                                     <div>
                                                         <label>min.</label>
@@ -123,7 +132,7 @@ export const EditWeekBase = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="levelCheckboxes">
+                                            {/* <div className="levelCheckboxes">
                                                 <div>zugelassene Trainingslevel</div>
                                                 <label>
                                                     <input type="checkbox" defaultChecked/>
@@ -137,7 +146,8 @@ export const EditWeekBase = () => {
                                                     <input type="checkbox" defaultChecked/>
                                                     Hero
                                                 </label>
-                                            </div>
+                                            </div> */}
+                                            <h3>Wochentage</h3>
                                             <div className="checkboxesWrapper">
                                                 <div className="row">
                                                     <label>
@@ -214,8 +224,9 @@ export const EditWeekBase = () => {
                                                     </label>
                                                 </div>
                                             </div>
+                                            <h3>Wiederholungsrhythmus</h3>
                                             <div className="inputWrapper rhythm">
-                                                Wiederholungsrhythmus
+
                                                 <select>
                                                     <option value="jede Woche">
                                                         jede Woche

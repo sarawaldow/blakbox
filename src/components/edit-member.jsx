@@ -10,14 +10,9 @@ export const EditMember = () => {
     } = useContext(BBxContext);
 
     const [accessStatus, setAccessStatus] = useState(selectedMember.Status);
-    const [level, setLevel] = useState(selectedMember.Level);
     // const [contract, setContract] = useState(selectedMember.Contract);
 
-    useEffect(() => {
-        console.log(level);
-        selectedMember.Level = level;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [level]);
+
 
     useEffect(() => {
         console.log(accessStatus);
@@ -41,21 +36,6 @@ export const EditMember = () => {
                             <option value="Box-Owner">Box-Owner</option>
                             <option value="Coach">Coach</option>
                             <option value="Athlet">Athlet</option>
-                        </select>
-                    </div>
-                    <div className="inputWrapper">
-                        <div>Trainingslevel</div>
-                        <select
-                            value={level}
-                            onChange={(e) => {
-                                setLevel(e.target.value);
-                            }}
-                        >
-                            <option value="Anfänger">Anfänger</option>
-                            <option value="Fortgeschritten">
-                                Fortgeschritten
-                            </option>
-                            <option value="Hero">Hero</option>
                         </select>
                     </div>
 

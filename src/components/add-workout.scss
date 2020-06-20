@@ -22,6 +22,16 @@
 
         &.selected {
             border: 1px solid $orange;
+
+            display: flex;
+            flex-direction: column;
+
+            button{
+                margin-top: 5px;
+                font-size: $mobileFontSizeMedium;
+                border: 1px solid $orange;
+                background-color: $orange;
+            }
         }
     }
 
@@ -50,13 +60,20 @@
     flex-direction: column;
 
     .successfullyAddedLayer{
-        button{
-            font-size: $mobileFontSizeMedium;
-            border: 1px solid white;
-            color: white;
-            // height: 30px;
-    
-            background-color: $darkgrey;
+        margin: auto;
+        .buttonsWrapper{
+            display: flex;
+            flex-direction: column;
+            button{
+                max-width: 300px;
+                margin-top: 10px;
+                font-size: $mobileFontSizeMedium;
+                border: 1px solid white;
+                color: white;
+                // height: 30px;
+                
+                background-color: $darkgrey;
+            }
         }
     }
 
@@ -93,6 +110,7 @@
     }
     .dropDownBox {
         margin-top: 10px;
+        // max-width: 200px;
     }
     .addWorkoutBtn {
         font-size: $mobileFontSizeBig;
@@ -129,13 +147,29 @@
 
     .newWorkoutBox {
         .newWorkoutInputBox {
-            margin-bottom: 10px;
             display: flex;
             flex-direction: column;
+
+            .workoutNameInput{
+                max-width: 144px;
+
+            }
+
+            select{
+                max-width: 150px;
+            }
 
             textarea {
                 margin-top: 10px;
                 height: 100px;
+            }
+            
+            .inputWrapper{
+                margin-top: 10px;
+                .workoutTimeInput{
+                    height: 20px;
+                    width: 30px;
+                }
             }
         }
         button {

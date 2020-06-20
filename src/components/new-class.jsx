@@ -29,12 +29,23 @@ export const NewClass = () => {
 
     const [showSuccessfullyAdded, setShowSuccessfullyAdded] = useState(false);
 
+    const formatToISODate = (date) => {
+        const dateString = date.toLocaleDateString("sv");
+        return dateString;
+    };
+
+    const [dateNC, setDateNC] = useState(formatToISODate(
+        selectedDate
+    ))
+
     useEffect(() => {
         console.log(selectedClassObject);
     }, [selectedClassObject]);
 
     useEffect(() => {
         console.log(workoutNC);
+        // selectedClassObject.Workout = workoutNC;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [workoutNC]);
 
     useEffect(() => {
@@ -91,10 +102,7 @@ export const NewClass = () => {
         ));
     };
 
-    const formatToISODate = (date) => {
-        const dateString = date.toLocaleDateString("sv");
-        return dateString;
-    };
+
 
     return (
         <div className="classInfoWrapper">
@@ -136,13 +144,18 @@ export const NewClass = () => {
                                     <h3 className="bigLabel">
                                         Kursart auswählen
                                     </h3>
+                                    <div className="inputWrapper">
+
                                     <select
                                         className="chooseClassType"
                                         value={classTypeNC}
                                         onChange={(e) => {
                                             setClassTypeNC(e.target.value);
                                         }}
-                                    >
+                                        >
+                                        <option value="Sonderkurs">
+                                            Sonderkurs
+                                        </option>
                                         <option value="Open Gym">
                                             Open Gym
                                         </option>
@@ -156,10 +169,11 @@ export const NewClass = () => {
                                             WOD Fortgeschrittene
                                         </option>
                                     </select>
+                                        </div>
                                 </div>
                                 <div className="minMaxInputWrapper">
                                     <h3 className="bigLabel">Teilnehmerzahl</h3>
-                                    <div>
+                                    <div className="inputWrapper">
                                         <div>
                                             <label>minimal</label>
                                             <input
@@ -192,16 +206,14 @@ export const NewClass = () => {
                                     <h3 className="bigLabel">
                                         Uhrzeit und Datum
                                     </h3>
-                                    <div>
+                                    <div className="inputWrapper">
                                         <input
                                             type="date"
-                                            value={formatToISODate(
-                                                selectedDate
-                                            )}
-                                            readOnly
+                                            value={dateNC}
+                                            onChange={(e)=>setDateNC(e.target.value)}
                                         />
                                     </div>
-                                    <div>
+                                    <div className="inputWrapper time">
                                         <div>
                                             <label>von</label>
                                             <input
@@ -260,9 +272,9 @@ export const NewClass = () => {
                                     </select>
                                 </div>
                             </div>
-                            <div className="workoutList">
+                            {selectedClassObject.Workout.length > 0 &&<div className="workoutList">
                                 {renderWorkoutList()}
-                            </div>
+                            </div>}
                         </div>
                         <button
                             className="addWorkoutBtn"

@@ -5,7 +5,7 @@ import React from "react";
 export const ContractTypes = () => {
     return (
         <div className="contractTypesWrapper">
-            <button>Vertragsarten, Berechtigungsarten und Trainingslevel verwalten</button>
+            <button>Vertragsarten und Berechtigungsarten verwalten</button>
         </div>
     );
 };

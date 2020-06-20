@@ -56,7 +56,7 @@ export const MembersList = () => {
                                     </div>
                                     <div>
                                         <div>{member.Contract}</div>
-                                        <div>Level {member.Level}</div>
+                                        <div>{member.EMail}</div>
                                     </div>
                                 </div>
                             </div>

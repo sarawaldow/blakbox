@@ -135,7 +135,7 @@ export const EditClass = () => {
 
                     <div className="minMaxInputWrapper">
                         <h3 className="bigLabel">Teilnehmerzahl</h3>
-                        <div>
+                        <div className="inputWrapper">
                             <div>
                                 <label>minimal</label>
                                 <input
