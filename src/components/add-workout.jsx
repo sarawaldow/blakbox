@@ -89,7 +89,9 @@ export const AddWorkout = () => {
     };
 
     const listOfBoxWods = [
-        { label: "Box-WOD 1", text: "EMOM" },
+        { label: "Box-WOD 1", text: "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups" },
+        
+
         {
             label: "Box-WOD 2",
             text: "For Time<br/>5 Runden<br/>800m Laufen<br/>40 Pull-Ups"
