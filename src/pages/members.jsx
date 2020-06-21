@@ -9,19 +9,25 @@ import EditMember from "../components/edit-member";
 import EditContract from "../components/edit-contract";
 
 export const Members = () => {
-    const { memberPageMode } = useContext(BBxContext);
+    const { memberPageMode, setMemberPageMode } = useContext(BBxContext);
 
     return (
         <div className="memberswrapper">
             {memberPageMode === "closed" && (
                 <div>
                     <h2>Mitgliederverwaltung</h2>
-                    <ContractTypes />
+                    <div className="contractTypesWrapper">
+                        <button onClick={(e)=>setMemberPageMode("contracttypes")}>
+                            Vertragsarten und Berechtigungsarten verwalten
+                        </button>
+                    </div>
                     <MembersList />
                 </div>
             )}
-            {memberPageMode === "editmember"&& <EditMember/>}
-            {memberPageMode === "editcontract"&& <EditContract/>}
+
+            {memberPageMode === "contracttypes" && <ContractTypes />}
+            {memberPageMode === "editmember" && <EditMember />}
+            {memberPageMode === "editcontract" && <EditContract />}
         </div>
     );
 };

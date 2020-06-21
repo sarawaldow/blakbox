@@ -125,9 +125,79 @@
             margin: auto;
             font-size: $mobileFontSizeMedium;
             border: none;
-
+            
             // color: white;
             background-color: $orange;
+        }
+    }
+    
+
+    .contractTypesBox{
+        .headlineWrap{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            button{
+                width: 50%;
+                height: 30px;
+                border: none;
+                font-weight: bold;
+                font-size: $mobileFontSizeMedium;
+                background-color: $orange;
+                color: $darkgrey;
+                
+                &.selected{
+                    background-color: white;
+
+                }
+
+            }
+        }
+        .allContractTypesWrapper{
+            color: white;
+            font-size: $mobileFontSizeMedium;
+            .contractTypeWrapper{
+                border: 1px solid $orange;
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                .innerWrapper{
+                    h3{
+                        margin: 0;
+                        margin-bottom: 5px;
+                    }
+                    width: 90%;
+                    margin: auto;
+                    margin-top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    span{
+                        color: $orange;
+                        font-weight: bold;
+                        // align-self: flex-end;
+                        text-align: end;
+                    }
+                }
+                button{
+                    
+                    margin: auto;
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                    font-size: $mobileFontSizeMedium;
+                    border: 1px solid white;
+                    color: white;
+                    background-color: $darkgrey;
+                }
+            }
+            button{
+                margin: auto;
+                margin-top: 10px;
+                font-size: $mobileFontSizeBig;
+                border: none;
+                
+                background-color: $orange;
+            }
         }
     }
 
