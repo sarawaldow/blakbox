@@ -97,6 +97,21 @@ const BBxProvider = (props) => {
             Contract: "Full Member",
             NewContract: { Contract: "", Date: "" },
             Termination: { NoticeDate: "", TerminationDate: "" }
+        },
+        {
+            Key: 4,
+            Activated: false,
+            Name: "Merle Hofer",
+            Bday: "20.05.1992",
+            EMail: "merlehofer@gmail.com",
+            Phone: "016960987312",
+            Address: "",
+            lastVisited: "",
+            Status: "Athlet",
+            Level: "Anfänger",
+            Contract: "Full Member",
+            NewContract: { Contract: "", Date: "" },
+            Termination: { NoticeDate: "", TerminationDate: "" }
         }
     ]);
 
@@ -110,9 +125,17 @@ const BBxProvider = (props) => {
             EndTime: "11:00",
             Date: "",
             Workout: [
-                { label: "Warm-Up", text: "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose" },
+                {
+                    label: "Warm-Up",
+                    text:
+                        "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose"
+                },
                 { label: "Skill", text: "Kettlebell Snatch<br/>Dbl KB Snatch" },
-                { label: "WOD", text: "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups" }
+                {
+                    label: "WOD",
+                    text:
+                        "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups"
+                }
             ],
             MinSpots: 2,
             MaxSpots: 10,
@@ -128,9 +151,17 @@ const BBxProvider = (props) => {
             EndTime: "16:00",
             Date: "",
             Workout: [
-                { label: "Warm-Up", text: "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose" },
+                {
+                    label: "Warm-Up",
+                    text:
+                        "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose"
+                },
                 { label: "Skill", text: "Kettlebell Snatch<br/>Dbl KB Snatch" },
-                { label: "WOD", text: "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups" }
+                {
+                    label: "WOD",
+                    text:
+                        "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups"
+                }
             ],
             MinSpots: 2,
             MaxSpots: 10,
@@ -146,9 +177,17 @@ const BBxProvider = (props) => {
             EndTime: "19:00",
             Date: "",
             Workout: [
-                { label: "Warm-Up", text: "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose" },
+                {
+                    label: "Warm-Up",
+                    text:
+                        "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose"
+                },
                 { label: "Skill", text: "Kettlebell Snatch<br/>Dbl KB Snatch" },
-                { label: "WOD", text: "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups" }
+                {
+                    label: "WOD",
+                    text:
+                        "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups"
+                }
             ],
             MinSpots: 2,
             MaxSpots: 10,
@@ -165,9 +204,17 @@ const BBxProvider = (props) => {
             EndTime: "12:00",
             Date: "",
             Workout: [
-                { label: "Warm-Up", text: "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose" },
+                {
+                    label: "Warm-Up",
+                    text:
+                        "400m Laufen<br/>2 Runden:<br/>-20 sek. Couch Stretch<br/>-20 sek Spiderman Lunge<br/>-20 sek Pidgeon Pose"
+                },
                 { label: "Skill", text: "Kettlebell Snatch<br/>Dbl KB Snatch" },
-                { label: "WOD", text: "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups" }
+                {
+                    label: "WOD",
+                    text:
+                        "AMRAP 20<br/>-40 Barbell (Walking) Lunges 30/25<br/>-30 AbMat Sit-ups<br/>-20 Sumo Deadlift High Pulls 30/25<br/>-10 C2B Pull-ups"
+                }
             ],
             MinSpots: 2,
             MaxSpots: 10,

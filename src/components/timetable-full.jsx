@@ -19,8 +19,6 @@ export const TimetableFull = () => {
 
     } = useContext(BBxContext);
 
-    // console.log(todaysDate);
-
     const getWeek = () => {
         let date = new Date(todaysDate.getTime());
         date.setHours(0, 0, 0, 0);
@@ -46,7 +44,7 @@ export const TimetableFull = () => {
     const monday = new Date();
 
     const weekDaysDifferenceToMonday = {
-        0: -7,
+        0: -6,
         1: 0,
         2: -1,
         3: -2,
@@ -62,7 +60,6 @@ export const TimetableFull = () => {
             if (todaysDate.getDay() == key) numberOfDaysToMonday = value;
         });
         monday.setDate(monday.getDate() + numberOfDaysToMonday);
-        // console.log("monday",monday);
         return monday;
     };
     const thisMondaysDate = getMondaysDate();
