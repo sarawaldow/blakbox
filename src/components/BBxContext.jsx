@@ -201,7 +201,7 @@ const BBxProvider = (props) => {
             ClassType: "WOD All Level",
             Coach: "Gerda",
             StartTime: "19:00",
-            EndTime: "12:00",
+            EndTime: "20:00",
             Date: "",
             Workout: [
                 {
