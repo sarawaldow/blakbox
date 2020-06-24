@@ -51,6 +51,7 @@ const BBxProvider = (props) => {
             Status: "Athlet",
             Level: "Anfänger",
             Contract: "Half Member",
+            ContractStart: "01.05.2019",
             NewContract: { Contract: "", Date: "" },
             Termination: { NoticeDate: "", TerminationDate: "" }
         },
@@ -66,6 +67,7 @@ const BBxProvider = (props) => {
             Status: "Coach",
             Level: "Fortgeschritten",
             Contract: "Full Member",
+            ContractStart: "01.05.2019",
             NewContract: { Contract: "", Date: "" },
             Termination: { NoticeDate: "", TerminationDate: "" }
         },
@@ -81,6 +83,7 @@ const BBxProvider = (props) => {
             Status: "Athlet",
             Level: "Anfänger",
             Contract: "Half Member",
+            ContractStart: "01.05.2019",
             NewContract: { Contract: "", Date: "" },
             Termination: { NoticeDate: "", TerminationDate: "" }
         },
@@ -96,6 +99,7 @@ const BBxProvider = (props) => {
             Status: "Athlet",
             Level: "Anfänger",
             Contract: "Full Member",
+            ContractStart: "01.05.2019",
             NewContract: { Contract: "", Date: "" },
             Termination: { NoticeDate: "", TerminationDate: "" }
         },
@@ -111,6 +115,7 @@ const BBxProvider = (props) => {
             Status: "Athlet",
             Level: "Anfänger",
             Contract: "Full Member",
+            ContractStart: "01.05.2019",
             NewContract: { Contract: "", Date: "" },
             Termination: { NoticeDate: "", TerminationDate: "" }
         }
