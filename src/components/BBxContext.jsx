@@ -28,6 +28,7 @@ const BBxProvider = (props) => {
     const [userHouseNr, setUserHouseNr] = useState("20");
     const [userExtraInfo, setUserExtraInfo] = useState("a");
     const [userPostCode, setUserPostCode] = useState("12345");
+    const [userCity, setUserCity] = useState("Lübeck");
     const [contractType, setContractType] = useState("Half Member");
 
     const [signedUpClasses, setSignedUpClasses] = useState([]);
@@ -45,7 +46,7 @@ const BBxProvider = (props) => {
             Bday: "02.02.1985",
             EMail: "susi.anders@gmail.de",
             Phone: "015198765432",
-            Address: "",
+            Address: "Dorfstraße 50, 23566 Lübeck",
             lastVisited: "27.05.2020",
             Status: "Athlet",
             Level: "Anfänger",
@@ -60,7 +61,7 @@ const BBxProvider = (props) => {
             Bday: "15.09.1972",
             EMail: "peter.mueller@gmx.de",
             Phone: "017012345678",
-            Address: "",
+            Address: "Dorfstraße 50, 23566 Lübeck",
             lastVisited: "11.06.2020",
             Status: "Coach",
             Level: "Fortgeschritten",
@@ -75,7 +76,7 @@ const BBxProvider = (props) => {
             Bday: "15.09.1972",
             EMail: "mo-lo@gmail.com",
             Phone: "017012345678",
-            Address: "",
+            Address: "Dorfstraße 50, 23566 Lübeck",
             lastVisited: "",
             Status: "Athlet",
             Level: "Anfänger",
@@ -90,7 +91,7 @@ const BBxProvider = (props) => {
             Bday: "15.09.1972",
             EMail: "jchristen@gmx.de",
             Phone: "017012345678",
-            Address: "",
+            Address: "Dorfstraße 50, 23566 Lübeck",
             lastVisited: "",
             Status: "Athlet",
             Level: "Anfänger",
@@ -105,7 +106,7 @@ const BBxProvider = (props) => {
             Bday: "20.05.1992",
             EMail: "merlehofer@gmail.com",
             Phone: "016960987312",
-            Address: "",
+            Address: "Dorfstraße 50, 23566 Lübeck",
             lastVisited: "",
             Status: "Athlet",
             Level: "Anfänger",
@@ -389,6 +390,8 @@ const BBxProvider = (props) => {
                 setUserExtraInfo,
                 userPostCode,
                 setUserPostCode,
+                userCity,
+                setUserCity,
                 changesMade,
                 setChangesMade,
                 classMode,
