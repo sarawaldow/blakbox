@@ -236,7 +236,7 @@ const BBxProvider = (props) => {
                 "Louisa Beck",
                 "Oliver Kruse"
             ],
-            Waiting: []
+            Waiting: ["Helene Richter"]
         }
     ]);
 
