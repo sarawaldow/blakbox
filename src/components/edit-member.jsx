@@ -57,7 +57,7 @@ export const EditMember = () => {
                 <div className="infoWrapper">Geburtstag: <div>{selectedMember.Bday}</div></div>
                 <div className="infoWrapper">Mail: <div>{selectedMember.EMail}</div></div>
                 <div className="infoWrapper">Telefon: <div>{selectedMember.Phone}</div></div>
-                <div className="infoWrapper">Adresse.: <div>{selectedMember.Address}</div></div>
+                <div className="infoWrapper">Adresse: <div>{selectedMember.Address}</div></div>
                 <div className="infoWrapper">letzter Besuch: <div></div>{selectedMember.lastVisited}</div>
                 <button className="deleteMember">
                     {selectedMember.Name} löschen

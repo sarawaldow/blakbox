@@ -99,6 +99,12 @@ export const EditContract = () => {
                         </div>
                     </div>
                     <div className="inputWrapper">
+                        gültig seit:
+                        <div className="textAlignEnd">
+                            {selectedMember.ContractStart}
+                        </div>
+                    </div>
+                    <div className="inputWrapper">
                         neuer Vertrag:{" "}
                         <select
                             value={dummyNewContract}
